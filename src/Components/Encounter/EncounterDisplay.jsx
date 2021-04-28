@@ -31,8 +31,6 @@ export function EncounterDisplay(encounterType) {
     setscene(detectEncounter(encounterType));
   }, [encounterType]);
 
-  function detectSceneToDisplay() {}
-
   function answersToDisplay() {
     if (scene.answers.length === 0) {
       return null;

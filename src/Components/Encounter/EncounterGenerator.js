@@ -6,11 +6,11 @@ export function randomlyFillWithEncounter(grid) {
   //let coordinates3 = getCoordonateRandomHexagoneInGrid(grid);
   //
 
-  grid.UnitsList[coordinates.x][coordinates.y].fill = "url(#banditCamp)";
-  grid.UnitsList[coordinates.x][coordinates.y].encounterType = "bandit";
+  grid.unitsList[coordinates.x][coordinates.y].fill = "url(#banditCamp)";
+  grid.unitsList[coordinates.x][coordinates.y].encounterType = "bandit";
 
-  grid.UnitsList[coordinates2.x][coordinates2.y].fill = "url(#grass)";
-  grid.UnitsList[coordinates2.x][coordinates2.y].encounterType = "mage";
+  grid.unitsList[coordinates2.x][coordinates2.y].fill = "url(#grass)";
+  grid.unitsList[coordinates2.x][coordinates2.y].encounterType = "mage";
 
   return grid;
 }

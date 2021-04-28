@@ -7,7 +7,7 @@ import React, { useState } from "react";
 ///////////////////////////////////////////////////////////
 
 //Functions imports////////////////////////////////////////
-import { generateMainMap } from "../Grid&MapGeneration/GridGenerator";
+import { generateMainMap } from "../Grid&MapGeneration/MapGenerator";
 import DisplayCaracter from "../PlayableCaracterDisplay/CaracterDisplay";
 import { getNeighboursCoordinatesOfUnit } from "../GridDisplay/InteractionsWithNeighbours";
 ///////////////////////////////////////////////////////////
@@ -22,11 +22,11 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
   const [grid, setGrid] = useState(generateMainMap());
   const [previousgrid, setPreviousGrid] = useState(grid);
   const [posCaracterInSvg, setPosCaracterInSvg] = useState({
-    x: grid.UnitsList[0][0].coordStart.x + grid.unitRadius,
-    y: grid.UnitsList[0][0].coordStart.y + grid.unitRadius,
+    x: grid.unitsList[0][0].coordStart.x + grid.unitRadius,
+    y: grid.unitsList[0][0].coordStart.y + grid.unitRadius,
   });
   const [posCaracterInGrid, setPosCaracterInGrid] = useState(
-    grid.UnitsList[0][0].coordInGrid,
+    grid.unitsList[0][0].coordInGrid,
   );
   const [neighboursAreDisplay, setNeighboursAreDisplay] = useState(false);
   const [neighbourCoordinates, setNeighbourCoordinates] = useState(
@@ -38,9 +38,10 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
   );
 
   function generateSvgUnits() {
-    return grid.UnitsList.map(UnitsList =>
-      UnitsList.map(gridUnit => (
+    return grid.unitsList.map(unitsList =>
+      unitsList.map(gridUnit => (
         <g
+          transform={`rotate(${gridUnit.rotateAngle},${gridUnit.radius},${gridUnit.radius})`}
           key={`indice${gridUnit.indice}`}
           onClick={() => {
             if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
@@ -64,11 +65,11 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
             y={gridUnit.coordStart.y}
             width={gridUnit.radius * 2}
             height={gridUnit.radius * 2}
-            //fill={unitFillTest(gridUnit)}
             fill={gridUnit.fill}
             opacity={gridUnit.opacity}
             strokeWidth={gridUnit.strokeWidth}
           />
+
           <text
             x={gridUnit.coordStart.x + gridUnit.radius}
             y={gridUnit.coordStart.y + gridUnit.radius}
@@ -79,17 +80,53 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
           >
             {`${gridUnit.coordInGrid.x}, ${gridUnit.coordInGrid.y}`}
           </text>
+
+          <defs>
+            <pattern
+              id="grass"
+              x="0"
+              y="0"
+              width="1"
+              height="1"
+              viewBox="0 0 320 320"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <image width="320" height="320" href={grass} />
+            </pattern>
+            <pattern
+              id="banditCamp"
+              // patternUnits="objectBoundingBox"
+              x="0"
+              y="0"
+              width="1"
+              height="1"
+              //view Box 0 0 and size of the img
+              viewBox="0 0 700 310"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <image href={banditCamp} width="700" height="310" />
+            </pattern>
+            <pattern
+              id="beach"
+              x="0"
+              y="0"
+              width="1"
+              height="1"
+              //view Box 0 0 and size of the img
+              viewBox="0 0 314 314"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <image
+                href={beach}
+                //size of the img
+                width="314"
+                height="314"
+              />
+            </pattern>
+          </defs>
         </g>
       )),
     );
-  }
-
-  function unitFillTest(gridUnit) {
-    if (gridUnit.fill === null) {
-      return gridUnit.color;
-    } else {
-      return `${gridUnit.fill}`;
-    }
   }
 
   function testIfNeighbour(gridUnit, neighbourCoordinates) {
@@ -107,54 +144,7 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
     return isneighbours;
   }
 
-  function getAllDefsPattern() {
-    return (
-      <defs>
-        <pattern
-          id="grass"
-          x="0"
-          y="0"
-          width="1"
-          height="1"
-          viewBox="0 0 320 320"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <image width="320" height="320" href={grass} />
-        </pattern>
-        <pattern
-          id="banditCamp"
-          // patternUnits="objectBoundingBox"
-          x="0"
-          y="0"
-          width="1"
-          height="1"
-          //view Box 0 0 and size of the img
-          viewBox="0 0 700 310"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <image href={banditCamp} width="700" height="310" />
-        </pattern>
-        {/* <pattern
-          id="beach"
-          x="0"
-          y="0"
-          width="1"
-          height="1"
-          //view Box 0 0 and size of the img
-          viewBox="0 0 314 314"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <image
-            transform={`rotate(${gridUnit.rotateAngle} 157 157)`}
-            href={beach}
-            //size of the img
-            width="314"
-            height="314"
-          />
-        </pattern> */}
-      </defs>
-    );
-  }
+  console.log("grid :", grid);
 
   return (
     <svg
@@ -162,7 +152,6 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
       preserveAspectRatio="xMidYMid meet"
     >
       {generateSvgUnits()}
-      {getAllDefsPattern()}
       <DisplayCaracter
         grid={grid}
         setGrid={setGrid}

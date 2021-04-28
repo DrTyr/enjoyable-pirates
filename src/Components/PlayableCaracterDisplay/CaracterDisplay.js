@@ -35,7 +35,7 @@ export function DisplayCaracter({
           setPreviousGrid(_.cloneDeep(grid));
           setGrid(
             displayNeighbours(
-              grid.UnitsList[posCaracterInGrid.x][posCaracterInGrid.y],
+              grid.unitsList[posCaracterInGrid.x][posCaracterInGrid.y],
               grid2,
             ),
           );

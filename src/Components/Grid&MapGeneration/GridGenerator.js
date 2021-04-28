@@ -1,6 +1,5 @@
 //Functions imports////////////////////////////////////////
 import { getRandomColor } from "../../library";
-import { randomlyFillWithEncounter } from "../Encounter/EncounterGenerator";
 ///////////////////////////////////////////////////////////
 
 //Global variables/////////////////////////////////////////
@@ -29,11 +28,19 @@ export function generateOneGridUnit() {
   return emptyGridUnit;
 }
 
-function generateEntireGrid(grid) {
+export function generateEntireGrid() {
   let unitIndice = 0;
 
+  let grid = {
+    firstgridUnitStartCoord: firstgridUnitStartCoord,
+    unitsList: [],
+    numberOfRow: numberOfRow,
+    numberOfColumn: numberOfColumn,
+    unitRadius: gridUnitRadius,
+  };
+
   for (let i = 0; i < grid.numberOfColumn; i++) {
-    grid.UnitsList[i] = [];
+    grid.unitsList[i] = [];
 
     for (let j = 0; j < grid.numberOfRow; j++) {
       let gridUnit = {
@@ -60,24 +67,9 @@ function generateEntireGrid(grid) {
 
       gridUnit.fill = getRandomColor();
 
-      grid.UnitsList[i][j] = gridUnit;
+      grid.unitsList[i][j] = gridUnit;
     }
   }
-
-  return grid;
-}
-
-export function generateMainMap() {
-  let grid = {
-    firstgridUnitStartCoord: firstgridUnitStartCoord,
-    UnitsList: [],
-    numberOfRow: numberOfRow,
-    numberOfColumn: numberOfColumn,
-    unitRadius: gridUnitRadius,
-  };
-
-  grid = generateEntireGrid(grid);
-  grid = randomlyFillWithEncounter(grid);
 
   return grid;
 }

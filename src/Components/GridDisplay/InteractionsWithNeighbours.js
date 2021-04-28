@@ -6,19 +6,19 @@ export function displayNeighbours(gridUnit, grid) {
   );
 
   //Set the opacity of every hexagon of the grid to 0.2
-  grid.UnitsList.map(UnitsList =>
-    UnitsList.map(gridUnit => (gridUnit.opacity = 0.2)),
+  grid.unitsList.map(unitsList =>
+    unitsList.map(gridUnit => (gridUnit.opacity = 0.2)),
   );
 
   //Set back the opacity of the neighbours to 1
   for (let i = 0; i < neighboursCoordinates.length; i++) {
-    grid.UnitsList[neighboursCoordinates[i].x][
+    grid.unitsList[neighboursCoordinates[i].x][
       neighboursCoordinates[i].y
     ].opacity = 1;
-    grid.UnitsList[neighboursCoordinates[i].x][
+    grid.unitsList[neighboursCoordinates[i].x][
       neighboursCoordinates[i].y
     ].stroke = "black";
-    grid.UnitsList[neighboursCoordinates[i].x][
+    grid.unitsList[neighboursCoordinates[i].x][
       neighboursCoordinates[i].y
     ].strokeWidth = 3;
   }
