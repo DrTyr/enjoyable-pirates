@@ -59,11 +59,9 @@ function App() {
             topRightUnitDisplaySize={topRightUnitDisplaySize}
             currentUnit={currentUnit}
           />
-          test
         </div>
         <div className="downRight-encounter">
           <EncounterDisplay encounterType={currentUnit.encounterType} />
-          test
         </div>
       </div>
     </div>

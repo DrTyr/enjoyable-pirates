@@ -6,15 +6,11 @@ export function randomlyFillWithEncounter(grid) {
   //let coordinates3 = getCoordonateRandomHexagoneInGrid(grid);
   //
 
-  console.log("grid :", grid);
-
   grid.UnitsList[coordinates.x][coordinates.y].fill = "url(#banditCamp)";
   grid.UnitsList[coordinates.x][coordinates.y].encounterType = "bandit";
 
   grid.UnitsList[coordinates2.x][coordinates2.y].fill = "url(#grass)";
   grid.UnitsList[coordinates2.x][coordinates2.y].encounterType = "mage";
-
-  console.log("grid after fill", grid);
 
   return grid;
 }

@@ -24,17 +24,14 @@ export function DisplayCurrentUnit({ currentUnit, topRightUnitDisplaySize }) {
 
   displayedUnit = {
     ...displayedUnit,
-    size: (45 / 100) * topRightUnitDisplaySize.height,
+    radius: (45 / 100) * topRightUnitDisplaySize.height,
     stroke: "black",
     strokeWidth: 5,
   };
 
   displayedUnit.coordStart = {
-    x:
-      topRightUnitDisplaySize.width -
-      (topRightUnitDisplaySize.width - displayedUnit.radius) +
-      10,
-    y: topRightUnitDisplaySize.height / 2,
+    x: topRightUnitDisplaySize.width / 4,
+    y: topRightUnitDisplaySize.height / 4,
   };
 
   return (

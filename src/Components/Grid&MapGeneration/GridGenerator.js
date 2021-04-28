@@ -5,9 +5,9 @@ import { randomlyFillWithEncounter } from "../Encounter/EncounterGenerator";
 
 //Global variables/////////////////////////////////////////
 ///grid[numberColumn][numberRow]
-const numberOfRow = 5;
+const numberOfRow = 10;
 const numberOfColumn = 5;
-const gridUnitRadius = 60;
+const gridUnitRadius = 30;
 const firstgridUnitStartCoord = { x: gridUnitRadius, y: gridUnitRadius };
 
 ///////////////////////////////////////////////////////////

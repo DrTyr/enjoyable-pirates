@@ -79,51 +79,6 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
           >
             {`${gridUnit.coordInGrid.x}, ${gridUnit.coordInGrid.y}`}
           </text>
-
-          <defs>
-            <pattern
-              id="grass"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              viewBox="0 0 320 320"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image width="320" height="320" href={grass} />
-            </pattern>
-            <pattern
-              id="banditCamp"
-              // patternUnits="objectBoundingBox"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              //view Box 0 0 and size of the img
-              viewBox="0 0 700 310"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image href={banditCamp} width="700" height="310" />
-            </pattern>
-            <pattern
-              id="beach"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              //view Box 0 0 and size of the img
-              viewBox="0 0 314 314"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image
-                transform={`rotate(${gridUnit.rotateAngle} 157 157)`}
-                href={beach}
-                //size of the img
-                width="314"
-                height="314"
-              />
-            </pattern>
-          </defs>
         </g>
       )),
     );
@@ -152,14 +107,62 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
     return isneighbours;
   }
 
+  function getAllDefsPattern() {
+    return (
+      <defs>
+        <pattern
+          id="grass"
+          x="0"
+          y="0"
+          width="1"
+          height="1"
+          viewBox="0 0 320 320"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <image width="320" height="320" href={grass} />
+        </pattern>
+        <pattern
+          id="banditCamp"
+          // patternUnits="objectBoundingBox"
+          x="0"
+          y="0"
+          width="1"
+          height="1"
+          //view Box 0 0 and size of the img
+          viewBox="0 0 700 310"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <image href={banditCamp} width="700" height="310" />
+        </pattern>
+        {/* <pattern
+          id="beach"
+          x="0"
+          y="0"
+          width="1"
+          height="1"
+          //view Box 0 0 and size of the img
+          viewBox="0 0 314 314"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <image
+            transform={`rotate(${gridUnit.rotateAngle} 157 157)`}
+            href={beach}
+            //size of the img
+            width="314"
+            height="314"
+          />
+        </pattern> */}
+      </defs>
+    );
+  }
+
   return (
     <svg
-      viewBox={`0 0 ${subLeftGrigSize.width * 1.5} ${
-        subLeftGrigSize.height * 1.5
-      }`}
+      viewBox={`0 0 ${subLeftGrigSize.width} ${subLeftGrigSize.height}`}
       preserveAspectRatio="xMidYMid meet"
     >
       {generateSvgUnits()}
+      {getAllDefsPattern()}
       <DisplayCaracter
         grid={grid}
         setGrid={setGrid}
