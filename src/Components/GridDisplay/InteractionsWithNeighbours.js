@@ -79,9 +79,9 @@ export function getNeighboursCoordinatesOfUnit(
   neighboursCoordinates.slice(0).forEach(function (coordNeighbours) {
     if (
       coordNeighbours.x < 0 ||
-      coordNeighbours.y > numberOfRowInGrid - 1 ||
+      coordNeighbours.y >= numberOfRowInGrid ||
       coordNeighbours.y < 0 ||
-      coordNeighbours.x > numberOfColumnInGrid - 1
+      coordNeighbours.x >= numberOfColumnInGrid
     ) {
       neighboursCoordinates.splice(
         neighboursCoordinates.indexOf(coordNeighbours),
@@ -89,6 +89,8 @@ export function getNeighboursCoordinatesOfUnit(
       );
     }
   });
+
+  console.log("neighboursCoordinates :", neighboursCoordinates);
 
   return neighboursCoordinates;
 }

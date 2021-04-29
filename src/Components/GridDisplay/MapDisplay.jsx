@@ -183,8 +183,6 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
     return isneighbours;
   }
 
-  console.log("grid :", grid);
-
   return (
     <svg
       viewBox={`-50 -50 ${subLeftGrigSize.width} ${subLeftGrigSize.height}`}

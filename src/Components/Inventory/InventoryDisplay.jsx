@@ -2,6 +2,6 @@
 import React from "react";
 ///////////////////////////////////////////////////////////
 
-export function InventoryDisplay() {
+export function Inventory() {
   return <div className="inventory-overlay">COUCOU</div>;
 }

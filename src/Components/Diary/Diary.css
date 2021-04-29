@@ -1,6 +1,6 @@
-.inventory-button {
+.diary-button {
   position: absolute;
-  top: 50px;
+  top: 120px;
   left: 10px;
   /* background-color: white; */
   opacity: 0.8;
@@ -9,7 +9,7 @@
   height: 50px;
 }
 
-.inventory-overlay {
+.diary-overlay {
   width: 90%;
   height: 90%;
 }

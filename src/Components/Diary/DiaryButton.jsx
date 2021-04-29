@@ -1,27 +1,24 @@
 //Library imports//////////////////////////////////////////
 import React, { Fragment, useState } from "react";
 ///////////////////////////////////////////////////////////
-import "./Inventory.css";
+import "./Diary.css";
 //Assets imports///////////////////////////////////////////
-import inventoryIcon from "../../Assets/InventoryIcon.png";
+import diaryIcon from "../../Assets/DiaryIcon.png";
 ///////////////////////////////////////////////////////////
-import { Inventory } from "./InventoryDisplay";
 import PopUp from "../PopUp";
 
-export function InventoryButton() {
+export function DiaryButton() {
   const [display, setDisplay] = useState(false);
 
   return (
     <>
       {display && (
-        <PopUp closeCallBack={() => setDisplay(!display)}>
-          <Inventory />
-        </PopUp>
+        <PopUp closeCallBack={() => setDisplay(!display)}>TEST</PopUp>
       )}
       <input
-        className="inventory-button"
+        className="diary-button"
         type="image"
-        src={inventoryIcon}
+        src={diaryIcon}
         alt=""
         onClick={() => {
           // setInventoryIsDisplay(inverseBoolean(inventoryIsDisplay));

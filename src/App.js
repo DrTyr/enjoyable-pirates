@@ -9,7 +9,7 @@ import { MapDisplay } from "./Components/GridDisplay/MapDisplay";
 import { EncounterDisplay } from "./Components/Encounter/EncounterDisplay";
 import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
 import { InventoryButton } from "./Components/Inventory/InventoryButton";
-
+import { DiaryButton } from "./Components/Diary/DiaryButton";
 ///////////////////////////////////////////////////////////
 //Functions imports////////////////////////////////////////
 import { generateOneGridUnit } from "./Components/Grid&MapGeneration/GridGenerator";
@@ -48,6 +48,7 @@ function App() {
   return (
     <div className="mainDivFullScreen">
       <InventoryButton />
+      <DiaryButton />
       <div className="subLeft-Grig" id="subLeft-Grig">
         <MapDisplay
           subLeftGrigSize={subLeftGrigSize}
