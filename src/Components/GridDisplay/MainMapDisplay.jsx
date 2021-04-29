@@ -16,6 +16,9 @@ import { getNeighboursCoordinatesOfUnit } from "../GridDisplay/InteractionsWithN
 import banditCamp from "../../Assets/BanditCamp.jpg";
 import grass from "../../Assets/Grass.png";
 import beach from "../../Assets/Beach.png";
+import beachCorner from "../../Assets/BeachCorner.png";
+import beachCenter from "../../Assets/BeachCenter.png";
+
 ///////////////////////////////////////////////////////////
 
 export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
@@ -41,7 +44,6 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
     return grid.unitsList.map(unitsList =>
       unitsList.map(gridUnit => (
         <g
-          transform={`rotate(${gridUnit.rotateAngle},${gridUnit.radius},${gridUnit.radius})`}
           key={`indice${gridUnit.indice}`}
           onClick={() => {
             if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
@@ -68,6 +70,9 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
             fill={gridUnit.fill}
             opacity={gridUnit.opacity}
             strokeWidth={gridUnit.strokeWidth}
+            transform={`rotate(${gridUnit.rotateAngle},${
+              gridUnit.coordStart.x + gridUnit.radius
+            },${gridUnit.coordStart.y + gridUnit.radius})`}
           />
 
           <text
@@ -118,6 +123,40 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
             >
               <image
                 href={beach}
+                //size of the img
+                width="314"
+                height="314"
+              />
+            </pattern>
+            <pattern
+              id="beachCorner"
+              x="0"
+              y="0"
+              width="1"
+              height="1"
+              //view Box 0 0 and size of the img
+              viewBox="0 0 314 314"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <image
+                href={beachCorner}
+                //size of the img
+                width="314"
+                height="314"
+              />
+            </pattern>
+            <pattern
+              id="beachCenter"
+              x="0"
+              y="0"
+              width="1"
+              height="1"
+              //view Box 0 0 and size of the img
+              viewBox="0 0 314 314"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <image
+                href={beachCenter}
                 //size of the img
                 width="314"
                 height="314"

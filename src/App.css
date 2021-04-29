@@ -8,7 +8,6 @@ body {
 .mainDivFullScreen {
   margin: 0;
   height: 100vh;
-  background-color: rgb(59, 129, 112);
   /* background-image: url(/Users/alois/DocumentHL/ApprentissageHTML/JeuxHexagone/src/Assets/Bloup.png); */
   background-repeat: repeat;
   display: flex;
@@ -17,8 +16,9 @@ body {
 .subLeft-Grig {
   width: 50%;
   height: 100%;
-  /* background-color: brown; */
-  margin-left: 50px;
+  background-image: url("/src/Assets/Bloup.png");
+  background-repeat: repeat;
+  margin-left: 10px;
   display: grid;
   place-items: center;
 }
@@ -27,7 +27,7 @@ body {
   width: 50%;
   height: 100%;
   background-color: chartreuse;
-  margin: 0; 
+  margin: 0;
   display: flex;
   flex-direction: column;
 }

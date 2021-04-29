@@ -5,7 +5,7 @@ import { getRandomColor } from "../../library";
 //Global variables/////////////////////////////////////////
 ///grid[numberColumn][numberRow]
 const numberOfRow = 10;
-const numberOfColumn = 5;
+const numberOfColumn = 10;
 const gridUnitRadius = 30;
 const firstgridUnitStartCoord = { x: gridUnitRadius, y: gridUnitRadius };
 
@@ -65,7 +65,8 @@ export function generateEntireGrid() {
 
       gridUnit.indice = unitIndice++;
 
-      gridUnit.fill = getRandomColor();
+      //gridUnit.fill = getRandomColor();
+      gridUnit.fill = "url(#beachCenter)";
 
       grid.unitsList[i][j] = gridUnit;
     }

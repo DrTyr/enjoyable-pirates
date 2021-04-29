@@ -15,26 +15,44 @@ export function generateMainMap() {
 function generateBeachs(grid) {
   ///grid[numberColumn][numberRow]
 
+  //grid.unitsList.map(()=>grid.unitsList.fill ="url(#beachCenter"));
+
   //Left column
-  for (let i = 0; i < grid.numberOfRow; i++) {
+  for (let i = 1; i < grid.numberOfRow - 1; i++) {
     grid.unitsList[0][i].fill = "url(#beach)";
     grid.unitsList[0][i].rotateAngle = -90;
   }
   //top row
-  for (let i = 0; i < grid.numberOfColumn; i++) {
+  for (let i = 1; i < grid.numberOfColumn - 1; i++) {
     grid.unitsList[i][0].fill = "url(#beach)";
     grid.unitsList[i][0].rotateAngle = 0;
   }
-  //bottom column
-  for (let i = 0; i < grid.numberOfColumn; i++) {
-    grid.unitsList[i][grid.numberOfRow - 1].fill = "url(#beach)";
-    grid.unitsList[i][grid.numberOfRow - 1].rotateAngle = 90;
-  }
   //bottom row
-  for (let i = 0; i < grid.numberOfRow; i++) {
-    grid.unitsList[grid.numberOfColumn - 1][i].fill = "url(#beach)";
-    grid.unitsList[grid.numberOfColumn - 1][i].rotateAngle = 180;
+  for (let i = 1; i < grid.numberOfColumn - 1; i++) {
+    grid.unitsList[i][grid.numberOfRow - 1].fill = "url(#beach)";
+    grid.unitsList[i][grid.numberOfRow - 1].rotateAngle = 180;
   }
+  //right column
+  for (let i = 1; i < grid.numberOfRow - 1; i++) {
+    grid.unitsList[grid.numberOfColumn - 1][i].fill = "url(#beach)";
+    grid.unitsList[grid.numberOfColumn - 1][i].rotateAngle = 90;
+  }
+
+  //bottom left corner
+  grid.unitsList[0][grid.numberOfRow - 1].fill = "url(#beachCorner)";
+  grid.unitsList[0][grid.numberOfRow - 1].rotateAngle = 180;
+  //top left corner
+  grid.unitsList[0][0].fill = "url(#beachCorner)";
+  grid.unitsList[0][0].rotateAngle = -90;
+  //bottom right corner
+  grid.unitsList[grid.numberOfColumn - 1][grid.numberOfRow - 1].fill =
+    "url(#beachCorner)";
+  grid.unitsList[grid.numberOfColumn - 1][
+    grid.numberOfRow - 1
+  ].rotateAngle = 90;
+  //top right corner
+  grid.unitsList[grid.numberOfColumn - 1][0].fill = "url(#beachCorner)";
+  grid.unitsList[grid.numberOfColumn - 1][0].rotateAngle = 0;
 
   return grid;
 }
