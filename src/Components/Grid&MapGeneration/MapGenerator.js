@@ -4,8 +4,11 @@ import { randomlyFillWithEncounter } from "../Encounter/EncounterGenerator";
 export function generateMainMap() {
   let grid = {};
 
+  //"../Grid&MapGeneration/GridGenerator"
   grid = generateEntireGrid();
+  //"../Encounter/EncounterGenerator"
   grid = randomlyFillWithEncounter(grid);
+  //this file
   grid = generateBeachs(grid);
 
   return grid;

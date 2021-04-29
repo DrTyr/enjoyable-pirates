@@ -18,9 +18,10 @@ body {
   height: 100%;
   background-image: url("/src/Assets/Bloup.png");
   background-repeat: repeat;
-  margin-left: 10px;
-  display: grid;
+  margin: 0;
+  display: block;
   place-items: center;
+  text-align: center;
 }
 
 .subRight-CurrentUnitDisplay-Encounter {

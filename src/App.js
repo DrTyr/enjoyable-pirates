@@ -4,14 +4,17 @@ import React, { useState, useEffect } from "react";
 //CSS imports/////////////////////////////////////////////
 import "./App.css";
 ///////////////////////////////////////////////////////////
-//Functions imports////////////////////////////////////////
-import { GridDisplay } from "./Components/GridDisplay/MainMapDisplay";
+//React components import//////////////////////////////////
+import { MapDisplay } from "./Components/GridDisplay/MapDisplay";
 import { EncounterDisplay } from "./Components/Encounter/EncounterDisplay";
-import { generateOneGridUnit } from "./Components/Grid&MapGeneration/GridGenerator";
 import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
+import { InventoryButton } from "./Components/Inventory/InventoryButton";
+
+///////////////////////////////////////////////////////////
+//Functions imports////////////////////////////////////////
+import { generateOneGridUnit } from "./Components/Grid&MapGeneration/GridGenerator";
 ///////////////////////////////////////////////////////////
 //Assets imports///////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////
 
 function App() {
@@ -28,6 +31,7 @@ function App() {
   //////////////////////////////
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
+  const [inventoryIsDisplay, setInventoryIsDisplay] = useState(false);
 
   useEffect(() => {
     setTopRightUnitDisplaySize({
@@ -43,8 +47,9 @@ function App() {
 
   return (
     <div className="mainDivFullScreen">
+      <InventoryButton />
       <div className="subLeft-Grig" id="subLeft-Grig">
-        <GridDisplay
+        <MapDisplay
           subLeftGrigSize={subLeftGrigSize}
           setCurrentUnit={setCurrentUnit}
           currentUnit={currentUnit}

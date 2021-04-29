@@ -49,11 +49,11 @@ export function DisplayCaracter({
       }}
     >
       <rect
-        width="60"
-        height="60"
+        width={`${grid.unitRadius}`}
+        height={`${grid.unitRadius}`}
         //x and y pos are x = pos - width/2 and  y = pos-height/2
-        x={posCaracterInSvg.x - 30}
-        y={posCaracterInSvg.y - 30}
+        x={posCaracterInSvg.x - grid.unitRadius / 2}
+        y={posCaracterInSvg.y - grid.unitRadius / 2}
         fill="url(#player)"
       />
 

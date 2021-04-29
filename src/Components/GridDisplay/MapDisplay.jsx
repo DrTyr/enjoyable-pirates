@@ -9,7 +9,7 @@ import React, { useState } from "react";
 //Functions imports////////////////////////////////////////
 import { generateMainMap } from "../Grid&MapGeneration/MapGenerator";
 import DisplayCaracter from "../PlayableCaracterDisplay/CaracterDisplay";
-import { getNeighboursCoordinatesOfUnit } from "../GridDisplay/InteractionsWithNeighbours";
+import { getNeighboursCoordinatesOfUnit } from "./InteractionsWithNeighbours";
 ///////////////////////////////////////////////////////////
 
 //Assets imports///////////////////////////////////////////
@@ -21,7 +21,7 @@ import beachCenter from "../../Assets/BeachCenter.png";
 
 ///////////////////////////////////////////////////////////
 
-export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
+export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
   const [grid, setGrid] = useState(generateMainMap());
   const [previousgrid, setPreviousGrid] = useState(grid);
   const [posCaracterInSvg, setPosCaracterInSvg] = useState({
@@ -187,8 +187,8 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
 
   return (
     <svg
-      viewBox={`0 0 ${subLeftGrigSize.width} ${subLeftGrigSize.height}`}
-      preserveAspectRatio="xMidYMid meet"
+      viewBox={`-50 -50 ${subLeftGrigSize.width} ${subLeftGrigSize.height}`}
+      // preserveAspectRatio="xMidYMid meet"
     >
       {generateSvgUnits()}
       <DisplayCaracter
@@ -205,4 +205,4 @@ export function GridDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
   );
 }
 
-export default GridDisplay;
+export default MapDisplay;

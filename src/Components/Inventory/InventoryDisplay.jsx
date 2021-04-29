@@ -1,0 +1,7 @@
+//Library imports//////////////////////////////////////////
+import React from "react";
+///////////////////////////////////////////////////////////
+
+export function InventoryDisplay() {
+  return <div className="inventory-overlay">COUCOU</div>;
+}
