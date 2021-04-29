@@ -4,8 +4,8 @@ import { getRandomColor } from "../../library";
 
 //Global variables/////////////////////////////////////////
 ///grid[numberColumn][numberRow]
-const numberOfRow = 10;
-const numberOfColumn = 10;
+const numberOfRow = 8;
+const numberOfColumn = 20;
 const gridUnitRadius = 30;
 const firstgridUnitStartCoord = { x: gridUnitRadius, y: gridUnitRadius };
 

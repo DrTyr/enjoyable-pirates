@@ -50,22 +50,26 @@ export function EncounterDisplay(encounterType) {
 
   //let encounter = { text: "testtext", answer: "testanswer" };
 
-  return (
-    <Fragment>
-      <div className="Encounter-Image-Text">
-        <div className="Encounter-Image" id="Encounter-Image">
-          <img
-            src={scene.picture}
-            alt=""
-            width={encounterImageSize.width}
-            height={encounterImageSize.height}
-          />
+  if (encounterType != null) {
+    return (
+      <Fragment>
+        <div className="Encounter-Image-Text">
+          <div className="Encounter-Image" id="Encounter-Image">
+            <img
+              src={scene.picture}
+              alt=""
+              width={encounterImageSize.width}
+              height={encounterImageSize.height}
+            />
+          </div>
+          <div className="encounter-text-answer">
+            <div className="Encounter-Text">{scene.text}</div>
+            <div className="Encounter-Answers">{answersToDisplay()}</div>
+          </div>
         </div>
-        <div className="Encounter-Text">{scene.text}</div>
-      </div>
-      <div className="Encounter-Answers">{answersToDisplay()}</div>
-    </Fragment>
-  );
+      </Fragment>
+    );
+  }
 }
 
 export default EncounterDisplay;

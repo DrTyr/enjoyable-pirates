@@ -30,8 +30,8 @@ export function DisplayCurrentUnit({ currentUnit, topRightUnitDisplaySize }) {
   };
 
   displayedUnit.coordStart = {
-    x: topRightUnitDisplaySize.width / 4,
-    y: topRightUnitDisplaySize.height / 4,
+    x: topRightUnitDisplaySize.width / 2,
+    y: topRightUnitDisplaySize.height / 2,
   };
 
   return (
