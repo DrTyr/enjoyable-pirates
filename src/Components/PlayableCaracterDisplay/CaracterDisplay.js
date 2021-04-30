@@ -23,6 +23,9 @@ export function DisplayCaracter({
   posCaracterInSvg,
   neighboursAreDisplay,
   setNeighboursAreDisplay,
+  previousPosCaracterInSvg,
+  caracterIsMoving,
+  setCaracterIsMoving,
 }) {
   return (
     <g
@@ -55,7 +58,18 @@ export function DisplayCaracter({
         x={posCaracterInSvg.x - grid.unitRadius / 2}
         y={posCaracterInSvg.y - grid.unitRadius / 2}
         fill="url(#player)"
-      />
+      >
+        {caracterIsMoving && (
+          <animate
+            attributeType="XML"
+            attributeName="y"
+            from={posCaracterInSvg.y - grid.unitRadius / 2}
+            to={posCaracterInSvg.y - grid.unitRadius / 2 - 10}
+            dur="0.5s"
+            repeatCount="indefinite"
+          />
+        )}
+      </rect>
 
       <defs>
         <pattern

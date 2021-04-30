@@ -28,6 +28,10 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
     x: grid.unitsList[0][0].coordStart.x + grid.unitRadius,
     y: grid.unitsList[0][0].coordStart.y + grid.unitRadius,
   });
+  const [previousPosCaracterInSvg, setPreviousPosCaracterInSvg] = useState(
+    posCaracterInSvg,
+  );
+  const [caracterIsMoving, setCaracterIsMoving] = useState(false);
   const [posCaracterInGrid, setPosCaracterInGrid] = useState(
     grid.unitsList[0][0].coordInGrid,
   );
@@ -48,6 +52,8 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
           onClick={() => {
             if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
               setCurrentUnit(gridUnit);
+              setPreviousPosCaracterInSvg(posCaracterInSvg);
+              setCaracterIsMoving(true);
               setPosCaracterInSvg({
                 x: gridUnit.coordStart.x + gridUnit.radius,
                 y: gridUnit.coordStart.y + gridUnit.radius,
@@ -76,6 +82,7 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
           />
 
           <text
+            //className ="text-coord-map"
             x={gridUnit.coordStart.x + gridUnit.radius}
             y={gridUnit.coordStart.y + gridUnit.radius}
             fontFamily="Verdana"
@@ -184,22 +191,34 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
   }
 
   return (
-    <svg
-      viewBox={`-50 -50 ${subLeftGrigSize.width} ${subLeftGrigSize.height}`}
-      // preserveAspectRatio="xMidYMid meet"
-    >
-      {generateSvgUnits()}
-      <DisplayCaracter
-        grid={grid}
-        setGrid={setGrid}
-        previousgrid={previousgrid}
-        setPreviousGrid={setPreviousGrid}
-        posCaracterInGrid={posCaracterInGrid}
-        posCaracterInSvg={posCaracterInSvg}
-        neighboursAreDisplay={neighboursAreDisplay}
-        setNeighboursAreDisplay={setNeighboursAreDisplay}
-      />
-    </svg>
+    <>
+      <button
+        onClick={() => {
+          setCaracterIsMoving(false);
+        }}
+      >
+        Couper l'animation
+      </button>
+      <svg
+        viewBox={`-50 -50 ${subLeftGrigSize.width} ${subLeftGrigSize.height}`}
+        // preserveAspectRatio="xMidYMid meet"
+      >
+        {generateSvgUnits()}
+        <DisplayCaracter
+          grid={grid}
+          setGrid={setGrid}
+          previousgrid={previousgrid}
+          setPreviousGrid={setPreviousGrid}
+          posCaracterInGrid={posCaracterInGrid}
+          posCaracterInSvg={posCaracterInSvg}
+          neighboursAreDisplay={neighboursAreDisplay}
+          setNeighboursAreDisplay={setNeighboursAreDisplay}
+          previousPosCaracterInSvg={previousPosCaracterInSvg}
+          caracterIsMoving={caracterIsMoving}
+          setCaracterIsMoving={setCaracterIsMoving}
+        />
+      </svg>
+    </>
   );
 }
 

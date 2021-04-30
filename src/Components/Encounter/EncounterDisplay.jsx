@@ -25,8 +25,8 @@ export function EncounterDisplay(encounterType) {
 
   useEffect(() => {
     setEncounterImageSize({
-      width: document.getElementById("Encounter-Image").clientWidth,
-      height: document.getElementById("Encounter-Image").clientHeight,
+      width: document.getElementById("encounter-image").clientWidth,
+      height: document.getElementById("encounter-image").clientHeight,
     });
     setscene(detectEncounter(encounterType));
   }, [encounterType]);
@@ -53,8 +53,8 @@ export function EncounterDisplay(encounterType) {
   if (encounterType != null) {
     return (
       <Fragment>
-        <div className="Encounter-Image-Text">
-          <div className="Encounter-Image" id="Encounter-Image">
+        <div className="encounter-image-text">
+          <div className="encounter-image" id="encounter-image">
             <img
               src={scene.picture}
               alt=""
