@@ -6,8 +6,10 @@ import { Answer } from "./Answer";
 
 export function detectEncounter(randomEncounter, goto) {
   let encounter = emptyEncounter();
+  //let encounter = {};
 
   if (randomEncounter === "") {
+    console.log("patate");
   } else if (randomEncounter.encounterType === "bandit") {
     encounter = banditEncounter(goto);
   } else if (randomEncounter.encounterType === "mage") {
@@ -18,17 +20,28 @@ export function detectEncounter(randomEncounter, goto) {
 }
 
 function emptyEncounter() {
-  //const exit = "exit";
   const scene = new Dialog(empty);
-  //const answer = new Answer("");
-  //scene.addAnswer(answer);
+  return scene;
+}
+
+function exitScene() {
+  const scene = new Dialog(empty);
+  const answer = new Answer("exit");
+  scene.addAnswer(answer);
   return scene;
 }
 
 function banditEncounter(goto) {
   //const exit = "exit";
+
+  const sceneExit = new Dialog(empty);
+  const answer = new Answer("exitScene");
+  sceneExit.addAnswer(answer);
+
   const sceneA = new Dialog(tardigrade, "Hello hello voisin");
+  //const answerA1 = new Answer("Laisser ce magnifique animal", sceneExit);
   const answerA1 = new Answer("Laisser ce magnifique animal", emptyEncounter());
+
   sceneA.addAnswer(answerA1);
 
   if (goto == null) {

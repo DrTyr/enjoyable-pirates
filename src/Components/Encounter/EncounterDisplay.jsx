@@ -16,12 +16,16 @@ import { detectEncounter } from "./EncounterPossibilities";
 ///////////////////////////////////////////////////////////
 
 //React Component names MUST begin with a maj so React know its a component
-export function EncounterDisplay(encounterType) {
+export function EncounterDisplay(encounterType, setEncounterIsOn) {
   const [encounterImageSize, setEncounterImageSize] = useState({
     width: 0,
     height: 0,
   });
   const [scene, setscene] = useState(detectEncounter(encounterType));
+
+  // if (encounterType != null) {
+  //   setEncounterIsOn(true);
+  // } else setEncounterIsOn(false);
 
   useEffect(() => {
     setEncounterImageSize({
@@ -34,6 +38,13 @@ export function EncounterDisplay(encounterType) {
   function answersToDisplay() {
     if (scene.answers.length === 0) {
       return null;
+    }
+
+    console.log(scene.answers[0].text);
+
+    if (scene.answers[0].text === "exitScene") {
+      setEncounterIsOn(false);
+      //return;
     }
 
     return scene.answers.map(answer => (

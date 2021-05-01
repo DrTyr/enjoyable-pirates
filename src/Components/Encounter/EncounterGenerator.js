@@ -6,6 +6,9 @@ export function randomlyFillWithEncounter(grid) {
   //let coordinates3 = getCoordonateRandomHexagoneInGrid(grid);
   //
 
+  grid.unitsList[1][1].fill = "url(#banditCamp)";
+  grid.unitsList[1][1].encounterType = "bandit";
+
   grid.unitsList[coordinates.x][coordinates.y].fill = "url(#banditCamp)";
   grid.unitsList[coordinates.x][coordinates.y].encounterType = "bandit";
 

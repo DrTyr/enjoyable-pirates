@@ -46,132 +46,135 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
 
   function generateSvgUnits() {
     return grid.unitsList.map(unitsList =>
-      unitsList.map(gridUnit => (
-        <g
-          key={`indice${gridUnit.indice}`}
-          onClick={() => {
-            if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
-              setCurrentUnit(gridUnit);
-              setPreviousPosCaracterInSvg(posCaracterInSvg);
-              setCaracterIsMoving(true);
-              setPosCaracterInSvg({
-                x: gridUnit.coordStart.x + gridUnit.radius,
-                y: gridUnit.coordStart.y + gridUnit.radius,
-              });
-              setPosCaracterInGrid(gridUnit.coordInGrid);
-              let neighbours = getNeighboursCoordinatesOfUnit(
-                gridUnit.coordInGrid,
-                grid.numberColumn,
-                grid.numberRow,
-              );
-              setNeighbourCoordinates(neighbours);
-            }
-          }}
-        >
-          <rect
-            x={gridUnit.coordStart.x}
-            y={gridUnit.coordStart.y}
-            width={gridUnit.radius * 2}
-            height={gridUnit.radius * 2}
-            fill={gridUnit.fill}
-            opacity={gridUnit.opacity}
-            strokeWidth={gridUnit.strokeWidth}
-            transform={`rotate(${gridUnit.rotateAngle},${
-              gridUnit.coordStart.x + gridUnit.radius
-            },${gridUnit.coordStart.y + gridUnit.radius})`}
-          />
+      unitsList.map(
+        gridUnit =>
+          gridUnit != null && (
+            <g
+              key={`indice${gridUnit.indice}`}
+              onClick={() => {
+                if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
+                  setCurrentUnit(gridUnit);
+                  setPreviousPosCaracterInSvg(posCaracterInSvg);
+                  setCaracterIsMoving(true);
+                  setPosCaracterInSvg({
+                    x: gridUnit.coordStart.x + gridUnit.radius,
+                    y: gridUnit.coordStart.y + gridUnit.radius,
+                  });
+                  setPosCaracterInGrid(gridUnit.coordInGrid);
+                  let neighbours = getNeighboursCoordinatesOfUnit(
+                    gridUnit.coordInGrid,
+                    grid.numberColumn,
+                    grid.numberRow,
+                  );
+                  setNeighbourCoordinates(neighbours);
+                }
+              }}
+            >
+              <rect
+                x={gridUnit.coordStart.x}
+                y={gridUnit.coordStart.y}
+                width={gridUnit.radius * 2}
+                height={gridUnit.radius * 2}
+                fill={gridUnit.fill}
+                opacity={gridUnit.opacity}
+                strokeWidth={gridUnit.strokeWidth}
+                transform={`rotate(${gridUnit.rotateAngle},${
+                  gridUnit.coordStart.x + gridUnit.radius
+                },${gridUnit.coordStart.y + gridUnit.radius})`}
+              />
 
-          <text
-            //className ="text-coord-map"
-            x={gridUnit.coordStart.x + gridUnit.radius}
-            y={gridUnit.coordStart.y + gridUnit.radius}
-            fontFamily="Verdana"
-            fontSize="10"
-            fill="white"
-            textAnchor="middle"
-          >
-            {`${gridUnit.coordInGrid.x}, ${gridUnit.coordInGrid.y}`}
-          </text>
+              <text
+                //className ="text-coord-map"
+                x={gridUnit.coordStart.x + gridUnit.radius}
+                y={gridUnit.coordStart.y + gridUnit.radius}
+                fontFamily="Verdana"
+                fontSize="10"
+                fill="white"
+                textAnchor="middle"
+              >
+                {`${gridUnit.coordInGrid.x}, ${gridUnit.coordInGrid.y}`}
+              </text>
 
-          <defs>
-            <pattern
-              id="grass"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              viewBox="0 0 320 320"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image width="320" height="320" href={grass} />
-            </pattern>
-            <pattern
-              id="banditCamp"
-              // patternUnits="objectBoundingBox"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              //view Box 0 0 and size of the img
-              viewBox="0 0 700 310"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image href={banditCamp} width="700" height="310" />
-            </pattern>
-            <pattern
-              id="beach"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              //view Box 0 0 and size of the img
-              viewBox="0 0 314 314"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image
-                href={beach}
-                //size of the img
-                width="314"
-                height="314"
-              />
-            </pattern>
-            <pattern
-              id="beachCorner"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              //view Box 0 0 and size of the img
-              viewBox="0 0 314 314"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image
-                href={beachCorner}
-                //size of the img
-                width="314"
-                height="314"
-              />
-            </pattern>
-            <pattern
-              id="beachCenter"
-              x="0"
-              y="0"
-              width="1"
-              height="1"
-              //view Box 0 0 and size of the img
-              viewBox="0 0 314 314"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <image
-                href={beachCenter}
-                //size of the img
-                width="314"
-                height="314"
-              />
-            </pattern>
-          </defs>
-        </g>
-      )),
+              <defs>
+                <pattern
+                  id="grass"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  viewBox="0 0 320 320"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image width="320" height="320" href={grass} />
+                </pattern>
+                <pattern
+                  id="banditCamp"
+                  // patternUnits="objectBoundingBox"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  //view Box 0 0 and size of the img
+                  viewBox="0 0 700 310"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image href={banditCamp} width="700" height="310" />
+                </pattern>
+                <pattern
+                  id="beach"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  //view Box 0 0 and size of the img
+                  viewBox="0 0 314 314"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image
+                    href={beach}
+                    //size of the img
+                    width="314"
+                    height="314"
+                  />
+                </pattern>
+                <pattern
+                  id="beachCorner"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  //view Box 0 0 and size of the img
+                  viewBox="0 0 314 314"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image
+                    href={beachCorner}
+                    //size of the img
+                    width="314"
+                    height="314"
+                  />
+                </pattern>
+                <pattern
+                  id="beachCenter"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  //view Box 0 0 and size of the img
+                  viewBox="0 0 314 314"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image
+                    href={beachCenter}
+                    //size of the img
+                    width="314"
+                    height="314"
+                  />
+                </pattern>
+              </defs>
+            </g>
+          ),
+      ),
     );
   }
 

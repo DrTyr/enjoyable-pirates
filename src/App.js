@@ -32,6 +32,8 @@ function App() {
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [EncounterIsOn, setEncounterIsOn] = useState(false);
+  const [sceneIsOn, setSceneIsOn] = useState(false);
+  const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {
     // setTopRightUnitDisplaySize({
@@ -43,10 +45,10 @@ function App() {
       width: document.getElementById("subLeft-Grig").clientWidth,
       height: document.getElementById("subLeft-Grig").clientHeight,
     });
-    if (currentUnit.encounterType != null) {
+    if (currentUnit.encounterType != null && sceneToDisplay === true) {
       setEncounterIsOn(true);
     } else setEncounterIsOn(false);
-  }, [currentUnit]);
+  }, [currentUnit, sceneToDisplay]);
 
   return (
     <div className="mainDivFullScreen">
@@ -70,9 +72,14 @@ function App() {
         />
       </div> */}
 
+      {console.log("EncounterIsOn :", EncounterIsOn)}
+
       {EncounterIsOn ? (
         <div className="downRight-encounter">
-          <EncounterDisplay encounterType={currentUnit.encounterType} />
+          <EncounterDisplay
+            encounterType={currentUnit.encounterType}
+            setEncounterIsOn={setEncounterIsOn}
+          />
         </div>
       ) : (
         <div></div>

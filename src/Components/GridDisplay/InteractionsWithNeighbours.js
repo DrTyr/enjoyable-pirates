@@ -7,20 +7,19 @@ export function displayNeighbours(gridUnit, grid) {
 
   //Set the opacity of every hexagon of the grid to 0.2
   grid.unitsList.map(unitsList =>
-    unitsList.map(gridUnit => (gridUnit.opacity = 0.2)),
+    unitsList.map(gridUnit => gridUnit != null && (gridUnit.opacity = 0.2)),
   );
 
   //Set back the opacity of the neighbours to 1
   for (let i = 0; i < neighboursCoordinates.length; i++) {
-    grid.unitsList[neighboursCoordinates[i].x][
-      neighboursCoordinates[i].y
-    ].opacity = 1;
-    grid.unitsList[neighboursCoordinates[i].x][
-      neighboursCoordinates[i].y
-    ].stroke = "black";
-    grid.unitsList[neighboursCoordinates[i].x][
-      neighboursCoordinates[i].y
-    ].strokeWidth = 3;
+    gridUnit =
+      grid.unitsList[neighboursCoordinates[i].x][neighboursCoordinates[i].y];
+
+    if (gridUnit != null) {
+      gridUnit.opacity = 1;
+      gridUnit.stroke = "black";
+      gridUnit.strokeWidth = 3;
+    }
   }
 
   return grid;
@@ -90,7 +89,7 @@ export function getNeighboursCoordinatesOfUnit(
     }
   });
 
-  console.log("neighboursCoordinates :", neighboursCoordinates);
+  // console.log("neighboursCoordinates :", neighboursCoordinates);
 
   return neighboursCoordinates;
 }
