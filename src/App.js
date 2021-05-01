@@ -45,10 +45,10 @@ function App() {
       width: document.getElementById("subLeft-Grig").clientWidth,
       height: document.getElementById("subLeft-Grig").clientHeight,
     });
-    if (currentUnit.encounterType != null && sceneToDisplay === true) {
+    if (currentUnit.encounterType != null) {
       setEncounterIsOn(true);
     } else setEncounterIsOn(false);
-  }, [currentUnit, sceneToDisplay]);
+  }, [currentUnit]);
 
   return (
     <div className="mainDivFullScreen">
