@@ -49,6 +49,8 @@ export function MapDisplay({
     ),
   );
 
+  console.log("grid :", grid);
+
   function generateSvgUnits() {
     return grid.unitsList.map(unitsList =>
       unitsList.map(
@@ -57,7 +59,6 @@ export function MapDisplay({
             <g
               key={`indice${gridUnit.indice}`}
               onClick={() => {
-                console.log("vlikv");
                 // if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
                 //   setCurrentUnit(gridUnit);
                 //   setPreviousPosCaracterInSvg(posCaracterInSvg);
@@ -66,7 +67,7 @@ export function MapDisplay({
                 //     x: gridUnit.coordStart.x + gridUnit.radius,
                 //     y: gridUnit.coordStart.y + gridUnit.radius,
                 //   });
-                setPosCaracterInGrid(gridUnit.coordInGrid);
+                //   setPosCaracterInGrid(gridUnit.coordInGrid);
                 //   let neighbours = getNeighboursCoordinatesOfUnit(
                 //     gridUnit.coordInGrid,
                 //     grid.numberColumn,
@@ -74,6 +75,21 @@ export function MapDisplay({
                 //   );
                 //   setNeighbourCoordinates(neighbours);
                 // }
+
+                setCurrentUnit(gridUnit);
+                setPreviousPosCaracterInSvg(posCaracterInSvg);
+                setCaracterIsMoving(true);
+                setPosCaracterInSvg({
+                  x: gridUnit.coordStart.x + gridUnit.radius,
+                  y: gridUnit.coordStart.y + gridUnit.radius,
+                });
+                setPosCaracterInGrid(gridUnit.coordInGrid);
+                let neighbours = getNeighboursCoordinatesOfUnit(
+                  gridUnit.coordInGrid,
+                  grid.numberColumn,
+                  grid.numberRow,
+                );
+                setNeighbourCoordinates(neighbours);
               }}
             >
               <rect
@@ -98,7 +114,8 @@ export function MapDisplay({
                 fill="white"
                 textAnchor="middle"
               >
-                {`${gridUnit.coordInGrid.x}, ${gridUnit.coordInGrid.y}`}
+                {/* text to display */}
+                {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
               </text>
 
               <defs>
@@ -209,9 +226,9 @@ export function MapDisplay({
         Couper l'animation
       </button>
       <svg
-        viewBox={`-50 -50 ${subLeftGrigSize.width + zoomLevel} ${
-          subLeftGrigSize.height + zoomLevel
-        }`}
+        viewBox={`${-subLeftGrigSize.width / 2} -50 ${
+          subLeftGrigSize.width * 2 + zoomLevel
+        } ${subLeftGrigSize.height * 2 + zoomLevel}`}
         // preserveAspectRatio="xMidYMid meet"
       >
         {generateSvgUnits()}

@@ -1,8 +1,8 @@
 export function displayNeighbours(gridUnit, grid) {
   let neighboursCoordinates = getNeighboursCoordinatesOfUnit(
     gridUnit.coordInGrid,
-    grid.numberColumn,
-    grid.numberRow,
+    grid.numberOfRow,
+    grid.numberOfColumn,
   );
 
   //Set the opacity of every hexagon of the grid to 0.2
@@ -73,6 +73,22 @@ export function getNeighboursCoordinatesOfUnit(
     pos: "south",
   };
 
+  neighboursCoordinates = cleanNeigboursList(
+    neighboursCoordinates,
+    numberOfRowInGrid,
+    numberOfColumnInGrid,
+  );
+
+  //console.log("neighboursCoordinates :", neighboursCoordinates);
+
+  return neighboursCoordinates;
+}
+
+function cleanNeigboursList(
+  neighboursCoordinates,
+  numberOfRowInGrid,
+  numberOfColumnInGrid,
+) {
   //Test if some neighbours are outside the grid and remove them
 
   neighboursCoordinates.slice(0).forEach(function (coordNeighbours) {
@@ -88,8 +104,6 @@ export function getNeighboursCoordinatesOfUnit(
       );
     }
   });
-
-  // console.log("neighboursCoordinates :", neighboursCoordinates);
 
   return neighboursCoordinates;
 }

@@ -17,7 +17,7 @@ import { generateOneGridUnit } from "./Components/Grid&MapGeneration/GridGenerat
 //Assets imports///////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 
-function App() {
+function Page1({ setCurrentPage }) {
   //Hack too automatic resize svg inside topRight-hexagonDisplay <div> the size of this <div>
   //This 2 variables will be update after the first render with the usage of UseEffect()
   const [topRightUnitDisplaySize, setTopRightUnitDisplaySize] = useState({
@@ -54,9 +54,9 @@ function App() {
   const onWheelHandler = e => {
     const dir = e.deltaY;
     if (dir < 0) {
-      setZoomLevel(zoomLevel - 10);
+      setZoomLevel(zoomLevel - 50);
     } else if (dir > 0) {
-      setZoomLevel(zoomLevel + 10);
+      setZoomLevel(zoomLevel + 50);
     }
   };
 
@@ -71,6 +71,9 @@ function App() {
         id="subLeft-Grig"
         onWheel={e => onWheelHandler(e)}
       >
+        <button onClick={() => setCurrentPage("page2")}>
+          Générateur de cartes
+        </button>
         <MapDisplay
           subLeftGrigSize={subLeftGrigSize}
           setCurrentUnit={setCurrentUnit}
@@ -103,6 +106,32 @@ function App() {
       )}
     </div>
   );
+}
+
+function Page2({ setCurrentPage }) {
+  return (
+    <>
+      <button onClick={() => setCurrentPage("page1")}>Go to Page 1</button>
+      <div>Page 2</div>
+    </>
+  );
+}
+
+function App() {
+  const [currentPage, setCurrentPage] = useState("page1");
+
+  function renderPages(params) {
+    switch (currentPage) {
+      case "page1":
+        return <Page1 setCurrentPage={setCurrentPage} />;
+      case "page2":
+        return <Page2 setCurrentPage={setCurrentPage} />;
+      default:
+        break;
+    }
+  }
+
+  return <div>{renderPages()}</div>;
 }
 
 export default App;

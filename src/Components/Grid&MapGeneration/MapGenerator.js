@@ -1,5 +1,6 @@
 import { generateEntireGrid } from "../Grid&MapGeneration/GridGenerator";
 import { randomlyFillWithEncounter } from "../Encounter/EncounterGenerator";
+import { getNeighboursCoordinatesOfUnit } from "../GridDisplay/InteractionsWithNeighbours";
 import _ from "lodash";
 
 //To put an empty gridUnit at x,y pos :   grid.unitsList[x][y] = null;
@@ -22,11 +23,26 @@ export function generateMainMap() {
 
   //grid.unitsList[3][3] = null;
 
+  //let borderUnitsList = getCoordListOfBorderUnits(grid);
+
   return grid;
 }
 
+function generateBeachBorder(grid, borderUnitsList) {
+  // borderUnitsList is an [] of objects with values .pos, .x and .y
+  // .pos possibilities are :
+  //   "northWest",
+  //   "southWest",
+  //   "southEast",
+  //   "northEast",
+  //   "east",
+  //   "west",
+  //   "north",
+  //   "south",
+}
+
 //fill all the outsides hexagons with beach assets
-function generateBeachs(grid) {
+function generateBeachsOLD(grid) {
   ///grid[numberColumn][numberRow]
 
   //grid.unitsList.map(()=>grid.unitsList.fill ="url(#beachCenter"));
@@ -124,7 +140,7 @@ function generateRandomGreenPatchTEST(grid) {
   // grid.unitsList.map(unitsList => (bolean ? unitsList : (unitsList = null)));
 }
 
-//Retourne un tableau des corod des units de la bordure de la grille
+//Retourne un tableau des coord des units de la bordure de la grille
 function getCoordListOfOutsidesUnits(grid) {
   let listOfOutsidesUnits = [];
 
@@ -154,13 +170,50 @@ function getCoordListOfOutsidesUnits(grid) {
   return listOfOutsidesUnits;
 }
 
+function getCoordListOfBorderUnits(grid) {
+  let borderUnits = [];
+  let neighbours = [];
+  let k = 0;
+  let copied = false;
+
+  for (let i = 0; i < grid.numberOfColumn; i++) {
+    for (let j = 0; j < grid.numberOfRow; j++) {
+      copied = false;
+      if (grid.unitsList[i][j] != null) {
+        neighbours = getNeighboursCoordinatesOfUnit(
+          grid.unitsList[i][j].coordInGrid,
+          grid.numberOfRow,
+          grid.numberOfColumn,
+        );
+
+        for (let z = 0; z < neighbours.length; z++) {
+          if (
+            grid.unitsList[neighbours[z].x][neighbours[z].y] == null &&
+            copied === false
+          ) {
+            borderUnits[k] = grid.unitsList[i][j];
+            borderUnits[k].posNull.add(neighbours[z].pos);
+            copied = true;
+
+            //break;
+          }
+        }
+        k++;
+      }
+    }
+  }
+
+  console.log("borderUnits :", borderUnits);
+
+  return borderUnits;
+}
+
 function generateMapShape(grid) {
+  // prettier-ignore
   let mapArray = [
+    0,0,
     0,
-    0,
-    0,
-    0,
-    0,
+    0,0,
     0,
     0,
     0,
@@ -895,10 +948,10 @@ function generateMapShape(grid) {
       if (mapArray[indice] === 0) {
         grid.unitsList[j][i] = null;
       }
+
       if (mapArray[indice] === 2) {
         grid.unitsList[j][i].fill = "url(#grass)";
       }
-
       indice++;
     }
   }
