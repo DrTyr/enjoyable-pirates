@@ -21,20 +21,25 @@ import beachCenter from "../../Assets/BeachCenter.png";
 
 ///////////////////////////////////////////////////////////
 
-export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
+export function MapDisplay({
+  subLeftGrigSize,
+  setCurrentUnit,
+  currentUnit,
+  zoomLevel,
+}) {
   const [grid, setGrid] = useState(generateMainMap());
   const [previousgrid, setPreviousGrid] = useState(grid);
   const [posCaracterInSvg, setPosCaracterInSvg] = useState({
-    x: grid.unitsList[0][0].coordStart.x + grid.unitRadius,
-    y: grid.unitsList[0][0].coordStart.y + grid.unitRadius,
+    x: grid.unitsList[9][9].coordStart.x + grid.unitRadius,
+    y: grid.unitsList[9][9].coordStart.y + grid.unitRadius,
   });
+  const [posCaracterInGrid, setPosCaracterInGrid] = useState(
+    grid.unitsList[9][9].coordInGrid,
+  );
   const [previousPosCaracterInSvg, setPreviousPosCaracterInSvg] = useState(
     posCaracterInSvg,
   );
   const [caracterIsMoving, setCaracterIsMoving] = useState(false);
-  const [posCaracterInGrid, setPosCaracterInGrid] = useState(
-    grid.unitsList[0][0].coordInGrid,
-  );
   const [neighboursAreDisplay, setNeighboursAreDisplay] = useState(false);
   const [neighbourCoordinates, setNeighbourCoordinates] = useState(
     getNeighboursCoordinatesOfUnit(
@@ -52,22 +57,23 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
             <g
               key={`indice${gridUnit.indice}`}
               onClick={() => {
-                if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
-                  setCurrentUnit(gridUnit);
-                  setPreviousPosCaracterInSvg(posCaracterInSvg);
-                  setCaracterIsMoving(true);
-                  setPosCaracterInSvg({
-                    x: gridUnit.coordStart.x + gridUnit.radius,
-                    y: gridUnit.coordStart.y + gridUnit.radius,
-                  });
-                  setPosCaracterInGrid(gridUnit.coordInGrid);
-                  let neighbours = getNeighboursCoordinatesOfUnit(
-                    gridUnit.coordInGrid,
-                    grid.numberColumn,
-                    grid.numberRow,
-                  );
-                  setNeighbourCoordinates(neighbours);
-                }
+                console.log("vlikv");
+                // if (testIfNeighbour(gridUnit, neighbourCoordinates) === true) {
+                //   setCurrentUnit(gridUnit);
+                //   setPreviousPosCaracterInSvg(posCaracterInSvg);
+                //   setCaracterIsMoving(true);
+                //   setPosCaracterInSvg({
+                //     x: gridUnit.coordStart.x + gridUnit.radius,
+                //     y: gridUnit.coordStart.y + gridUnit.radius,
+                //   });
+                setPosCaracterInGrid(gridUnit.coordInGrid);
+                //   let neighbours = getNeighboursCoordinatesOfUnit(
+                //     gridUnit.coordInGrid,
+                //     grid.numberColumn,
+                //     grid.numberRow,
+                //   );
+                //   setNeighbourCoordinates(neighbours);
+                // }
               }}
             >
               <rect
@@ -203,7 +209,9 @@ export function MapDisplay({ subLeftGrigSize, setCurrentUnit, currentUnit }) {
         Couper l'animation
       </button>
       <svg
-        viewBox={`-50 -50 ${subLeftGrigSize.width} ${subLeftGrigSize.height}`}
+        viewBox={`-50 -50 ${subLeftGrigSize.width + zoomLevel} ${
+          subLeftGrigSize.height + zoomLevel
+        }`}
         // preserveAspectRatio="xMidYMid meet"
       >
         {generateSvgUnits()}

@@ -1,5 +1,5 @@
 //Library imports//////////////////////////////////////////
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 ///////////////////////////////////////////////////////////
 //CSS imports/////////////////////////////////////////////
 import "./App.css";
@@ -29,6 +29,7 @@ function App() {
     height: 0,
   });
   //////////////////////////////
+  const [zoomLevel, setZoomLevel] = useState(0);
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [EncounterIsOn, setEncounterIsOn] = useState(false);
@@ -50,15 +51,31 @@ function App() {
     } else setEncounterIsOn(false);
   }, [currentUnit]);
 
+  const onWheelHandler = e => {
+    const dir = e.deltaY;
+    if (dir < 0) {
+      setZoomLevel(zoomLevel - 10);
+    } else if (dir > 0) {
+      setZoomLevel(zoomLevel + 10);
+    }
+  };
+
+  console.log("zoomLevel :", zoomLevel);
+
   return (
     <div className="mainDivFullScreen">
       <InventoryButton />
       <DiaryButton />
-      <div className="subLeft-Grig" id="subLeft-Grig">
+      <div
+        className="subLeft-Grig"
+        id="subLeft-Grig"
+        onWheel={e => onWheelHandler(e)}
+      >
         <MapDisplay
           subLeftGrigSize={subLeftGrigSize}
           setCurrentUnit={setCurrentUnit}
           currentUnit={currentUnit}
+          zoomLevel={zoomLevel}
         />
       </div>
       {/* <div className="subRight-CurrentUnitDisplay-Encounter"> */}
