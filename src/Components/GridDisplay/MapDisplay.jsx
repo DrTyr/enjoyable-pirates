@@ -49,8 +49,6 @@ export function MapDisplay({
     ),
   );
 
-  console.log("grid :", grid);
-
   function generateSvgUnits() {
     return grid.unitsList.map(unitsList =>
       unitsList.map(

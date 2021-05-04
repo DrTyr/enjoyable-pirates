@@ -10,6 +10,7 @@ import { EncounterDisplay } from "./Components/Encounter/EncounterDisplay";
 import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
 import { InventoryButton } from "./Components/Inventory/InventoryButton";
 import { DiaryButton } from "./Components/Diary/DiaryButton";
+import { Page2 } from "./Components/Grid&MapGeneration/MapCreationInterface";
 ///////////////////////////////////////////////////////////
 //Functions imports////////////////////////////////////////
 import { generateOneGridUnit } from "./Components/Grid&MapGeneration/GridGenerator";
@@ -105,15 +106,6 @@ function Page1({ setCurrentPage }) {
         <div></div>
       )}
     </div>
-  );
-}
-
-function Page2({ setCurrentPage }) {
-  return (
-    <>
-      <button onClick={() => setCurrentPage("page1")}>Go to Page 1</button>
-      <div>Page 2</div>
-    </>
   );
 }
 
