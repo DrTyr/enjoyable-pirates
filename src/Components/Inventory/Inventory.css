@@ -15,7 +15,11 @@
   /* display: flex; */
 }
 
-.slot-box {
+.slot-box-block {
   /* display: flex; */
   flex-direction: row;
+}
+
+.slot-box {
+  cursor: pointer;
 }

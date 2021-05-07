@@ -12,6 +12,8 @@ export function Inventory() {
     for (let i = 0; i <= numberOfSlot; i++) {
       slots[i] = (
         <g
+          className="slot-box"
+          key={`InventoryButton${i}`}
           onClick={() => console.log("Hello sweety, je suis numéro " + i + ".")}
         >
           <rect
@@ -22,7 +24,7 @@ export function Inventory() {
             y="10"
             width="30"
             height="30"
-            strokeWidth="3"
+            strokeWidth="1"
             style={{ stroke: "black", fill: "white" }}
           />
         </g>
@@ -33,7 +35,7 @@ export function Inventory() {
 
   return (
     <div className="inventory-overlay">
-      <div className="slot-box">
+      <div className="slot-box-block">
         <svg viewBox="0 0 300 300">{generateSlots()}</svg>
       </div>
     </div>

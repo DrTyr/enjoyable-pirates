@@ -18,6 +18,7 @@ import grass from "../../Assets/Grass.png";
 import beach from "../../Assets/Beach.png";
 import beachCorner from "../../Assets/BeachCorner.png";
 import beachCenter from "../../Assets/BeachCenter.png";
+import beachCornerInside from "../../Assets/BeachCornerInside.png";
 
 ///////////////////////////////////////////////////////////
 
@@ -187,6 +188,23 @@ export function MapDisplay({
                 >
                   <image
                     href={beachCenter}
+                    //size of the img
+                    width="314"
+                    height="314"
+                  />
+                </pattern>
+                <pattern
+                  id="beachCornerInside"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  //view Box 0 0 and size of the img
+                  viewBox="0 0 314 314"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image
+                    href={beachCornerInside}
                     //size of the img
                     width="314"
                     height="314"

@@ -68,6 +68,7 @@ export function generateEntireGrid(
         stroke: null,
         strokeWidth: 5,
         rotateAngle: 0,
+        posNull: [],
       };
 
       gridUnit.coordStart.x =
@@ -80,7 +81,7 @@ export function generateEntireGrid(
       gridUnit.indice = unitIndice++;
 
       //gridUnit.fill = getRandomColor();
-      gridUnit.fill = "url(#beachCenter)";
+      //gridUnit.fill = "url(#beachCenter)";
 
       grid.unitsList[i][j] = gridUnit;
     }

@@ -13,7 +13,7 @@ export function generateMainMap() {
   //"../Encounter/EncounterGenerator"
   //grid = randomlyFillWithEncounter(grid);
   //this file
-  //grid = generateBeachs(grid);
+  //grid = generateBeachsOLD(grid);
 
   //grid = generateMapShapeTEST(grid);
 
@@ -21,14 +21,16 @@ export function generateMainMap() {
 
   grid = generateMapShape(grid);
 
+  grid = generateBeachBorder(grid);
+
   //grid.unitsList[3][3] = null;
 
-  //let borderUnitsList = getCoordListOfBorderUnits(grid);
+  let borderUnitsList = getCoordListOfBorderUnits(grid);
 
   return grid;
 }
 
-function generateBeachBorder(grid, borderUnitsList) {
+function generateBeachBorder(grid) {
   // borderUnitsList is an [] of objects with values .pos, .x and .y
   // .pos possibilities are :
   //   "northWest",
@@ -39,6 +41,254 @@ function generateBeachBorder(grid, borderUnitsList) {
   //   "west",
   //   "north",
   //   "south",
+
+  //console.log("bloup", grid);
+
+  let borderUnitsList = getCoordListOfBorderUnits(grid);
+
+  // Test if border are calculated coorectly by changing fill to red
+  // for (let k = 0; k < borderUnitsList.length; k++) {
+  //   grid.unitsList[borderUnitsList[k].coordInGrid.x][
+  //     borderUnitsList[k].coordInGrid.y
+  //   ].fill = "red";
+  // }
+
+  for (let k = 0; k < borderUnitsList.length; k++) {
+    console.log(borderUnitsList[k].posNull.includes("west"));
+    //switch (borderUnitsList[k]) {
+    let currentTest = borderUnitsList[k].posNull;
+    //beach face west
+    if (
+      currentTest.includes("west") === true &&
+      currentTest.includes("south") === false &&
+      currentTest.includes("north") === false
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beach)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = -90;
+      continue;
+    }
+    //corner beach face north west
+    if (
+      currentTest.includes("west") === true &&
+      currentTest.includes("south") === false &&
+      currentTest.includes("north") === true &&
+      currentTest.includes("east") === false
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCorner)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = -90;
+      continue;
+    }
+    //TO DEFINE
+    if (
+      currentTest.includes("west") === true &&
+      currentTest.includes("south") === false &&
+      currentTest.includes("north") === true &&
+      currentTest.includes("east") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "red";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = -90;
+      continue;
+    }
+    //TO DEFINE
+    if (
+      currentTest.includes("west") === true &&
+      currentTest.includes("south") === true &&
+      currentTest.includes("east") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "blue";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = -90;
+      continue;
+    }
+    //TO DEFINE
+    if (
+      currentTest.includes("west") === true &&
+      currentTest.includes("south") === true &&
+      currentTest.includes("north") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "magenta";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = -90;
+      continue;
+    }
+    //beach corner face south west
+    if (
+      currentTest.includes("west") === true &&
+      currentTest.includes("south") === true &&
+      currentTest.includes("east") === false
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCorner)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 180;
+      continue;
+    }
+    //TO DEFINE
+    if (
+      currentTest.includes("north") === true &&
+      currentTest.includes("south") === true &&
+      currentTest.includes("southEast") === true &&
+      currentTest.includes("east") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "salmon";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = -90;
+      continue;
+    }
+    //beach corner face south east
+    if (
+      currentTest.includes("north") === false &&
+      currentTest.includes("south") === true &&
+      currentTest.includes("southEast") === true &&
+      currentTest.includes("east") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCorner)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 90;
+      continue;
+    }
+    //beach face south
+    if (
+      currentTest.includes("south") === true &&
+      currentTest.includes("west") === false &&
+      currentTest.includes("east") === false
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beach)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 180;
+      continue;
+    }
+    //beach face east
+    if (
+      currentTest.includes("south") === false &&
+      currentTest.includes("north") === false &&
+      currentTest.includes("east") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beach)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 90;
+      continue;
+    }
+    //beach corner face north east
+    if (
+      currentTest.includes("south") === false &&
+      currentTest.includes("north") === true &&
+      currentTest.includes("east") === true
+      //currentTest.includes("northWest") === false
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCorner)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 0;
+      continue;
+    }
+    //beach face north
+    if (
+      currentTest.includes("north") === true &&
+      currentTest.includes("east") === false &&
+      currentTest.includes("west") === false
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beach)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 0;
+      continue;
+    }
+    //Inner corner beach face north east
+    if (
+      currentTest.includes("north") === false &&
+      currentTest.includes("east") === false &&
+      currentTest.includes("northEast") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCornerInside)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = -90;
+      continue;
+    }
+    //Inner corner beach face north west
+    if (
+      currentTest.includes("north") === false &&
+      currentTest.includes("west") === false &&
+      currentTest.includes("northWest") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCornerInside)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 180;
+      continue;
+    }
+    //Inner corner beach face south west
+    if (
+      currentTest.includes("south") === false &&
+      currentTest.includes("west") === false &&
+      currentTest.includes("southWest") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCornerInside)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 90;
+      continue;
+    }
+    //Inner corner beach face south east
+    if (
+      currentTest.includes("south") === false &&
+      currentTest.includes("east") === false &&
+      currentTest.includes("southEast") === true
+    ) {
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fill = "url(#beachCornerInside)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].rotateAngle = 0;
+      continue;
+    }
+  }
+
+  return grid;
 }
 
 //fill all the outsides hexagons with beach assets
@@ -141,7 +391,7 @@ function generateRandomGreenPatchTEST(grid) {
 }
 
 //Retourne un tableau des coord des units de la bordure de la grille
-function getCoordListOfOutsidesUnits(grid) {
+function getCoordListOfOutsidesUnitsOLD(grid) {
   let listOfOutsidesUnits = [];
 
   ///grid[numberColumn][numberRow]
@@ -172,773 +422,75 @@ function getCoordListOfOutsidesUnits(grid) {
 
 function getCoordListOfBorderUnits(grid) {
   let borderUnits = [];
+  //borderUnits.posNull = [];
+
   let neighbours = [];
+  //k = indice that inscrement if neibhours == null
   let k = 0;
+  //p = pos in posNull array
+  let p = 0;
+
   let copied = false;
 
   for (let i = 0; i < grid.numberOfColumn; i++) {
     for (let j = 0; j < grid.numberOfRow; j++) {
-      copied = false;
       if (grid.unitsList[i][j] != null) {
         neighbours = getNeighboursCoordinatesOfUnit(
           grid.unitsList[i][j].coordInGrid,
           grid.numberOfRow,
           grid.numberOfColumn,
         );
-
+        p = 0;
+        if (copied === true) {
+          k++;
+          copied = false;
+        }
         for (let z = 0; z < neighbours.length; z++) {
-          if (
-            grid.unitsList[neighbours[z].x][neighbours[z].y] == null &&
-            copied === false
-          ) {
+          if (grid.unitsList[neighbours[z].x][neighbours[z].y] == null) {
             borderUnits[k] = grid.unitsList[i][j];
-            borderUnits[k].posNull.add(neighbours[z].pos);
+            borderUnits[k].posNull[p] = neighbours[z].pos;
             copied = true;
-
+            p++;
             //break;
           }
         }
-        k++;
       }
     }
   }
-
-  console.log("borderUnits :", borderUnits);
 
   return borderUnits;
 }
 
 function generateMapShape(grid) {
   // prettier-ignore
-  let mapArray = [
-    0,0,
-    0,
-    0,0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    3,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    2,
-    3,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    1,
-    1,
-    1,
-    2,
-    2,
-    3,
-    3,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    3,
-    2,
-    3,
-    3,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    3,
-    3,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    3,
-    3,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    2,
-    2,
-    2,
-    1,
-    1,
-    2,
-    2,
-    1,
-    1,
-    1,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    3,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    2,
-    2,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-  ];
+  let mapArray = 
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,
+    0,0,0,0,0,0,1,1,2,1,1,1,1,1,1,1,2,2,3,1,1,1,0,0,0,0,0,
+    0,0,0,0,0,1,1,1,1,2,1,1,1,1,1,2,3,3,3,3,1,1,1,0,0,0,0,
+    0,0,0,0,1,1,1,1,1,2,2,1,1,1,2,2,3,3,3,3,3,1,1,1,0,0,0,
+    0,0,0,1,1,1,2,2,2,2,2,2,2,2,2,3,2,3,3,3,3,3,1,1,1,0,0,
+    0,0,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,1,1,1,1,1,0,
+    0,0,1,1,2,2,2,2,2,2,2,2,2,1,3,3,3,3,3,3,3,1,1,1,1,1,0,
+    0,0,1,1,1,2,2,2,2,2,2,1,1,1,1,3,3,3,3,3,1,1,1,1,1,0,0,
+    0,0,0,1,1,2,2,2,2,2,2,2,2,1,1,3,3,3,3,3,1,1,1,1,0,0,0,
+    0,0,0,0,1,1,2,2,2,1,1,2,2,1,1,1,3,3,3,1,1,1,1,0,0,0,0,
+    0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,0,0,0,0,0,0,
+    0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,0,0,0,1,1,0,0,
+    0,0,0,1,1,1,2,2,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0,
+    0,0,1,1,1,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,
+    0,1,1,1,1,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,
+    0,1,1,1,1,2,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,1,1,1,1,2,2,2,2,1,1,1,0,0,0,0,0,1,1,0,0,0,1,1,0,0,
+    0,0,0,1,1,1,1,2,2,2,1,1,1,1,0,0,0,0,1,1,0,0,0,1,1,0,0,
+    0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,
+    0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
   let indice = 0;
   //numberOfRow
@@ -948,7 +500,9 @@ function generateMapShape(grid) {
       if (mapArray[indice] === 0) {
         grid.unitsList[j][i] = null;
       }
-
+      if (mapArray[indice] === 1) {
+        grid.unitsList[j][i].fill = "url(#beachCenter)";
+      }
       if (mapArray[indice] === 2) {
         grid.unitsList[j][i].fill = "url(#grass)";
       }
