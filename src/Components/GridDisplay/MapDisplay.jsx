@@ -15,6 +15,10 @@ import { getNeighboursCoordinatesOfUnit } from "./InteractionsWithNeighbours";
 //Assets imports///////////////////////////////////////////
 import banditCamp from "../../Assets/BanditCamp.jpg";
 import grass from "../../Assets/Grass.png";
+import grassCorner from "../../Assets/GrassCorner.png";
+import grassCenter from "../../Assets/GrassCenter.png";
+import grassCornerInside from "../../Assets/GrassCornerInside.png";
+
 import beach from "../../Assets/Beach.png";
 import beachCorner from "../../Assets/BeachCorner.png";
 import beachCenter from "../../Assets/BeachCenter.png";
@@ -31,11 +35,11 @@ export function MapDisplay({
   const [grid, setGrid] = useState(generateMainMap());
   const [previousgrid, setPreviousGrid] = useState(grid);
   const [posCaracterInSvg, setPosCaracterInSvg] = useState({
-    x: grid.unitsList[9][9].coordStart.x + grid.unitRadius,
-    y: grid.unitsList[9][9].coordStart.y + grid.unitRadius,
+    x: grid.unitsList[2][9].coordStart.x + grid.unitRadius,
+    y: grid.unitsList[2][9].coordStart.y + grid.unitRadius,
   });
   const [posCaracterInGrid, setPosCaracterInGrid] = useState(
-    grid.unitsList[9][9].coordInGrid,
+    grid.unitsList[2][9].coordInGrid,
   );
   const [previousPosCaracterInSvg, setPreviousPosCaracterInSvg] = useState(
     posCaracterInSvg,
@@ -128,6 +132,39 @@ export function MapDisplay({
                   preserveAspectRatio="xMidYMid slice"
                 >
                   <image width="320" height="320" href={grass} />
+                </pattern>
+                <pattern
+                  id="grassCorner"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  viewBox="0 0 320 320"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image width="320" height="320" href={grassCorner} />
+                </pattern>
+                <pattern
+                  id="grassCenter"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  viewBox="0 0 320 320"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image width="320" height="320" href={grassCenter} />
+                </pattern>
+                <pattern
+                  id="grassCornerInside"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  viewBox="0 0 320 320"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <image width="320" height="320" href={grassCornerInside} />
                 </pattern>
                 <pattern
                   id="banditCamp"
