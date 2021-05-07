@@ -50,7 +50,7 @@ function Page1({ setCurrentPage }) {
     if (currentUnit.encounterType != null) {
       setEncounterIsOn(true);
     } else setEncounterIsOn(false);
-  }, [currentUnit]);
+  }, [currentUnit, zoomLevel]);
 
   const onWheelHandler = e => {
     const dir = e.deltaY;
@@ -61,19 +61,22 @@ function Page1({ setCurrentPage }) {
     }
   };
 
-  console.log("zoomLevel :", zoomLevel);
+  //console.log("zoomLevel :", zoomLevel);
 
   return (
     <div className="mainDivFullScreen">
       <InventoryButton />
       <DiaryButton />
+
       <div
         className="subLeft-Grig"
         id="subLeft-Grig"
-        onWheel={e => onWheelHandler(e)}
+        //onWheel={e => onWheelHandler(e)}
       >
+        <button onClick={() => setZoomLevel(zoomLevel - 50)}>Zoom</button>
+        <button onClick={() => setZoomLevel(zoomLevel + 50)}>Dezoom</button>
         <button onClick={() => setCurrentPage("page2")}>
-          Générateur de cartes
+          Générateur de cartes (WIP)
         </button>
         <MapDisplay
           subLeftGrigSize={subLeftGrigSize}
@@ -92,8 +95,6 @@ function Page1({ setCurrentPage }) {
           currentUnit={currentUnit}
         />
       </div> */}
-
-      {console.log("EncounterIsOn :", EncounterIsOn)}
 
       {EncounterIsOn ? (
         <div className="downRight-encounter">

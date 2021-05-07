@@ -35,6 +35,7 @@ export function Inventory() {
 
   return (
     <div className="inventory-overlay">
+      Work in progress
       <div className="slot-box-block">
         <svg viewBox="0 0 300 300">{generateSlots()}</svg>
       </div>

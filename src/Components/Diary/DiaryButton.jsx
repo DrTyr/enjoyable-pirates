@@ -13,7 +13,9 @@ export function DiaryButton() {
   return (
     <>
       {display && (
-        <PopUp closeCallBack={() => setDisplay(!display)}>TEST</PopUp>
+        <PopUp closeCallBack={() => setDisplay(!display)}>
+          WORK IN PROGRESS
+        </PopUp>
       )}
       <input
         className="diary-button"

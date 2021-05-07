@@ -12,8 +12,7 @@ export function generateMainMap() {
 
   //"../Grid&MapGeneration/GridGenerator"
   grid = generateEntireGrid();
-  //"../Encounter/EncounterGenerator"
-  //grid = randomlyFillWithEncounter(grid);
+
   //this file
   //grid = generateBeachsOLD(grid);
 
@@ -26,6 +25,9 @@ export function generateMainMap() {
   grid = generateBeachBorder(grid);
 
   grid = generateGrassBorder(grid);
+
+  //"../Encounter/EncounterGenerator"
+  //grid = randomlyFillWithEncounter(grid);
 
   //grid.unitsList[3][3] = null;
 
@@ -58,7 +60,7 @@ function generateGrassBorder(grid) {
   // }
 
   for (let k = 0; k < borderUnitsList.length; k++) {
-    console.log(borderUnitsList[k].posNull.includes("west"));
+    // console.log(borderUnitsList[k].posNull.includes("west"));
     //switch (borderUnitsList[k]) {
     let currentTest = borderUnitsList[k].posNull;
     //grass face west
@@ -323,7 +325,7 @@ function generateBeachBorder(grid) {
   // }
 
   for (let k = 0; k < borderUnitsList.length; k++) {
-    console.log(borderUnitsList[k].posNull.includes("west"));
+    //console.log(borderUnitsList[k].posNull.includes("west"));
     //switch (borderUnitsList[k]) {
     let currentTest = borderUnitsList[k].posNull;
     //beach face west

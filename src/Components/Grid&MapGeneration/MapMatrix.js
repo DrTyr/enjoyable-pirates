@@ -28,6 +28,7 @@ export const mapArray=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
+//WIP
 export function generateMapMatrix() {
   const numberOfRow = 27;
   const numberOfColumn = 27;
