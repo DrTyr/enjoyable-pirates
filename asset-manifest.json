@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/enjoyable-pirates/static/css/main.fd048e4b.chunk.css",
-    "main.js": "/enjoyable-pirates/static/js/main.dd79bd63.chunk.js",
-    "main.js.map": "/enjoyable-pirates/static/js/main.dd79bd63.chunk.js.map",
+    "main.css": "/enjoyable-pirates/static/css/main.c28a7c91.chunk.css",
+    "main.js": "/enjoyable-pirates/static/js/main.3d7eff7f.chunk.js",
+    "main.js.map": "/enjoyable-pirates/static/js/main.3d7eff7f.chunk.js.map",
     "runtime-main.js": "/enjoyable-pirates/static/js/runtime-main.c8ec9ed0.js",
     "runtime-main.js.map": "/enjoyable-pirates/static/js/runtime-main.c8ec9ed0.js.map",
     "static/js/2.b4245436.chunk.js": "/enjoyable-pirates/static/js/2.b4245436.chunk.js",
@@ -10,19 +10,12 @@
     "static/js/3.75f01c7b.chunk.js": "/enjoyable-pirates/static/js/3.75f01c7b.chunk.js",
     "static/js/3.75f01c7b.chunk.js.map": "/enjoyable-pirates/static/js/3.75f01c7b.chunk.js.map",
     "index.html": "/enjoyable-pirates/index.html",
-    "static/css/main.fd048e4b.chunk.css.map": "/enjoyable-pirates/static/css/main.fd048e4b.chunk.css.map",
+    "static/css/main.c28a7c91.chunk.css.map": "/enjoyable-pirates/static/css/main.c28a7c91.chunk.css.map",
     "static/js/2.b4245436.chunk.js.LICENSE.txt": "/enjoyable-pirates/static/js/2.b4245436.chunk.js.LICENSE.txt",
     "static/media/BanditCamp.111e7e62.jpg": "/enjoyable-pirates/static/media/BanditCamp.111e7e62.jpg",
-    "static/media/Beach.28d810a6.png": "/enjoyable-pirates/static/media/Beach.28d810a6.png",
-    "static/media/BeachCenter.df4f4141.png": "/enjoyable-pirates/static/media/BeachCenter.df4f4141.png",
-    "static/media/BeachCorner.670adeaa.png": "/enjoyable-pirates/static/media/BeachCorner.670adeaa.png",
-    "static/media/BeachCornerInside.ef8836fe.png": "/enjoyable-pirates/static/media/BeachCornerInside.ef8836fe.png",
+    "static/media/BeachTileset.e58c40cd.png": "/enjoyable-pirates/static/media/BeachTileset.e58c40cd.png",
     "static/media/App.css": "/enjoyable-pirates/static/media/Bloup.323680ff.png",
     "static/media/DiaryIcon.1f036dfc.png": "/enjoyable-pirates/static/media/DiaryIcon.1f036dfc.png",
-    "static/media/Grass.c3a36448.png": "/enjoyable-pirates/static/media/Grass.c3a36448.png",
-    "static/media/GrassCenter.bdfc3424.png": "/enjoyable-pirates/static/media/GrassCenter.bdfc3424.png",
-    "static/media/GrassCorner.7f9b4ae1.png": "/enjoyable-pirates/static/media/GrassCorner.7f9b4ae1.png",
-    "static/media/GrassCornerInside.85e2174a.png": "/enjoyable-pirates/static/media/GrassCornerInside.85e2174a.png",
     "static/media/InventoryIcon.76827857.png": "/enjoyable-pirates/static/media/InventoryIcon.76827857.png",
     "static/media/OldWizzard.ca01dff1.jpg": "/enjoyable-pirates/static/media/OldWizzard.ca01dff1.jpg",
     "static/media/Pirate.b7057660.png": "/enjoyable-pirates/static/media/Pirate.b7057660.png",
@@ -31,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.c8ec9ed0.js",
     "static/js/2.b4245436.chunk.js",
-    "static/css/main.fd048e4b.chunk.css",
-    "static/js/main.dd79bd63.chunk.js"
+    "static/css/main.c28a7c91.chunk.css",
+    "static/js/main.3d7eff7f.chunk.js"
   ]
 }
