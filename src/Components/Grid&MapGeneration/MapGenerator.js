@@ -1,6 +1,6 @@
 import { generateEntireGrid } from "../Grid&MapGeneration/GridGenerator";
 import { randomlyFillWithEncounter } from "../Encounter/EncounterGenerator";
-import { getNeighboursCoordinatesOfUnit } from "../GridDisplay/InteractionsWithNeighbours";
+import { getNeighboursCoordinatesOfUnit } from "../MapDisplay/InteractionsWithNeighbours";
 //import _ from "lodash";
 
 import { mapArray, generateMapMatrix } from "./MapMatrix";

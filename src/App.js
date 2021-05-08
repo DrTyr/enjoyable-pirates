@@ -5,7 +5,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 ///////////////////////////////////////////////////////////
 //React components import//////////////////////////////////
-import { MapDisplay } from "./Components/GridDisplay/MapDisplay";
+import { MapDisplay } from "./Components/MapDisplay/MapDisplay";
 import { EncounterDisplay } from "./Components/Encounter/EncounterDisplay";
 import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
 import { InventoryButton } from "./Components/Inventory/InventoryButton";
