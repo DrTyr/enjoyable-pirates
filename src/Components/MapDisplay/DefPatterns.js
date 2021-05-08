@@ -15,51 +15,164 @@ import beachTileset from "../../Assets/BeachTileset.png";
 ///////////////////////////////////////////////////////////
 
 export function defPatterns() {
+  //Inside beachTileSet, every sprite in 32*32
   return (
     <defs>
       <pattern
-        id="grass"
+        id="northGrassYellowSandJunction"
         x="0"
         y="0"
         width="1"
         height="1"
-        viewBox="0 0 320 320"
+        viewBox="448 96 32 32"
         preserveAspectRatio="xMidYMid slice"
       >
-        <image width="320" height="320" href={grass} />
+        <image href={beachTileset} />
       </pattern>
       <pattern
-        id="grassCorner"
+        id="southGrassYellowSandJunction"
         x="0"
         y="0"
         width="1"
         height="1"
-        viewBox="0 0 320 320"
+        viewBox="448 160 32 32"
         preserveAspectRatio="xMidYMid slice"
       >
-        <image width="320" height="320" href={grassCorner} />
+        <image href={beachTileset} />
       </pattern>
       <pattern
-        id="grassCenter"
+        id="eastGrassYellowSandJunction"
         x="0"
         y="0"
         width="1"
         height="1"
-        viewBox="0 0 320 320"
+        viewBox="480 128 32 32"
         preserveAspectRatio="xMidYMid slice"
       >
-        <image width="320" height="320" href={grassCenter} />
+        <image href={beachTileset} />
       </pattern>
       <pattern
-        id="grassCornerInside"
+        id="northEastGrassYellowSandJunction"
         x="0"
         y="0"
         width="1"
         height="1"
-        viewBox="0 0 320 320"
+        viewBox="480 96 32 32"
         preserveAspectRatio="xMidYMid slice"
       >
-        <image width="320" height="320" href={grassCornerInside} />
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northWestGrassYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="416 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="southWestGrassYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="416 160 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="southEastGrassYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="480 160 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="westGrassYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="416 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="fullGrass"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="448 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northWestSandGrassJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="512 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northOrangeSandSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="64 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northEastOrangeSandSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="96 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="fullOrangeSand"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="64 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northWestSeaOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="128 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
       </pattern>
       <pattern
         id="banditCamp"
@@ -73,74 +186,6 @@ export function defPatterns() {
         preserveAspectRatio="xMidYMid slice"
       >
         <image href={banditCamp} width="700" height="310" />
-      </pattern>
-      <pattern
-        id="beach"
-        x="0"
-        y="0"
-        width="1"
-        height="1"
-        //view Box 0 0 and size of the img
-        viewBox="0 0 314 314"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <image
-          href={beach}
-          //size of the img
-          width="314"
-          height="314"
-        />
-      </pattern>
-      <pattern
-        id="beachCorner"
-        x="0"
-        y="0"
-        width="1"
-        height="1"
-        //view Box 0 0 and size of the img
-        viewBox="0 0 314 314"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <image
-          href={beachCorner}
-          //size of the img
-          width="314"
-          height="314"
-        />
-      </pattern>
-      <pattern
-        id="beachCenter"
-        x="0"
-        y="0"
-        width="1"
-        height="1"
-        //view Box 0 0 and size of the img
-        viewBox="0 0 314 314"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <image
-          href={beachCenter}
-          //size of the img
-          width="314"
-          height="314"
-        />
-      </pattern>
-      <pattern
-        id="beachCornerInside"
-        x="0"
-        y="0"
-        width="1"
-        height="1"
-        //view Box 0 0 and size of the img
-        viewBox="0 0 314 314"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <image
-          href={beachCornerInside}
-          //size of the img
-          width="314"
-          height="314"
-        />
       </pattern>
     </defs>
   );

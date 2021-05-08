@@ -48,7 +48,7 @@ function generateGrassBorder(grid) {
 
   let borderUnitsList = getCoordListOfBorderUnits(
     grid,
-    "url(#grassCenter)",
+    "url(#fullGrass)",
     "url(#beachCenter)",
   );
 
@@ -71,10 +71,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grass)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = -90;
+      ].fill = "url(#westGrassYellowSandJunction)";
       continue;
     }
     //corner grass face north west
@@ -86,10 +83,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grassCorner)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = -90;
+      ].fill = "url(#northWestGrassYellowSandJunction)";
       continue;
     }
     //TO DEFINE
@@ -143,10 +137,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grassCorner)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = 180;
+      ].fill = "url(#southWestGrassYellowSandJunction)";
       continue;
     }
     //TO DEFINE
@@ -173,10 +164,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grassCorner)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = 90;
+      ].fill = "url(#southEastGrassYellowSandJunction)";
       continue;
     }
     //grass face south
@@ -187,11 +175,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grass)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = 180;
-      continue;
+      ].fill = "url(#southGrassYellowSandJunction)";
     }
     //grass face east
     if (
@@ -201,10 +185,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grass)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = 90;
+      ].fill = "url(#eastGrassYellowSandJunction)";
       continue;
     }
     //grass corner face north east
@@ -216,10 +197,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grassCorner)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = 0;
+      ].fill = "url(#northEastGrassYellowSandJunction)";
       continue;
     }
     //grass face north
@@ -230,10 +208,7 @@ function generateGrassBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#grass)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = 0;
+      ].fill = "url(#northGrassYellowSandJunction)";
       continue;
     }
     //Inner corner grass face north east
@@ -640,7 +615,7 @@ function generateMapShape(grid) {
         grid.unitsList[j][i].fill = "url(#beachCenter)";
       }
       if (mapArray[indice] === 2) {
-        grid.unitsList[j][i].fill = "url(#grassCenter)";
+        grid.unitsList[j][i].fill = "url(#fullGrass)";
       }
       indice++;
     }
