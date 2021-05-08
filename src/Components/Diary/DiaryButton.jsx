@@ -17,16 +17,14 @@ export function DiaryButton() {
           WORK IN PROGRESS
         </PopUp>
       )}
-      <input
+      <button
         className="diary-button"
-        type="image"
-        src={diaryIcon}
-        alt=""
         onClick={() => {
-          // setInventoryIsDisplay(inverseBoolean(inventoryIsDisplay));
           setDisplay(!display);
         }}
-      />
+      >
+        <img alt="Iventorybutton" src={diaryIcon}></img>
+      </button>
     </>
   );
 }

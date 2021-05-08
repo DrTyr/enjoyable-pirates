@@ -18,16 +18,23 @@ export function InventoryButton() {
           <Inventory />
         </PopUp>
       )}
-      <input
+      {/* <input
         className="inventory-button"
         type="image"
         src={inventoryIcon}
         alt=""
         onClick={() => {
-          // setInventoryIsDisplay(inverseBoolean(inventoryIsDisplay));
           setDisplay(!display);
         }}
-      />
+      /> */}
+      <button
+        className="inventory-button"
+        onClick={() => {
+          setDisplay(!display);
+        }}
+      >
+        <img alt="Inventorybutton" src={inventoryIcon}></img>
+      </button>
     </>
   );
 }
