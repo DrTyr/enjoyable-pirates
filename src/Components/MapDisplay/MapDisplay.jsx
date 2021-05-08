@@ -10,7 +10,12 @@ import React, { useState } from "react";
 import { generateMainMap } from "../Grid&MapGeneration/MapGenerator";
 import DisplayCaracter from "../PlayableCaracterDisplay/CaracterDisplay";
 import { getNeighboursCoordinatesOfUnit } from "./InteractionsWithNeighbours";
-import { defPatterns } from "./DefPatterns";
+import {
+  defGrassPatterns,
+  defYellowSandPatterns,
+  defSeaPatterns,
+  defOtherPatterns,
+} from "./DefPatterns";
 ///////////////////////////////////////////////////////////
 
 export function MapDisplay({
@@ -143,7 +148,11 @@ export function MapDisplay({
         } ${subLeftGrigSize.height * 2 + zoomLevel}`}
         // preserveAspectRatio="xMidYMid meet"
       >
-        {defPatterns()}
+        {defOtherPatterns()}
+        {defGrassPatterns()}
+        {defSeaPatterns()}
+        {defYellowSandPatterns()}
+
         {generateSvgUnits()}
         <DisplayCaracter
           grid={grid}

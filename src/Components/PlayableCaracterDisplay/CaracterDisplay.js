@@ -8,7 +8,7 @@ import _ from "lodash";
 
 //Functions imports////////////////////////////////////////
 import { displayNeighbours } from "../MapDisplay/InteractionsWithNeighbours";
-///////////////////////////////////////////////////////////
+//import { defOtherPatterns } from "./DefPatterns"; ///////////////////////////////////////////////////////////
 
 //Assets imports///////////////////////////////////////////
 import player from "../../Assets/Pirate.png";
@@ -52,18 +52,20 @@ export function DisplayCaracter({
       }}
     >
       <rect
-        width={`${grid.unitRadius}`}
-        height={`${grid.unitRadius}`}
+        width="60"
+        height="60"
+        //width={`${grid.unitRadius}`}
+        //height={`${grid.unitRadius}`}
         //x and y pos are x = pos - width/2 and  y = pos-height/2
-        x={posCaracterInSvg.x - grid.unitRadius / 2}
-        y={posCaracterInSvg.y - grid.unitRadius / 2}
+        x={posCaracterInSvg.x - 20 - grid.unitRadius / 2}
+        y={posCaracterInSvg.y - 30 - grid.unitRadius / 2}
         fill="url(#player)"
       >
         {caracterIsMoving && (
           <animate
             attributeType="XML"
             attributeName="y"
-            from={posCaracterInSvg.y - grid.unitRadius / 2}
+            from={posCaracterInSvg.y - 20 - grid.unitRadius / 2}
             to={posCaracterInSvg.y - grid.unitRadius / 2 - 10}
             dur="0.5s"
             repeatCount="indefinite"
@@ -71,7 +73,7 @@ export function DisplayCaracter({
         )}
       </rect>
 
-      <defs>
+      {/* <defs>
         <pattern
           id="player"
           x="0"
@@ -82,7 +84,7 @@ export function DisplayCaracter({
         >
           <image width="382" height="412" href={player} />
         </pattern>
-      </defs>
+      </defs> */}
     </g>
   );
 }
