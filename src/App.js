@@ -30,7 +30,7 @@ function Page1({ setCurrentPage }) {
     height: 0,
   });
   //////////////////////////////
-  const [zoomLevel, setZoomLevel] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(450);
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [EncounterIsOn, setEncounterIsOn] = useState(false);

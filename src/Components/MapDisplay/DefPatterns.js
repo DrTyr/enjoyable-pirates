@@ -165,6 +165,18 @@ export function defGrassPatterns() {
       >
         <image href={beachTileset} />
       </pattern>
+
+      <pattern
+        id="northEastSouthWestTwoGrassSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="544 160 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
     </defs>
   );
 }
@@ -331,6 +343,32 @@ export function defYellowSandPatterns() {
       >
         <image href={beachTileset} />
       </pattern>
+
+      <pattern
+        id="fullYellowSand"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="0 64 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="oneByOneOrangeSandAlone"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="32 96 96 96"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
     </defs>
   );
 }
@@ -339,12 +377,209 @@ export function defSeaPatterns() {
   return (
     <defs>
       <pattern
-        id="bluesea"
+        id="blueSea"
         x="0"
         y="0"
         width="1"
         height="1"
         viewBox="0 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="64 256 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="westSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="96 224 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="eastSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="32 224 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="southSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="64 192 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northEastSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="160 192 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="southWestSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="128 224 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="southEastSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="160 224 31 31"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northWestSeaDeepSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="128 192 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="deepSea"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="0 224 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northEastDeepSeaBeachJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="64 192 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northWestDeepSeaBeachJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="64 192 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="southWestDeepSeaBeachJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="256 224 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northEastDeepSeaSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="32 256 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="northWestDeepSeaSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="96 256 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+      <pattern
+        id="southEastDeepSeaSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="32 192 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="southWestDeepSeaSeaJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="96 192 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="oneByOneDeepSeaAlone"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="128 192 64 64"
         preserveAspectRatio="xMidYMid slice"
       >
         <image href={beachTileset} />
