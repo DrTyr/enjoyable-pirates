@@ -47,7 +47,7 @@ function Page1({ setCurrentPage }) {
       width: document.getElementById("subLeft-Grig").clientWidth,
       height: document.getElementById("subLeft-Grig").clientHeight,
     });
-    if (currentUnit.encounterType != null) {
+    if (currentUnit.encounterType[0] != null) {
       setEncounterIsOn(true);
     } else setEncounterIsOn(false);
   }, [currentUnit, zoomLevel]);
@@ -99,7 +99,7 @@ function Page1({ setCurrentPage }) {
       {EncounterIsOn ? (
         <div className="downRight-encounter">
           <EncounterDisplay
-            encounterType={currentUnit.encounterType}
+            encounterType={currentUnit.encounterType[0]}
             setEncounterIsOn={setEncounterIsOn}
           />
         </div>
