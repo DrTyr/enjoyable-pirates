@@ -1051,9 +1051,11 @@ function generateMapShape(grid) {
       switch (mapArray[indice]) {
         case -1:
           grid.unitsList[j][i].fill = "url(#deepSea)";
+          grid.unitsList[j][i].clickable = false;
           break;
         case 0:
           grid.unitsList[j][i].fill = "url(#blueSea)";
+          grid.unitsList[j][i].clickable = false;
           break;
         case 1:
           grid.unitsList[j][i].fill = "url(#fullOrangeSand)";

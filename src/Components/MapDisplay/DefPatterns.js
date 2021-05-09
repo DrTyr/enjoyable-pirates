@@ -324,7 +324,7 @@ export function defYellowSandPatterns() {
         width="1"
         height="1"
         //view Box 0 0 and size of the img
-        viewBox="288 160 32 32"
+        viewBox="354 128 32 32"
         preserveAspectRatio="xMidYMid slice"
       >
         <image href={beachTileset} />

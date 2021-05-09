@@ -71,21 +71,22 @@ export function MapDisplay({
                 //   );
                 //   setNeighbourCoordinates(neighbours);
                 // }
-
-                setCurrentUnit(gridUnit);
-                setPreviousPosCaracterInSvg(posCaracterInSvg);
-                setCaracterIsMoving(true);
-                setPosCaracterInSvg({
-                  x: gridUnit.coordStart.x + gridUnit.radius,
-                  y: gridUnit.coordStart.y + gridUnit.radius,
-                });
-                setPosCaracterInGrid(gridUnit.coordInGrid);
-                let neighbours = getNeighboursCoordinatesOfUnit(
-                  gridUnit.coordInGrid,
-                  grid.numberColumn,
-                  grid.numberRow,
-                );
-                setNeighbourCoordinates(neighbours);
+                if (gridUnit.clickable === true) {
+                  setCurrentUnit(gridUnit);
+                  setPreviousPosCaracterInSvg(posCaracterInSvg);
+                  setCaracterIsMoving(true);
+                  setPosCaracterInSvg({
+                    x: gridUnit.coordStart.x + gridUnit.radius,
+                    y: gridUnit.coordStart.y + gridUnit.radius,
+                  });
+                  setPosCaracterInGrid(gridUnit.coordInGrid);
+                  let neighbours = getNeighboursCoordinatesOfUnit(
+                    gridUnit.coordInGrid,
+                    grid.numberColumn,
+                    grid.numberRow,
+                  );
+                  setNeighbourCoordinates(neighbours);
+                }
               }}
             >
               <rect
@@ -101,23 +102,25 @@ export function MapDisplay({
                 },${gridUnit.coordStart.y + gridUnit.radius})`}
               />
 
-              <text
-                //className ="text-coord-map"
-                x={gridUnit.coordStart.x + gridUnit.radius}
-                y={gridUnit.coordStart.y + gridUnit.radius}
-                fontFamily="Verdana"
-                fontSize="10"
-                fill="white"
-                textAnchor="middle"
-              >
-                {/* text to display */}
-                {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
-              </text>
+              {/* Add text balise here */}
             </g>
           ),
       ),
     );
   }
+
+  //   <text
+  //   //className ="text-coord-map"
+  //   x={gridUnit.coordStart.x + gridUnit.radius}
+  //   y={gridUnit.coordStart.y + gridUnit.radius}
+  //   fontFamily="Verdana"
+  //   fontSize="10"
+  //   fill="white"
+  //   textAnchor="middle"
+  // >
+  //   {/* text to display */}
+  //   {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
+  // </text>
 
   function testIfNeighbour(gridUnit, neighbourCoordinates) {
     let isneighbours = false;

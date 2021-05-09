@@ -6,7 +6,7 @@ import { getRandomColor } from "../../library";
 ///grid[numberColumn][numberRow]
 const numberOfRow = 27;
 const numberOfColumn = 27;
-const gridUnitRadius = 30;
+const gridUnitRadius = 32;
 
 ///////////////////////////////////////////////////////////
 
@@ -20,6 +20,7 @@ export function generateOneGridUnit() {
     opacity: 1,
     encounterType: null,
     stroke: null,
+    clickable: true,
     strokeWidth: 5,
     rotateAngle: 0,
   };
@@ -40,7 +41,7 @@ export function generateEntireGrid(
     numberOfColumn = 27;
   }
   if (gridUnitRadius === undefined) {
-    gridUnitRadius = 30;
+    gridUnitRadius = 32;
   }
 
   let unitIndice = 0;
@@ -66,8 +67,9 @@ export function generateEntireGrid(
         opacity: 1,
         encounterType: null,
         stroke: null,
-        strokeWidth: 5,
+        strokeWidth: 0,
         rotateAngle: 0,
+        clickable: true,
         posNull: [],
       };
 
