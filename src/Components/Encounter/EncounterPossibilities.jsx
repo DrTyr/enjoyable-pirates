@@ -7,13 +7,20 @@ import { Answer } from "./Answer";
 export function detectEncounter(randomEncounter, goto) {
   let encounter = emptyEncounter();
   //let encounter = {};
+  switch (randomEncounter.encounterType) {
+    case "bandit":
+      encounter = banditEncounter(goto);
+      break;
+    case "mage":
+      encounter = mageEncounter(goto);
+      break;
+    case "tree":
+      encounter = treeEncounter(goto);
 
-  if (randomEncounter === "") {
-    console.log("patate");
-  } else if (randomEncounter.encounterType === "bandit") {
-    encounter = banditEncounter(goto);
-  } else if (randomEncounter.encounterType === "mage") {
-    encounter = mageEncounter(goto);
+      break;
+    default:
+      console.log("patate");
+      break;
   }
 
   return encounter;
@@ -104,20 +111,20 @@ function mageEncounter(goto) {
   return goto;
 }
 
-// let mage = {
-//   picture: { width: 197, heigth: 380, src: OldWizzard },
-//   texts: {
-//     textA:
-//       "Bonjour aventurier, je suis un vieux mage qui sert de test pour le développement de rencontres avec les PNJ, j'ai volontairement un texte très long qui a pour but de tester que ce dernier ne dépasse pas de la <div> qui le contient, si tu arrives à tout lire c'est que ça fonctionne comme prévu",
-//     textB:
-//       "si tu lis ça c'est que l'affichage d'une autre ligne de texte que la principal fonctionne correctement",
-//   },
-//   answers: {
-//     answerA1: "Ici la réponse 1 du text A",
-//     answerA2: "Ici la réponse 2 du text A",
-//     answerA3: "Ici la réponse 3 du text A",
-//     answerB1: "Ici la réponse 1 du text B",
-//   },
-//   textToDisplay: "A",
-//   answersToDisplay: 1,
-// };
+function treeEncounter(goto) {
+  const sceneA = new Dialog(empty, "I AM GROOT");
+
+  const sceneB = new Dialog(empty, "Vous récoltez du bois");
+
+  const answerA1 = new Answer("Récolter du bois", sceneB);
+  sceneA.addAnswer(answerA1);
+
+  const answerA2 = new Answer("S'en aller", emptyEncounter());
+  sceneA.addAnswer(answerA2);
+
+  if (goto == null) {
+    goto = sceneA;
+  }
+
+  return goto;
+}

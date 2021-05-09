@@ -822,6 +822,54 @@ export function defOtherPatterns() {
       </pattern>
 
       <pattern
+        id="treeLeef2"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="160 0 32 32"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="treeTrunk2"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="160 32 32 32"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="treeLeef1"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="128 0 32 32"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="treeTrunk1"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="128 32 32 32"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
         id="player"
         x="0"
         y="0"

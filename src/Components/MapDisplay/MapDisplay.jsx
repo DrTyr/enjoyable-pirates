@@ -94,13 +94,15 @@ export function MapDisplay({
                 y={gridUnit.coordStart.y}
                 width={gridUnit.radius * 2}
                 height={gridUnit.radius * 2}
-                fill={gridUnit.fill}
+                fill={gridUnit.fill[0]}
                 opacity={gridUnit.opacity}
                 strokeWidth={gridUnit.strokeWidth}
                 transform={`rotate(${gridUnit.rotateAngle},${
                   gridUnit.coordStart.x + gridUnit.radius
                 },${gridUnit.coordStart.y + gridUnit.radius})`}
               />
+
+              {testifZIndex(gridUnit)}
 
               {/* Add text balise here */}
             </g>
@@ -121,6 +123,25 @@ export function MapDisplay({
   //   {/* text to display */}
   //   {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
   // </text>
+
+  function testifZIndex(gridUnit) {
+    if (gridUnit.fill[1] !== undefined) {
+      return (
+        <rect
+          x={gridUnit.coordStart.x}
+          y={gridUnit.coordStart.y}
+          width={gridUnit.radius * 2}
+          height={gridUnit.radius * 2}
+          fill={gridUnit.fill[1]}
+          opacity={gridUnit.opacity}
+          strokeWidth={gridUnit.strokeWidth}
+          transform={`rotate(${gridUnit.rotateAngle},${
+            gridUnit.coordStart.x + gridUnit.radius
+          },${gridUnit.coordStart.y + gridUnit.radius})`}
+        />
+      );
+    }
+  }
 
   function testIfNeighbour(gridUnit, neighbourCoordinates) {
     let isneighbours = false;

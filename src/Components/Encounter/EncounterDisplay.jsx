@@ -40,7 +40,7 @@ export function EncounterDisplay(encounterType, setEncounterIsOn) {
       return null;
     }
 
-    console.log(scene.answers[0].text);
+    //console.log(scene.answers[0].text);
 
     if (scene.answers[0].text === "exitScene") {
       setEncounterIsOn(false);
