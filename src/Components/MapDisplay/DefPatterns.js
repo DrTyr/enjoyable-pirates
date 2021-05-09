@@ -185,6 +185,210 @@ export function defYellowSandPatterns() {
   return (
     <defs>
       <pattern
+        id="fullOrangeSand"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="64 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="northYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="256 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="westYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="288 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="eastYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="224 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="southYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="256 160 31 31"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="northEastYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="288 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="southWestYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="224 160 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="southEastYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="288 160 31 31"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="northWestYellowSandOrangeSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="224 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="fullYellowSand"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="256 160 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="northEastOrangeSandYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="320 128 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="northWestOrangeSandYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="288 160 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="southWestOrangeSandYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="352 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="southEastOrangeSandYellowSandJunction"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="320 96 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="fullYellowSand"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="96 64 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="oneByOneYellowSandAlone"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="224 96 96 96"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+    </defs>
+  );
+}
+
+export function defBeachAndOrangeSandPatterns() {
+  return (
+    <defs>
+      <pattern
         id="northOrangeSandSeaJunction"
         x="0"
         y="0"

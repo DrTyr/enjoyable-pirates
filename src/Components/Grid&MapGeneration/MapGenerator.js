@@ -529,13 +529,22 @@ function generateYellowSandBorder(grid) {
     "url(#fullYellowSand)",
     [
       "url(#fullOrangeSand)",
-      "url(#southOrangeSandSeaJunction)",
-      "url(#southWestSeaOrangeSandJunction)",
+      //"url(#southOrangeSandSeaJunction)",
+      //"url(#southWestSeaOrangeSandJunction)",
+      //"url(#northWestOrangeSandSeaJunction)",
+      //"url(#northWestSeaOrangeSandJunction)",
       "url(#northWestGrassYellowSandJunction)",
+      "url(#southWestGrassYellowSandJunction)",
+      "url(#northEastGrassYellowSandJunction)",
+      "url(#southEastGrassYellowSandJunction)",
+      //"url(#southEastSeaOrangeSandJunction)",
+      //"url(#westOrangeSandSeaJunction)",
+      "url(#westGrassYellowSandJunction)",
+      "url(#eastGrassYellowSandJunction)",
     ],
   );
 
-  console.log("Yellow sand border", borderUnitsList);
+  //console.log("Yellow sand border", borderUnitsList);
 
   // Test if border are calculated coorectly by changing fill to red
   // for (let k = 0; k < borderUnitsList.length; k++) {
@@ -552,11 +561,13 @@ function generateYellowSandBorder(grid) {
     if (
       currentTest.includes("west") === true &&
       currentTest.includes("south") === false &&
-      currentTest.includes("north") === false
+      currentTest.includes("north") === false &&
+      currentTest.includes("east") === true &&
+      currentTest.includes("northWest") === false
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#westOrangeSandSeaJunction)";
+      ].fill = "url(#westYellowSandOrangeSandJunction)";
 
       continue;
     }
@@ -569,7 +580,7 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#northWestOrangeSandSeaJunction)";
+      ].fill = "url(#northWestYellowSandOrangeSandJunction)";
       continue;
     }
     //TO DEFINE
@@ -623,7 +634,7 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#southWestOrangeSandSeaJunction)";
+      ].fill = "url(#southWestYellowSandOrangeSandJunction)";
       continue;
     }
     //TO DEFINE
@@ -650,29 +661,32 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#southEastOrangeSandSeaJunction)";
+      ].fill = "url(#southEastYellowSandOrangeSandJunction)";
       continue;
     }
     //beach face south
     if (
       currentTest.includes("south") === true &&
       currentTest.includes("west") === false &&
-      currentTest.includes("east") === false
+      currentTest.includes("east") === false &&
+      currentTest.includes("north") === false
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#southOrangeSandSeaJunction)";
+      ].fill = "url(#southYellowSandOrangeSandJunction)";
       continue;
     }
     //beach face east
     if (
       currentTest.includes("south") === false &&
       currentTest.includes("north") === false &&
-      currentTest.includes("east") === true
+      currentTest.includes("east") === true &&
+      currentTest.includes("west") === true &&
+      currentTest.includes("northEast") === true
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#eastOrangeSandSeaJunction)";
+      ].fill = "url(#eastYellowSandOrangeSandJunction)";
       continue;
     }
     //beach corner face north east
@@ -684,18 +698,19 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#northEastOrangeSandSeaJunction)";
+      ].fill = "url(#northEastYellowSandOrangeSandJunction)";
       continue;
     }
     //beach face north
     if (
       currentTest.includes("north") === true &&
       currentTest.includes("east") === false &&
-      currentTest.includes("west") === false
+      currentTest.includes("west") === false &&
+      currentTest.includes("south") === false
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#northOrangeSandSeaJunction)";
+      ].fill = "url(#northYellowSandOrangeSandJunction)";
       continue;
     }
     //Inner corner beach face north east
@@ -706,7 +721,7 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#northEastSeaOrangeSandJunction)";
+      ].fill = "url(#northEastOrangeSandYellowSandJunction)";
       continue;
     }
     //Inner corner beach face north west
@@ -717,7 +732,7 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#northWestSeaOrangeSandJunction)";
+      ].fill = "url(#northWestOrangeSandYellowSandJunction)";
       continue;
     }
     //Inner corner beach face south west
@@ -728,7 +743,7 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#southWestSeaOrangeSandJunction)";
+      ].fill = "url(#southWestOrangeSandYellowSandJunction)";
       continue;
     }
     //Inner corner beach face south east
@@ -739,9 +754,12 @@ function generateYellowSandBorder(grid) {
     ) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
-      ].fill = "url(#southEastSeaOrangeSandJunction)";
+      ].fill = "url(#southEastOrangeSandYellowSandJunction)";
       continue;
     }
+    grid.unitsList[borderUnitsList[k].coordInGrid.x][
+      borderUnitsList[k].coordInGrid.y
+    ].fill = "green";
   }
 
   return grid;
@@ -1030,23 +1048,27 @@ function generateMapShape(grid) {
 
   for (let i = 0; i < grid.numberOfRow; i++) {
     for (let j = 0; j < grid.numberOfColumn; j++) {
-      if (mapArray[indice] === -1) {
-        grid.unitsList[j][i].fill = "url(#deepSea)";
-      }
-      if (mapArray[indice] === 0) {
-        grid.unitsList[j][i].fill = "url(#blueSea)";
-      }
-      if (mapArray[indice] === 1) {
-        grid.unitsList[j][i].fill = "url(#fullOrangeSand)";
-      }
-      if (mapArray[indice] === 2) {
-        grid.unitsList[j][i].fill = "url(#fullGrass)";
-      }
-      if (mapArray[indice] === 3) {
-        grid.unitsList[j][i].fill = "url(#fullYellowSand)";
-      }
-      if (mapArray[indice] === 12) {
-        grid.unitsList[j][i].fill = "url(#boatSprite)";
+      switch (mapArray[indice]) {
+        case -1:
+          grid.unitsList[j][i].fill = "url(#deepSea)";
+          break;
+        case 0:
+          grid.unitsList[j][i].fill = "url(#blueSea)";
+          break;
+        case 1:
+          grid.unitsList[j][i].fill = "url(#fullOrangeSand)";
+          break;
+        case 2:
+          grid.unitsList[j][i].fill = "url(#fullGrass)";
+          break;
+        case 3:
+          grid.unitsList[j][i].fill = "url(#fullYellowSand)";
+          break;
+        case 12:
+          grid.unitsList[j][i].fill = "url(#boatSprite)";
+          break;
+        default:
+          break;
       }
       indice++;
     }

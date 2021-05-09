@@ -13,6 +13,7 @@ import { getNeighboursCoordinatesOfUnit } from "./InteractionsWithNeighbours";
 import {
   defGrassPatterns,
   defYellowSandPatterns,
+  defBeachAndOrangeSandPatterns,
   defSeaPatterns,
   defOtherPatterns,
 } from "./DefPatterns";
@@ -150,6 +151,7 @@ export function MapDisplay({
       >
         {defOtherPatterns()}
         {defGrassPatterns()}
+        {defBeachAndOrangeSandPatterns()}
         {defSeaPatterns()}
         {defYellowSandPatterns()}
 
