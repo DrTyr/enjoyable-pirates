@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/enjoyable-pirates/static/css/main.8d3fc560.chunk.css",
-    "main.js": "/enjoyable-pirates/static/js/main.6ab8572a.chunk.js",
-    "main.js.map": "/enjoyable-pirates/static/js/main.6ab8572a.chunk.js.map",
+    "main.js": "/enjoyable-pirates/static/js/main.dbf3d469.chunk.js",
+    "main.js.map": "/enjoyable-pirates/static/js/main.dbf3d469.chunk.js.map",
     "runtime-main.js": "/enjoyable-pirates/static/js/runtime-main.c8ec9ed0.js",
     "runtime-main.js.map": "/enjoyable-pirates/static/js/runtime-main.c8ec9ed0.js.map",
     "static/js/2.b4245436.chunk.js": "/enjoyable-pirates/static/js/2.b4245436.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.c8ec9ed0.js",
     "static/js/2.b4245436.chunk.js",
     "static/css/main.8d3fc560.chunk.css",
-    "static/js/main.6ab8572a.chunk.js"
+    "static/js/main.dbf3d469.chunk.js"
   ]
 }
