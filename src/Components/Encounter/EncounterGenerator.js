@@ -1,8 +1,8 @@
 export function generateEncounters(grid) {
   //grid = randomlyFillWithEncounter(grid);
 
-  grid = generateTree(grid, 4);
-  grid = generateBoat(grid, 2);
+  grid = generateTree(grid, 25);
+  grid = generateBoat(grid, 25);
 
   return grid;
 }
@@ -16,6 +16,7 @@ function generateTree(grid, quantity) {
 
   for (let i = 0; i < quantity; i++) {
     coordinates = getRandomUnitCoordinatesInGrid(grid, ["grass"]);
+    //return random 0 or 1
     let random = Math.round(Math.random() * 1);
 
     const trunkPos = grid.unitsList[coordinates.x][coordinates.y];
@@ -86,15 +87,19 @@ function randomlyFillWithEncounter(grid) {
   return grid;
 }
 
+//Return a x and y pos in grid within the fillTypeArray parameter
 function getRandomUnitCoordinatesInGrid(grid, fillTypeArray) {
   let randomColumn = 0;
   let randomRow = 0;
 
   //Test to sort grid coord that are fill with fillTypeArray only, to prop encounter on a specifique fill type
+
   while (
     fillTypeArray.includes(
       grid.unitsList[randomColumn][randomRow].fillType[0],
-    ) === false
+    ) === false ||
+    grid.unitsList[randomColumn][randomRow].fill[1] ||
+    grid.unitsList[randomColumn][randomRow].fill[1] !== undefined
   ) {
     //Generate a random whole number between 0 and grid.numberColumn
     randomColumn = Math.floor(Math.random() * grid.numberOfColumn);

@@ -1054,30 +1054,27 @@ function generateMapShape(grid) {
           grid.unitsList[j][i].fillType[0] = "deepSea";
           grid.unitsList[j][i].clickable = false;
           break;
+
         case 0:
           grid.unitsList[j][i].fill[0] = "url(#blueSea)";
           grid.unitsList[j][i].fillType[0] = "blueSea";
           grid.unitsList[j][i].clickable = false;
           break;
+
         case 1:
           grid.unitsList[j][i].fill[0] = "url(#fullOrangeSand)";
           grid.unitsList[j][i].fillType[0] = "OrangeSandAndBeaches";
-
           break;
         case 2:
           grid.unitsList[j][i].fill[0] = "url(#fullGrass)";
           grid.unitsList[j][i].fillType[0] = "grass";
-
           break;
+
         case 3:
           grid.unitsList[j][i].fill[0] = "url(#fullYellowSand)";
           grid.unitsList[j][i].fillType[0] = "yellowSand";
           break;
-        case 12:
-          grid.unitsList[j][i].fill[0] = "url(#boatSprite)";
-          grid.unitsList[j][i].fillType[0] = "boat";
 
-          break;
         default:
           break;
       }

@@ -7,7 +7,7 @@ import { Answer } from "./Answer";
 export function detectEncounter(randomEncounter, goto) {
   let encounter = emptyEncounter();
   //let encounter = {};
-  console.log("randomEncounter :", randomEncounter);
+  //console.log("randomEncounter :", randomEncounter);
   switch (randomEncounter) {
     case "bandit":
       encounter = banditEncounter(goto);

@@ -33,7 +33,7 @@ function Page1({ setCurrentPage }) {
   const [zoomLevel, setZoomLevel] = useState(450);
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
-  const [encounterIsOn, setEncounterIsOn] = useState(false);
+  const [encounterToDisplay, setEncounterToDisplay] = useState(false);
   const [sceneIsOn, setSceneIsOn] = useState(true);
   const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
@@ -47,10 +47,10 @@ function Page1({ setCurrentPage }) {
       width: document.getElementById("subLeft-Grig").clientWidth,
       height: document.getElementById("subLeft-Grig").clientHeight,
     });
-    if (currentUnit.encounterType[0] != null) {
-      setEncounterIsOn(true);
-    } else setEncounterIsOn(false);
-  }, [currentUnit, zoomLevel, encounterIsOn]);
+    // if (currentUnit.encounterType[0] != null) {
+    //   setEncounterIsOn(true);
+    // } else setEncounterIsOn(false);
+  }, [currentUnit, zoomLevel, encounterToDisplay]);
 
   // const onWheelHandler = e => {
   //   const dir = e.deltaY;
@@ -63,7 +63,7 @@ function Page1({ setCurrentPage }) {
 
   //console.log("zoomLevel :", zoomLevel);
 
-  console.log("encounterIsOn", encounterIsOn);
+  console.log("encounterToDisplay", encounterToDisplay);
   console.log("currentUnit :", currentUnit);
   console.log("currentUnit.encounterType[0] :", currentUnit.encounterType[0]);
 
@@ -100,14 +100,14 @@ function Page1({ setCurrentPage }) {
         />
       </div> */}
 
-      {encounterIsOn ? (
+      {encounterToDisplay ? (
         <div className="downRight-encounter">
           <EncounterDisplay
             encounterType={currentUnit.encounterType[0]}
-            setEncounterIsOn={setEncounterIsOn}
+            setEncounterIsOn={setEncounterToDisplay}
             sceneIsOn={sceneIsOn}
             setSceneIsOn={setSceneIsOn}
-            //encounterIsOn={encounterIsOn}
+            //encounterToDisplay={encounterToDisplay}
           />
         </div>
       ) : (
