@@ -67,7 +67,7 @@ export function generateEntireGrid(
         fill: [],
         fillType: [],
         opacity: 1,
-        encounterType: [null, 0],
+        encounterType: [0],
         stroke: null,
         strokeWidth: 0,
         rotateAngle: 0,

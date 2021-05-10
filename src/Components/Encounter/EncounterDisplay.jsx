@@ -16,7 +16,13 @@ import { detectEncounter } from "./EncounterPossibilities";
 ///////////////////////////////////////////////////////////
 
 //React Component names MUST begin with a maj so React know its a component
-export function EncounterDisplay(encounterType, setEncounterIsOn) {
+export function EncounterDisplay({
+  encounterType,
+  encounterIsOn,
+  setEncounterIsOn,
+  sceneIsOn,
+  setSceneIsOn,
+}) {
   const [encounterImageSize, setEncounterImageSize] = useState({
     width: 0,
     height: 0,
@@ -33,7 +39,7 @@ export function EncounterDisplay(encounterType, setEncounterIsOn) {
       height: document.getElementById("encounter-image").clientHeight,
     });
     setscene(detectEncounter(encounterType));
-  }, [encounterType]);
+  }, [encounterType, encounterIsOn]);
 
   function answersToDisplay() {
     if (scene.answers.length === 0) {
@@ -42,9 +48,10 @@ export function EncounterDisplay(encounterType, setEncounterIsOn) {
 
     //console.log(scene.answers[0].text);
 
-    if (scene.answers[0].text === "exitScene") {
-      setEncounterIsOn(false);
-      //return;
+    console.log("scene.answers[0].exit", scene.answers[0].exit);
+
+    if (scene.answers[0].exit === true) {
+      setSceneIsOn(false);
     }
 
     return scene.answers.map(answer => (
@@ -61,26 +68,24 @@ export function EncounterDisplay(encounterType, setEncounterIsOn) {
 
   //let encounter = { text: "testtext", answer: "testanswer" };
 
-  if (encounterType != null) {
-    return (
-      <Fragment>
-        <div className="encounter-image-text">
-          <div className="encounter-image" id="encounter-image">
-            <img
-              src={scene.picture}
-              alt=""
-              width={encounterImageSize.width}
-              height={encounterImageSize.height}
-            />
-          </div>
-          <div className="encounter-text-answer">
-            <div className="Encounter-Text">{scene.text}</div>
-            <div className="Encounter-Answers">{answersToDisplay()}</div>
-          </div>
+  return (
+    <>
+      <div className="encounter-image-text">
+        <div className="encounter-image" id="encounter-image">
+          <img
+            src={scene.picture}
+            alt=""
+            width={encounterImageSize.width}
+            height={encounterImageSize.height}
+          />
         </div>
-      </Fragment>
-    );
-  }
+        <div className="encounter-text-answer">
+          <div className="Encounter-Text">{scene.text}</div>
+          <div className="Encounter-Answers">{answersToDisplay()}</div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default EncounterDisplay;

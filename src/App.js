@@ -33,8 +33,8 @@ function Page1({ setCurrentPage }) {
   const [zoomLevel, setZoomLevel] = useState(450);
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
-  const [EncounterIsOn, setEncounterIsOn] = useState(false);
-  const [sceneIsOn, setSceneIsOn] = useState(false);
+  const [encounterIsOn, setEncounterIsOn] = useState(false);
+  const [sceneIsOn, setSceneIsOn] = useState(true);
   const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {
@@ -50,18 +50,22 @@ function Page1({ setCurrentPage }) {
     if (currentUnit.encounterType[0] != null) {
       setEncounterIsOn(true);
     } else setEncounterIsOn(false);
-  }, [currentUnit, zoomLevel]);
+  }, [currentUnit, zoomLevel, encounterIsOn]);
 
-  const onWheelHandler = e => {
-    const dir = e.deltaY;
-    if (dir < 0) {
-      setZoomLevel(zoomLevel - 50);
-    } else if (dir > 0) {
-      setZoomLevel(zoomLevel + 50);
-    }
-  };
+  // const onWheelHandler = e => {
+  //   const dir = e.deltaY;
+  //   if (dir < 0) {
+  //     setZoomLevel(zoomLevel - 50);
+  //   } else if (dir > 0) {
+  //     setZoomLevel(zoomLevel + 50);
+  //   }
+  // };
 
   //console.log("zoomLevel :", zoomLevel);
+
+  console.log("encounterIsOn", encounterIsOn);
+  console.log("currentUnit :", currentUnit);
+  console.log("currentUnit.encounterType[0] :", currentUnit.encounterType[0]);
 
   return (
     <div className="mainDivFullScreen">
@@ -96,11 +100,14 @@ function Page1({ setCurrentPage }) {
         />
       </div> */}
 
-      {EncounterIsOn ? (
+      {encounterIsOn ? (
         <div className="downRight-encounter">
           <EncounterDisplay
             encounterType={currentUnit.encounterType[0]}
             setEncounterIsOn={setEncounterIsOn}
+            sceneIsOn={sceneIsOn}
+            setSceneIsOn={setSceneIsOn}
+            //encounterIsOn={encounterIsOn}
           />
         </div>
       ) : (

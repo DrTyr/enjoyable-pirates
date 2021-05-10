@@ -7,7 +7,8 @@ import { Answer } from "./Answer";
 export function detectEncounter(randomEncounter, goto) {
   let encounter = emptyEncounter();
   //let encounter = {};
-  switch (randomEncounter.encounterType) {
+  console.log("randomEncounter :", randomEncounter);
+  switch (randomEncounter) {
     case "bandit":
       encounter = banditEncounter(goto);
       break;
@@ -28,12 +29,13 @@ export function detectEncounter(randomEncounter, goto) {
 
 function emptyEncounter() {
   const scene = new Dialog(empty);
+
   return scene;
 }
 
 function exitScene() {
   const scene = new Dialog(empty);
-  const answer = new Answer("exit");
+  const answer = new Answer({ exit: true });
   scene.addAnswer(answer);
   return scene;
 }
@@ -116,13 +118,16 @@ function treeEncounter(goto) {
 
   const sceneB = new Dialog(empty, "Vous récoltez du bois");
 
-  const answerA1 = new Answer("Récolter du bois", sceneB);
+  const answerA1 = new Answer({ text: "Récolter du bois", goto: sceneB });
   sceneA.addAnswer(answerA1);
 
-  const answerA2 = new Answer("S'en aller", emptyEncounter());
+  const answerA2 = new Answer({
+    text: "S'en aller",
+    goto: exitScene(),
+  });
   sceneA.addAnswer(answerA2);
 
-  if (goto == null) {
+  if (goto === undefined) {
     goto = sceneA;
   }
 

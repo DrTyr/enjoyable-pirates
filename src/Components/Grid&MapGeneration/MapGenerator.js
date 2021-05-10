@@ -30,8 +30,6 @@ export function generateMainMap() {
 
   grid = generateDeepSeaBorder(grid);
 
-  console.log(grid.unitsList[12][12].fill[0]);
-
   //"../Encounter/EncounterGenerator"
   grid = generateEncounters(grid);
 
