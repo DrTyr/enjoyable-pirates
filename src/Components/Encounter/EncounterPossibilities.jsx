@@ -3,6 +3,7 @@ import emptyImg from "../../Assets/empty.jpg";
 import OldWizzard from "../../Assets/OldWizzard.jpg";
 import { Dialog } from "./Dialog";
 import { Answer } from "./Answer";
+import { Inventory } from "../Inventory/InventoryDisplay";
 
 export function detectEncounter(randomEncounter, goto) {
   let encounter = emptyEncounter();
@@ -10,10 +11,10 @@ export function detectEncounter(randomEncounter, goto) {
   //console.log("randomEncounter :", randomEncounter);
   switch (randomEncounter) {
     case "bandit":
-      encounter = banditEncounter(goto);
+      //encounter = banditEncounter(goto);
       break;
     case "mage":
-      encounter = mageEncounter(goto);
+      //encounter = mageEncounter(goto);
       break;
     case "tree":
       encounter = treeEncounter(goto);
@@ -33,14 +34,7 @@ function emptyEncounter() {
   return scene;
 }
 
-function exitScene() {
-  const scene = new Dialog(emptyImg);
-  const answer = new Answer({ exit: true });
-  scene.addAnswer(answer);
-  return scene;
-}
-
-function banditEncounter(goto) {
+function banditEncounterOLD(goto) {
   //const exit = "exit";
 
   const sceneExit = new Dialog(emptyImg);
@@ -60,7 +54,7 @@ function banditEncounter(goto) {
   return goto;
 }
 
-function mageEncounter(goto) {
+function mageEncounterOLD(goto) {
   const sceneA = new Dialog(
     OldWizzard,
     "Bonjour aventurier, je suis un vieux mage qui sert de test pour le développement de rencontres avec les PNJ, j'ai volontairement un texte très long qui a pour but de tester que ce dernier ne dépasse pas de la <div> qui le contient, si tu arrives à tout lire c'est que ça fonctionne comme prévu, d'ailleurs pour les besoin du test j'ai décidé d'augmenter grandement la taille de ce que je raconte, juste pour voir si la div s'accord ou si texte diminue, je ne sais aps encore comment ça va s'afficher je vais voir",
@@ -127,7 +121,15 @@ function treeEncounter(goTo) {
   });
   sceneA.addAnswer(answerA2);
 
-  //console.log(sceneA);
+  const answerB1 = new Answer({
+    text: "S'en aller",
+    shouldExit: true,
+    getItem: true,
+    itemProps: { name: "wood", fill: "url(#treeLeef2)" },
+  });
+  sceneB.addAnswer(answerB1);
+
+  //console.log("answerB1");
 
   if (goTo === undefined) {
     goTo = sceneA;

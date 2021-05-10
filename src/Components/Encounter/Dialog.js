@@ -9,7 +9,7 @@ export class Dialog {
     this.answers.push(answer);
   }
 
-  manageGoto() {
+  getGoto() {
     return this.answers.goto;
   }
 }

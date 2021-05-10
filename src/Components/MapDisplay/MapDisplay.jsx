@@ -102,7 +102,7 @@ export function MapDisplay({
                 },${gridUnit.coordStart.y + gridUnit.radius})`}
               />
 
-              {testifZIndex(gridUnit)}
+              {DrawLayouts(gridUnit)}
 
               {/* Add text balise here */}
             </g>
@@ -124,22 +124,24 @@ export function MapDisplay({
   //   {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
   // </text>
 
-  function testifZIndex(gridUnit) {
-    if (gridUnit.fill[1] !== undefined) {
-      return (
-        <rect
-          x={gridUnit.coordStart.x}
-          y={gridUnit.coordStart.y}
-          width={gridUnit.radius * 2}
-          height={gridUnit.radius * 2}
-          fill={gridUnit.fill[1]}
-          opacity={gridUnit.opacity}
-          strokeWidth={gridUnit.strokeWidth}
-          transform={`rotate(${gridUnit.rotateAngle},${
-            gridUnit.coordStart.x + gridUnit.radius
-          },${gridUnit.coordStart.y + gridUnit.radius})`}
-        />
-      );
+  function DrawLayouts(gridUnit) {
+    for (let i = 1; i < gridUnit.fill.length; i++) {
+      if (gridUnit.fill[1] !== undefined) {
+        return (
+          <rect
+            x={gridUnit.coordStart.x}
+            y={gridUnit.coordStart.y}
+            width={gridUnit.radius * 2}
+            height={gridUnit.radius * 2}
+            fill={gridUnit.fill[i]}
+            opacity={gridUnit.opacity}
+            strokeWidth={gridUnit.strokeWidth}
+            transform={`rotate(${gridUnit.rotateAngle},${
+              gridUnit.coordStart.x + gridUnit.radius
+            },${gridUnit.coordStart.y + gridUnit.radius})`}
+          />
+        );
+      }
     }
   }
 

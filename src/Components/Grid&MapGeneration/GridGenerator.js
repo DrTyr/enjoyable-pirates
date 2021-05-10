@@ -53,6 +53,7 @@ export function generateEntireGrid(
     numberOfRow: numberOfRow,
     numberOfColumn: numberOfColumn,
     unitRadius: gridUnitRadius,
+    //inventory: {},
   };
 
   for (let i = 0; i < grid.numberOfColumn; i++) {

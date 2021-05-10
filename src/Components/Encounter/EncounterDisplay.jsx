@@ -19,9 +19,8 @@ import { detectEncounter } from "./EncounterPossibilities";
 export function EncounterDisplay({
   encounterType,
   encounterToDisplay,
-  setEncounterToDisplay,
-  sceneIsOn,
   setSceneIsOn,
+  inventory,
 }) {
   const [encounterImageSize, setEncounterImageSize] = useState({
     width: 0,
@@ -59,12 +58,17 @@ export function EncounterDisplay({
         key={`${scene.answers.indexOf(answer)}`}
         className="button"
         onClick={() => {
-          console.log("answer.goto :", answer.goTo);
+          //console.log("answer.goto :", answer.goTo);
           if (answer.shouldExit) {
             // setEncounterToDisplay(true);
             setSceneIsOn(false);
           } else {
             setscene(detectEncounter(encounterType, answer.goTo));
+          }
+          if (answer.getItem) {
+            //console.log("itemProps :", answer.itemProps);
+            inventory.push(answer.itemProps);
+            //console.log("inventory after push :", inventory);
           }
         }}
       >

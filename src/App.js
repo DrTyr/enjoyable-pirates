@@ -35,6 +35,7 @@ function Page1({ setCurrentPage }) {
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [encounterToDisplay, setEncounterToDisplay] = useState(false);
   const [sceneIsOn, setSceneIsOn] = useState(false);
+  const [inventory, setInventory] = useState([]);
   //const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {
@@ -70,13 +71,15 @@ function Page1({ setCurrentPage }) {
 
   //console.log("zoomLevel :", zoomLevel);
 
-  console.log("encounterToDisplay", encounterToDisplay);
+  //console.log("encounterToDisplay", encounterToDisplay);
+  //console.log("inventory in APP :", inventory);
+  //console.log("inventory length in APP :", inventory.length);
   //console.log("currentUnit :", currentUnit);
   //console.log("currentUnit.encounterType[0] :", currentUnit.encounterType[0]);
 
   return (
     <div className="mainDivFullScreen">
-      <InventoryButton />
+      <InventoryButton inventory={inventory} />
       <DiaryButton />
 
       <div
@@ -111,10 +114,9 @@ function Page1({ setCurrentPage }) {
         <div className="downRight-encounter">
           <EncounterDisplay
             encounterType={currentUnit.encounterType[0]}
-            setEncounterToDisplay={setEncounterToDisplay}
-            sceneIsOn={sceneIsOn}
             setSceneIsOn={setSceneIsOn}
             encounterToDisplay={encounterToDisplay}
+            inventory={inventory}
           />
         </div>
       ) : (

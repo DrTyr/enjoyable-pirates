@@ -8,14 +8,14 @@ import inventoryIcon from "../../Assets/InventoryIcon.png";
 import { Inventory } from "./InventoryDisplay";
 import PopUp from "../PopUp";
 
-export function InventoryButton() {
+export function InventoryButton({ inventory }) {
   const [display, setDisplay] = useState(false);
 
   return (
     <>
       {display && (
         <PopUp closeCallBack={() => setDisplay(!display)}>
-          <Inventory />
+          <Inventory inventory={inventory} />
         </PopUp>
       )}
       {/* <input
