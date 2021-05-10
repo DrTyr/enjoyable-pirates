@@ -1,5 +1,5 @@
 import tardigrade from "../../Assets/tardigrade.jpg";
-import empty from "../../Assets/empty.jpg";
+import emptyImg from "../../Assets/empty.jpg";
 import OldWizzard from "../../Assets/OldWizzard.jpg";
 import { Dialog } from "./Dialog";
 import { Answer } from "./Answer";
@@ -28,13 +28,13 @@ export function detectEncounter(randomEncounter, goto) {
 }
 
 function emptyEncounter() {
-  const scene = new Dialog(empty);
+  const scene = new Dialog(emptyImg);
 
   return scene;
 }
 
 function exitScene() {
-  const scene = new Dialog(empty);
+  const scene = new Dialog(emptyImg);
   const answer = new Answer({ exit: true });
   scene.addAnswer(answer);
   return scene;
@@ -43,7 +43,7 @@ function exitScene() {
 function banditEncounter(goto) {
   //const exit = "exit";
 
-  const sceneExit = new Dialog(empty);
+  const sceneExit = new Dialog(emptyImg);
   const answer = new Answer("exitScene");
   sceneExit.addAnswer(answer);
 
@@ -113,26 +113,25 @@ function mageEncounter(goto) {
   return goto;
 }
 
-function treeEncounter(goto) {
-  const sceneA = new Dialog(empty, "I AM GROOT");
+function treeEncounter(goTo) {
+  const sceneA = new Dialog(emptyImg, "I AM GROOT");
 
-  const sceneB = new Dialog(empty, "Vous récoltez du bois");
+  const sceneB = new Dialog(emptyImg, "Vous récoltez du bois");
 
-  const answerA1 = new Answer({ text: "Récolter du bois", goto: sceneB });
+  const answerA1 = new Answer({ text: "Récolter du bois", goTo: sceneB });
   sceneA.addAnswer(answerA1);
 
   const answerA2 = new Answer({
     text: "S'en aller",
-    exit: true,
-    goto: "exit",
+    shouldExit: true,
   });
   sceneA.addAnswer(answerA2);
 
-  console.log(sceneA);
+  //console.log(sceneA);
 
-  if (goto === undefined) {
-    goto = sceneA;
+  if (goTo === undefined) {
+    goTo = sceneA;
   }
 
-  return goto;
+  return goTo;
 }

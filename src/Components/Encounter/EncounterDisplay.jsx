@@ -50,21 +50,21 @@ export function EncounterDisplay({
 
     //console.log("scene.answers[0].exit", scene.answers[0].exit);
 
-    if (scene.answers.goto === "exit") {
-      setEncounterToDisplay(false);
-    }
+    // if (scene.answers.shouldExit) {
+    //   setEncounterToDisplay(false);
+    // }
 
     return scene.answers.map(answer => (
       <button
         key={`${scene.answers.indexOf(answer)}`}
         className="button"
         onClick={() => {
-          console.log("answer.goto :", answer.goto);
-          if (answer.goto === "exit") {
-            setEncounterToDisplay(false);
+          console.log("answer.goto :", answer.goTo);
+          if (answer.shouldExit) {
+            // setEncounterToDisplay(true);
             setSceneIsOn(false);
           } else {
-            setscene(detectEncounter(encounterType, answer.goto));
+            setscene(detectEncounter(encounterType, answer.goTo));
           }
         }}
       >

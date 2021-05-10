@@ -34,8 +34,18 @@ function Page1({ setCurrentPage }) {
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [encounterToDisplay, setEncounterToDisplay] = useState(false);
-  const [sceneIsOn, setSceneIsOn] = useState(true);
+  const [sceneIsOn, setSceneIsOn] = useState(false);
   //const [sceneToDisplay, setSceneToDisplay] = useState(true);
+
+  useEffect(() => {
+    if (currentUnit.encounterType[0] !== 0) {
+      setEncounterToDisplay(true);
+      setSceneIsOn(true);
+    } else {
+      setEncounterToDisplay(false);
+      setSceneIsOn(false);
+    }
+  }, [currentUnit]);
 
   useEffect(() => {
     // setTopRightUnitDisplaySize({
@@ -47,14 +57,7 @@ function Page1({ setCurrentPage }) {
       width: document.getElementById("subLeft-Grig").clientWidth,
       height: document.getElementById("subLeft-Grig").clientHeight,
     });
-    if (
-      currentUnit.encounterType[0] !== 0 &&
-      encounterToDisplay === false &&
-      sceneIsOn === true
-    ) {
-      setEncounterToDisplay(true);
-    } //else setEncounterToDisplay(false);
-  }, [currentUnit, zoomLevel, encounterToDisplay, sceneIsOn]);
+  }, [zoomLevel]);
 
   // const onWheelHandler = e => {
   //   const dir = e.deltaY;
@@ -104,7 +107,7 @@ function Page1({ setCurrentPage }) {
         />
       </div> */}
 
-      {encounterToDisplay ? (
+      {encounterToDisplay && sceneIsOn ? (
         <div className="downRight-encounter">
           <EncounterDisplay
             encounterType={currentUnit.encounterType[0]}

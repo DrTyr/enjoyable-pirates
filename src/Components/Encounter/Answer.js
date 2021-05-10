@@ -1,11 +1,7 @@
 export class Answer {
-  constructor({ text, exit: bolean, goto }) {
-    if (bolean === undefined) {
-      bolean = false;
-    }
-
+  constructor({ text, shouldExit = false, goTo }) {
     this.text = text;
-    this.exit = bolean;
-    this.goto = goto;
+    this.shouldExit = shouldExit;
+    this.goTo = goTo;
   }
 }
