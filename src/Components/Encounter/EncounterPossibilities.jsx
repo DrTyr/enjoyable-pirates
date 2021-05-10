@@ -123,9 +123,12 @@ function treeEncounter(goto) {
 
   const answerA2 = new Answer({
     text: "S'en aller",
-    goto: exitScene(),
+    exit: true,
+    goto: "exit",
   });
   sceneA.addAnswer(answerA2);
+
+  console.log(sceneA);
 
   if (goto === undefined) {
     goto = sceneA;

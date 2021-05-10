@@ -19,7 +19,7 @@ export function generateOneGridUnit() {
     fill: [],
     fillType: [],
     opacity: 1,
-    encounterType: [null, 0],
+    encounterType: [0],
     stroke: null,
     clickable: true,
     strokeWidth: 5,

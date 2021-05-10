@@ -35,7 +35,7 @@ function Page1({ setCurrentPage }) {
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [encounterToDisplay, setEncounterToDisplay] = useState(false);
   const [sceneIsOn, setSceneIsOn] = useState(true);
-  const [sceneToDisplay, setSceneToDisplay] = useState(true);
+  //const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {
     // setTopRightUnitDisplaySize({
@@ -47,10 +47,14 @@ function Page1({ setCurrentPage }) {
       width: document.getElementById("subLeft-Grig").clientWidth,
       height: document.getElementById("subLeft-Grig").clientHeight,
     });
-    // if (currentUnit.encounterType[0] != null) {
-    //   setEncounterIsOn(true);
-    // } else setEncounterIsOn(false);
-  }, [currentUnit, zoomLevel, encounterToDisplay]);
+    if (
+      currentUnit.encounterType[0] !== 0 &&
+      encounterToDisplay === false &&
+      sceneIsOn === true
+    ) {
+      setEncounterToDisplay(true);
+    } //else setEncounterToDisplay(false);
+  }, [currentUnit, zoomLevel, encounterToDisplay, sceneIsOn]);
 
   // const onWheelHandler = e => {
   //   const dir = e.deltaY;
@@ -64,8 +68,8 @@ function Page1({ setCurrentPage }) {
   //console.log("zoomLevel :", zoomLevel);
 
   console.log("encounterToDisplay", encounterToDisplay);
-  console.log("currentUnit :", currentUnit);
-  console.log("currentUnit.encounterType[0] :", currentUnit.encounterType[0]);
+  //console.log("currentUnit :", currentUnit);
+  //console.log("currentUnit.encounterType[0] :", currentUnit.encounterType[0]);
 
   return (
     <div className="mainDivFullScreen">
@@ -104,10 +108,10 @@ function Page1({ setCurrentPage }) {
         <div className="downRight-encounter">
           <EncounterDisplay
             encounterType={currentUnit.encounterType[0]}
-            setEncounterIsOn={setEncounterToDisplay}
+            setEncounterToDisplay={setEncounterToDisplay}
             sceneIsOn={sceneIsOn}
             setSceneIsOn={setSceneIsOn}
-            //encounterToDisplay={encounterToDisplay}
+            encounterToDisplay={encounterToDisplay}
           />
         </div>
       ) : (

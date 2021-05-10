@@ -18,8 +18,8 @@ import { detectEncounter } from "./EncounterPossibilities";
 //React Component names MUST begin with a maj so React know its a component
 export function EncounterDisplay({
   encounterType,
-  encounterIsOn,
-  setEncounterIsOn,
+  encounterToDisplay,
+  setEncounterToDisplay,
   sceneIsOn,
   setSceneIsOn,
 }) {
@@ -39,26 +39,33 @@ export function EncounterDisplay({
       height: document.getElementById("encounter-image").clientHeight,
     });
     setscene(detectEncounter(encounterType));
-  }, [encounterType, encounterIsOn]);
+  }, [encounterType, encounterToDisplay]);
 
   function answersToDisplay() {
-    if (scene.answers.length === 0) {
-      return null;
-    }
+    // if (scene.answers.length === 0) {
+    //   return null;
+    // }
 
     //console.log(scene.answers[0].text);
 
-    console.log("scene.answers[0].exit", scene.answers[0].exit);
+    //console.log("scene.answers[0].exit", scene.answers[0].exit);
 
-    if (scene.answers[0].exit === true) {
-      setSceneIsOn(false);
+    if (scene.answers.goto === "exit") {
+      setEncounterToDisplay(false);
     }
 
     return scene.answers.map(answer => (
       <button
+        key={`${scene.answers.indexOf(answer)}`}
         className="button"
         onClick={() => {
-          setscene(detectEncounter(encounterType, answer.goto));
+          console.log("answer.goto :", answer.goto);
+          if (answer.goto === "exit") {
+            setEncounterToDisplay(false);
+            setSceneIsOn(false);
+          } else {
+            setscene(detectEncounter(encounterType, answer.goto));
+          }
         }}
       >
         {answer.text}

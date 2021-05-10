@@ -1,8 +1,8 @@
 export function generateEncounters(grid) {
   //grid = randomlyFillWithEncounter(grid);
 
-  grid = generateTree(grid, 25);
-  grid = generateBoat(grid, 25);
+  grid = generateTree(grid, 4);
+  grid = generateBoat(grid, 6);
 
   return grid;
 }
