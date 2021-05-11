@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/enjoyable-pirates/static/css/main.8d3fc560.chunk.css",
-    "main.js": "/enjoyable-pirates/static/js/main.dbf3d469.chunk.js",
-    "main.js.map": "/enjoyable-pirates/static/js/main.dbf3d469.chunk.js.map",
+    "main.css": "/enjoyable-pirates/static/css/main.c28a7c91.chunk.css",
+    "main.js": "/enjoyable-pirates/static/js/main.4bce37dd.chunk.js",
+    "main.js.map": "/enjoyable-pirates/static/js/main.4bce37dd.chunk.js.map",
     "runtime-main.js": "/enjoyable-pirates/static/js/runtime-main.c8ec9ed0.js",
     "runtime-main.js.map": "/enjoyable-pirates/static/js/runtime-main.c8ec9ed0.js.map",
     "static/js/2.b4245436.chunk.js": "/enjoyable-pirates/static/js/2.b4245436.chunk.js",
@@ -10,13 +10,14 @@
     "static/js/3.75f01c7b.chunk.js": "/enjoyable-pirates/static/js/3.75f01c7b.chunk.js",
     "static/js/3.75f01c7b.chunk.js.map": "/enjoyable-pirates/static/js/3.75f01c7b.chunk.js.map",
     "index.html": "/enjoyable-pirates/index.html",
-    "static/css/main.8d3fc560.chunk.css.map": "/enjoyable-pirates/static/css/main.8d3fc560.chunk.css.map",
+    "static/css/main.c28a7c91.chunk.css.map": "/enjoyable-pirates/static/css/main.c28a7c91.chunk.css.map",
     "static/js/2.b4245436.chunk.js.LICENSE.txt": "/enjoyable-pirates/static/js/2.b4245436.chunk.js.LICENSE.txt",
     "static/media/BanditCamp.111e7e62.jpg": "/enjoyable-pirates/static/media/BanditCamp.111e7e62.jpg",
     "static/media/BeachTileset.e58c40cd.png": "/enjoyable-pirates/static/media/BeachTileset.e58c40cd.png",
     "static/media/App.css": "/enjoyable-pirates/static/media/Bloup.323680ff.png",
     "static/media/DiaryIcon.1f036dfc.png": "/enjoyable-pirates/static/media/DiaryIcon.1f036dfc.png",
     "static/media/InventoryIcon.76827857.png": "/enjoyable-pirates/static/media/InventoryIcon.76827857.png",
+    "static/media/InventoryIconWithNotification.8e596801.png": "/enjoyable-pirates/static/media/InventoryIconWithNotification.8e596801.png",
     "static/media/OldWizzard.ca01dff1.jpg": "/enjoyable-pirates/static/media/OldWizzard.ca01dff1.jpg",
     "static/media/Pirate.b7057660.png": "/enjoyable-pirates/static/media/Pirate.b7057660.png",
     "static/media/tardigrade.b6bf20ef.jpg": "/enjoyable-pirates/static/media/tardigrade.b6bf20ef.jpg"
@@ -24,7 +25,7 @@
   "entrypoints": [
     "static/js/runtime-main.c8ec9ed0.js",
     "static/js/2.b4245436.chunk.js",
-    "static/css/main.8d3fc560.chunk.css",
-    "static/js/main.dbf3d469.chunk.js"
+    "static/css/main.c28a7c91.chunk.css",
+    "static/js/main.4bce37dd.chunk.js"
   ]
 }
