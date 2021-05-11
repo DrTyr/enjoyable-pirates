@@ -4,21 +4,28 @@ import React from "react";
 import "./Inventory.css";
 
 export function Inventory({ inventory }) {
-  const numberOfSlot = 5;
+  //const numberOfSlot = 5;
 
   //console.log("inventory inside display :", inventory);
   //console.log("inventory length in Inventory:", inventory.length);
 
+  if (inventory.displayNotification) {
+    inventory.displayNotification = false;
+  }
+
   function generateSlots() {
     let slots = [];
 
-    for (let i = 0; i < inventory.length; i++) {
+    for (let i = 0; i < inventory.list.length; i++) {
       slots[i] = (
         <g
           className="slot-box"
           key={`InventorySlot${i}`}
           onClick={() =>
-            console.log("Hello sweety, je suis l'item : ", inventory[i].name)
+            console.log(
+              "Hello sweety, je suis l'item : ",
+              inventory.list[i].name,
+            )
           }
         >
           <rect
@@ -31,7 +38,7 @@ export function Inventory({ inventory }) {
             height="30"
             strokeWidth="1"
             style={{ stroke: "black" }}
-            fill={inventory[i].fill}
+            fill={inventory.list[i].fill}
           />
         </g>
       );
@@ -39,8 +46,8 @@ export function Inventory({ inventory }) {
 
     //console.log("slots length :", slots.length);
 
-    if (slots.length < numberOfSlot) {
-      for (let i = inventory.length; i < numberOfSlot; i++) {
+    if (slots.length < inventory.inventorySize) {
+      for (let i = inventory.list.length; i < inventory.inventorySize; i++) {
         slots[i] = (
           <g className="slot-box" key={`InventorySlot${i}`}>
             <rect

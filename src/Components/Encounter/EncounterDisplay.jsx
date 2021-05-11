@@ -67,7 +67,8 @@ export function EncounterDisplay({
           }
           if (answer.getItem) {
             //console.log("itemProps :", answer.itemProps);
-            inventory.push(answer.itemProps);
+            inventory.list.push(answer.itemProps);
+            inventory.displayNotification = true;
             //console.log("inventory after push :", inventory);
           }
         }}

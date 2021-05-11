@@ -35,7 +35,11 @@ function Page1({ setCurrentPage }) {
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [encounterToDisplay, setEncounterToDisplay] = useState(false);
   const [sceneIsOn, setSceneIsOn] = useState(false);
-  const [inventory, setInventory] = useState([]);
+  const [inventory, setInventory] = useState({
+    displayNotification: false,
+    list: [],
+    inventorySize: 5,
+  });
   //const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {
