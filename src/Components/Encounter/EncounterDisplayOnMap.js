@@ -1,9 +1,9 @@
 export function generateEncounters(grid) {
   //grid = randomlyFillWithEncounter(grid);
 
-  grid = generateTree(grid, 4);
-  grid = generateBoat(grid, 6);
-  grid = generatePirate(grid, 1);
+  grid = generateTree(grid, 17);
+  //grid = generateBoat(grid, 23);
+  //grid = generatePirate(grid, 1);
 
   return grid;
 }
@@ -25,15 +25,23 @@ function generateTree(grid, quantity) {
 
     switch (random) {
       case 0:
-        trunkPos.fill[1] = "url(#treeTrunk1)";
-        trunkPos.encounterType[0] = "tree";
-        leefPos.fill[1] = "url(#treeLeef1)";
+        trunkPos.encounter.fill[0] = "url(#treeTrunk1)";
+        trunkPos.encounter.type[0] = "tree";
+        trunkPos.encounter.display[0] = "true";
+
+        leefPos.encounter.fill[0] = "url(#treeLeef1)";
+        leefPos.encounter.display[0] = "true";
+
         //leefPos.encounterType[1] = "tree";
         break;
       case 1:
-        trunkPos.fill[1] = "url(#treeTrunk2)";
-        trunkPos.encounterType[0] = "tree";
-        leefPos.fill[1] = "url(#treeLeef2)";
+        trunkPos.encounter.fill[0] = "url(#treeTrunk2)";
+        trunkPos.encounter.type[0] = "tree";
+        trunkPos.encounter.display[0] = "true";
+
+        leefPos.encounter.fill[0] = "url(#treeLeef2)";
+        leefPos.encounter.display[0] = "true";
+
         //leefPos.encounterType[1] = "tree";
         break;
       default:

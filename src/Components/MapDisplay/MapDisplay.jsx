@@ -7,7 +7,6 @@ import React, { useState } from "react";
 ///////////////////////////////////////////////////////////
 
 //Functions imports////////////////////////////////////////
-import { generateMainMap } from "../Grid&MapGeneration/MapGenerator";
 import DisplayCaracter from "../PlayableCaracterDisplay/CaracterDisplay";
 import { getNeighboursCoordinatesOfUnit } from "./InteractionsWithNeighbours";
 import {
@@ -24,8 +23,9 @@ export function MapDisplay({
   setCurrentUnit,
   currentUnit,
   zoomLevel,
+  grid,
+  setGrid,
 }) {
-  const [grid, setGrid] = useState(generateMainMap());
   const [previousgrid, setPreviousGrid] = useState(grid);
   const [posCaracterInSvg, setPosCaracterInSvg] = useState({
     x: grid.unitsList[2][9].coordStart.x + grid.unitRadius,
@@ -102,7 +102,7 @@ export function MapDisplay({
                 },${gridUnit.coordStart.y + gridUnit.radius})`}
               />
 
-              {DrawLayout(gridUnit, 1)}
+              {DrawLayout(gridUnit, 0)}
               {/* {DrawLayout(gridUnit, 2)} */}
 
               {/* Add text balise here */}
@@ -126,14 +126,17 @@ export function MapDisplay({
   // </text>
 
   function DrawLayout(gridUnit, zindex) {
-    if (gridUnit.fill[zindex] !== undefined) {
+    if (
+      gridUnit.encounter.fill[zindex] !== undefined &&
+      gridUnit.encounter.display[zindex]
+    ) {
       return (
         <rect
           x={gridUnit.coordStart.x}
           y={gridUnit.coordStart.y}
           width={gridUnit.radius * 2}
           height={gridUnit.radius * 2}
-          fill={gridUnit.fill[zindex]}
+          fill={gridUnit.encounter.fill[zindex]}
           opacity={gridUnit.opacity}
           strokeWidth={gridUnit.strokeWidth}
           transform={`rotate(${gridUnit.rotateAngle},${

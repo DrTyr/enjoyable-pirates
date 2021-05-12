@@ -11,6 +11,7 @@ import "./EncounterDisplay.css";
 //Functions imports////////////////////////////////////////
 import { detectEncounter } from "./EncounterSceneGenerator";
 import { AddObjectInInventory } from "../Inventory/ManageInventory";
+import { ManageDeleteOnMap } from "../MapDisplay/ManageMapModifications";
 ///////////////////////////////////////////////////////////
 
 //Assets imports///////////////////////////////////////////
@@ -19,15 +20,20 @@ import { AddObjectInInventory } from "../Inventory/ManageInventory";
 //React Component names MUST begin with a maj so React know its a component
 export function EncounterDisplay({
   encounterType,
-  encounterToDisplay,
+  encounterIsDisplay,
   setSceneIsOn,
   inventory,
+  grid,
+  setGrid,
+  currentUnit,
 }) {
   const [encounterImageSize, setEncounterImageSize] = useState({
     width: 0,
     height: 0,
   });
   const [scene, setscene] = useState(detectEncounter(encounterType));
+
+  console.log("currentUnit :", currentUnit);
 
   // if (encounterType != null) {
   //   setEncounterIsOn(true);
@@ -39,7 +45,7 @@ export function EncounterDisplay({
       height: document.getElementById("encounter-image").clientHeight,
     });
     setscene(detectEncounter(encounterType));
-  }, [encounterType, encounterToDisplay]);
+  }, [encounterType, encounterIsDisplay]);
 
   function answersToDisplay() {
     // if (scene.answers.length === 0) {
@@ -59,7 +65,8 @@ export function EncounterDisplay({
         key={`${scene.answers.indexOf(answer)}`}
         className="button"
         onClick={() => {
-          console.log("answer :", answer);
+          //console.log("answer :", answer);
+          ManageDeleteOnMap(answer, grid, currentUnit);
           if (answer.getItem) {
             AddObjectInInventory(inventory, answer);
             //console.log("itemProps :", answer.itemProps);
@@ -92,6 +99,7 @@ export function EncounterDisplay({
             alt=""
             width={encounterImageSize.width}
             height={encounterImageSize.height}
+            style={{ margin: "75 0 0 -100" }}
           />
         </div>
         <div className="encounter-text-answer">

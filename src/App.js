@@ -6,7 +6,7 @@ import "./App.css";
 ///////////////////////////////////////////////////////////
 //React components import//////////////////////////////////
 import { MapDisplay } from "./Components/MapDisplay/MapDisplay";
-import { EncounterDisplay } from "./Components/Encounter/EncounterDisplay";
+import { EncounterDisplay } from "./Components/Encounter/EncounterDivDisplay";
 import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
 import { InventoryButton } from "./Components/Inventory/InventoryButton";
 import { DiaryButton } from "./Components/Diary/DiaryButton";
@@ -14,6 +14,7 @@ import { Page2 } from "./Components/Grid&MapGeneration/MapCreationInterface";
 ///////////////////////////////////////////////////////////
 //Functions imports////////////////////////////////////////
 import { generateOneGridUnit } from "./Components/Grid&MapGeneration/GridGenerator";
+import { generateMainMap } from "./Components/Grid&MapGeneration/MapGenerator";
 ///////////////////////////////////////////////////////////
 //Assets imports///////////////////////////////////////////
 ///////////////////////////////////////////////////////////
@@ -31,9 +32,9 @@ function Page1({ setCurrentPage }) {
   });
   //////////////////////////////
   const [zoomLevel, setZoomLevel] = useState(550);
-
+  const [grid, setGrid] = useState(generateMainMap());
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
-  const [encounterToDisplay, setEncounterToDisplay] = useState(false);
+  const [encounterIsDisplay, setEncounterIsDisplay] = useState(false);
   const [sceneIsOn, setSceneIsOn] = useState(false);
   const [inventory, setInventory] = useState({
     displayNotification: false,
@@ -53,11 +54,11 @@ function Page1({ setCurrentPage }) {
   //const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {
-    if (currentUnit.encounterType[0] !== 0) {
-      setEncounterToDisplay(true);
+    if (currentUnit.encounter.type[0] !== 0) {
+      setEncounterIsDisplay(true);
       setSceneIsOn(true);
     } else {
-      setEncounterToDisplay(false);
+      setEncounterIsDisplay(false);
       setSceneIsOn(false);
     }
   }, [currentUnit]);
@@ -111,6 +112,8 @@ function Page1({ setCurrentPage }) {
           setCurrentUnit={setCurrentUnit}
           currentUnit={currentUnit}
           zoomLevel={zoomLevel}
+          grid={grid}
+          setGrid={setGrid}
         />
       </div>
       {/* <div className="subRight-CurrentUnitDisplay-Encounter"> */}
@@ -124,12 +127,15 @@ function Page1({ setCurrentPage }) {
         />
       </div> */}
 
-      {encounterToDisplay && sceneIsOn ? (
+      {encounterIsDisplay && sceneIsOn ? (
         <div className="downRight-encounter">
           <EncounterDisplay
-            encounterType={currentUnit.encounterType[0]}
+            grid={grid}
+            setGrid={setGrid}
+            currentUnit={currentUnit}
+            encounterType={currentUnit.encounter.type[0]}
             setSceneIsOn={setSceneIsOn}
-            encounterToDisplay={encounterToDisplay}
+            encounterIsDisplay={encounterIsDisplay}
             inventory={inventory}
           />
         </div>

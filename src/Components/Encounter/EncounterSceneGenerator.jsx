@@ -1,6 +1,7 @@
 import tardigrade from "../../Assets/tardigrade.jpg";
 import emptyImg from "../../Assets/empty.jpg";
 import OldWizzard from "../../Assets/OldWizzard.jpg";
+import beachTileset from "../../Assets/BeachTileset.png";
 import { Dialog } from "./Dialog";
 import { Answer } from "./Answer";
 import { Inventory } from "../Inventory/InventoryDisplay";
@@ -108,7 +109,10 @@ function mageEncounterOLD(goto) {
 }
 
 function treeEncounter(goTo) {
-  const sceneA = new Dialog(emptyImg, "I AM GROOT");
+  const sceneA = new Dialog(
+    emptyImg,
+    "En face de vous, un palmier de 3m de haut. Le tronc semble craquelé et pourrait être cassé en petits morceaux",
+  );
 
   const sceneB = new Dialog(emptyImg, "Vous récoltez du bois");
 
@@ -119,7 +123,8 @@ function treeEncounter(goTo) {
     text: "Récolter du bois",
     exit: { shouldExit: true, timeout: 1000 },
     getItem: true,
-    itemProps: { name: "wood", fill: "url(#treeLeef2)" },
+    itemProps: { name: "wood", fill: "url(#treeTrunk2)" },
+    reusable: false,
     goTo: sceneB,
   });
   sceneA.addAnswer(answerA1);

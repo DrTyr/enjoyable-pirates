@@ -12,18 +12,20 @@ const gridUnitRadius = 32;
 
 export function generateOneGridUnit() {
   let emptyGridUnit = {
-    indice: -1,
+    indice: 0,
     coordInGrid: { x: 0, y: 0 },
     coordStart: { x: 0, y: 0 },
     radius: gridUnitRadius,
     fill: [],
     fillType: [],
+    encounter: { zIndex: [0], display: [false], type: [0], fill: [] },
     opacity: 1,
     encounterType: [0],
     stroke: null,
-    clickable: true,
-    strokeWidth: 5,
+    strokeWidth: 0,
     rotateAngle: 0,
+    clickable: true,
+    posNull: [],
   };
 
   return emptyGridUnit;
@@ -67,6 +69,7 @@ export function generateEntireGrid(
         radius: gridUnitRadius,
         fill: [],
         fillType: [],
+        encounter: { zIndex: [0], display: [false], type: [0], fill: [] },
         opacity: 1,
         encounterType: [0],
         stroke: null,
