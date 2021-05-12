@@ -1,5 +1,5 @@
 import { generateEntireGrid } from "../Grid&MapGeneration/GridGenerator";
-import { generateEncounters } from "../Encounter/EncounterGenerator";
+import { generateEncounters } from "../Encounter/EncounterDisplayOnMap";
 import { getNeighboursCoordinatesOfUnit } from "../MapDisplay/InteractionsWithNeighbours";
 //import _ from "lodash";
 
@@ -333,6 +333,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#westOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
 
       continue;
     }
@@ -346,6 +349,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#northWestOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //TO DEFINE
@@ -358,9 +364,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#oneByOneOrangeSandAlone)"; //"red";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = -90;
+      // grid.unitsList[borderUnitsList[k].coordInGrid.x][
+      //   borderUnitsList[k].coordInGrid.y
+      // ].rotateAngle = -90;
       continue;
     }
     //TO DEFINE
@@ -372,9 +378,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#oneByOneOrangeSandAlone)";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = -90;
+      // grid.unitsList[borderUnitsList[k].coordInGrid.x][
+      //   borderUnitsList[k].coordInGrid.y
+      // ].rotateAngle = -90;
       continue;
     }
     //TO DEFINE
@@ -386,9 +392,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "magenta";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = -90;
+      // grid.unitsList[borderUnitsList[k].coordInGrid.x][
+      //   borderUnitsList[k].coordInGrid.y
+      // ].rotateAngle = -90;
       continue;
     }
     //beach corner face south west
@@ -400,6 +406,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#southWestOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //TO DEFINE
@@ -412,9 +421,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "salmon";
-      grid.unitsList[borderUnitsList[k].coordInGrid.x][
-        borderUnitsList[k].coordInGrid.y
-      ].rotateAngle = -90;
+      // grid.unitsList[borderUnitsList[k].coordInGrid.x][
+      //   borderUnitsList[k].coordInGrid.y
+      // ].rotateAngle = -90;
       continue;
     }
     //beach corner face south east
@@ -427,6 +436,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#southEastOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //beach face south
@@ -438,6 +450,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#southOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //beach face east
@@ -449,6 +464,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#eastOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //beach corner face north east
@@ -461,6 +479,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#northEastOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //beach face north
@@ -472,6 +493,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#northOrangeSandSeaJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //Inner corner beach face north east
@@ -483,6 +507,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#northEastSeaOrangeSandJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //Inner corner beach face north west
@@ -494,6 +521,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#northWestSeaOrangeSandJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //Inner corner beach face south west
@@ -505,6 +535,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#southWestSeaOrangeSandJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
     //Inner corner beach face south east
@@ -516,6 +549,9 @@ function generateBeachBorder(grid) {
       grid.unitsList[borderUnitsList[k].coordInGrid.x][
         borderUnitsList[k].coordInGrid.y
       ].fill[0] = "url(#southEastSeaOrangeSandJunction)";
+      grid.unitsList[borderUnitsList[k].coordInGrid.x][
+        borderUnitsList[k].coordInGrid.y
+      ].fillType[0] = "beach";
       continue;
     }
   }
@@ -1063,8 +1099,9 @@ function generateMapShape(grid) {
 
         case 1:
           grid.unitsList[j][i].fill[0] = "url(#fullOrangeSand)";
-          grid.unitsList[j][i].fillType[0] = "OrangeSandAndBeaches";
+          grid.unitsList[j][i].fillType[0] = "OrangeSand";
           break;
+
         case 2:
           grid.unitsList[j][i].fill[0] = "url(#fullGrass)";
           grid.unitsList[j][i].fillType[0] = "grass";

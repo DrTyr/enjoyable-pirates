@@ -30,16 +30,19 @@ function Page1({ setCurrentPage }) {
     height: 0,
   });
   //////////////////////////////
-  const [zoomLevel, setZoomLevel] = useState(450);
+  const [zoomLevel, setZoomLevel] = useState(550);
 
   const [currentUnit, setCurrentUnit] = useState(generateOneGridUnit());
   const [encounterToDisplay, setEncounterToDisplay] = useState(false);
   const [sceneIsOn, setSceneIsOn] = useState(false);
-  const [inventory, setInventory] = useState({
+
+  let inventory = {
     displayNotification: false,
     list: [],
     inventorySize: 5,
-  });
+    itemInInventory: 0,
+    isFull: false,
+  };
   //const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {

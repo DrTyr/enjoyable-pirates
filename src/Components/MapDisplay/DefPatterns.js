@@ -875,8 +875,32 @@ export function defOtherPatterns() {
         y="0"
         width="1"
         height="1"
+        viewBox="480 32 32 32"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="pirate"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
         viewBox="352 32 32 32"
         preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={beachTileset} />
+      </pattern>
+
+      <pattern
+        id="smallBoat"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="192 32 32 32"
+        //preserveAspectRatio="xMidYMid slice"
       >
         <image href={beachTileset} />
       </pattern>

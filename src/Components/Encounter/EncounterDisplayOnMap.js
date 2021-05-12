@@ -3,6 +3,7 @@ export function generateEncounters(grid) {
 
   grid = generateTree(grid, 4);
   grid = generateBoat(grid, 6);
+  grid = generatePirate(grid, 1);
 
   return grid;
 }
@@ -56,6 +57,24 @@ function generateBoat(grid, quantity) {
 
     boatPos.fill[1] = "url(#boatSprite)";
     boatPos.encounterType[1] = "boat";
+  }
+
+  return grid;
+}
+
+function generatePirate(grid, quantity) {
+  let coordinates = { x: 0, y: 0 };
+
+  if (quantity === undefined) {
+    quantity = 1;
+  }
+  for (let i = 0; i < quantity; i++) {
+    coordinates = getRandomUnitCoordinatesInGrid(grid, ["beach"]);
+
+    const pirate = grid.unitsList[coordinates.x][coordinates.y];
+
+    pirate.fill[1] = "url(#pirate)";
+    pirate.encounterType[1] = "pirate";
   }
 
   return grid;

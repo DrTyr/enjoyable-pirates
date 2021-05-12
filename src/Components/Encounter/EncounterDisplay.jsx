@@ -9,7 +9,8 @@ import "./EncounterDisplay.css";
 ///////////////////////////////////////////////////////////
 
 //Functions imports////////////////////////////////////////
-import { detectEncounter } from "./EncounterPossibilities";
+import { detectEncounter } from "./EncounterSceneGenerator";
+import { AddObjectInInventory } from "../Inventory/ManageInventory";
 ///////////////////////////////////////////////////////////
 
 //Assets imports///////////////////////////////////////////
@@ -66,9 +67,8 @@ export function EncounterDisplay({
             setscene(detectEncounter(encounterType, answer.goTo));
           }
           if (answer.getItem) {
+            AddObjectInInventory(inventory, answer);
             //console.log("itemProps :", answer.itemProps);
-            inventory.list.push(answer.itemProps);
-            inventory.displayNotification = true;
             //console.log("inventory after push :", inventory);
           }
         }}

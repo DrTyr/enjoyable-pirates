@@ -102,7 +102,8 @@ export function MapDisplay({
                 },${gridUnit.coordStart.y + gridUnit.radius})`}
               />
 
-              {DrawLayouts(gridUnit)}
+              {DrawLayout(gridUnit, 1)}
+              {/* {DrawLayout(gridUnit, 2)} */}
 
               {/* Add text balise here */}
             </g>
@@ -124,25 +125,23 @@ export function MapDisplay({
   //   {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
   // </text>
 
-  function DrawLayouts(gridUnit) {
-    for (let i = 1; i < gridUnit.fill.length; i++) {
-      if (gridUnit.fill[1] !== undefined) {
-        return (
-          <rect
-            x={gridUnit.coordStart.x}
-            y={gridUnit.coordStart.y}
-            width={gridUnit.radius * 2}
-            height={gridUnit.radius * 2}
-            fill={gridUnit.fill[i]}
-            opacity={gridUnit.opacity}
-            strokeWidth={gridUnit.strokeWidth}
-            transform={`rotate(${gridUnit.rotateAngle},${
-              gridUnit.coordStart.x + gridUnit.radius
-            },${gridUnit.coordStart.y + gridUnit.radius})`}
-          />
-        );
-      }
-    }
+  function DrawLayout(gridUnit, zindex) {
+    if (gridUnit.fill[zindex] !== undefined) {
+      return (
+        <rect
+          x={gridUnit.coordStart.x}
+          y={gridUnit.coordStart.y}
+          width={gridUnit.radius * 2}
+          height={gridUnit.radius * 2}
+          fill={gridUnit.fill[zindex]}
+          opacity={gridUnit.opacity}
+          strokeWidth={gridUnit.strokeWidth}
+          transform={`rotate(${gridUnit.rotateAngle},${
+            gridUnit.coordStart.x + gridUnit.radius
+          },${gridUnit.coordStart.y + gridUnit.radius})`}
+        />
+      );
+    } else return;
   }
 
   function testIfNeighbour(gridUnit, neighbourCoordinates) {
@@ -170,7 +169,7 @@ export function MapDisplay({
         Couper l'animation
       </button>
       <svg
-        viewBox={`${-subLeftGrigSize.width / 2} -50 ${
+        viewBox={`${-subLeftGrigSize.width / 2} 0 ${
           subLeftGrigSize.width * 2 + zoomLevel
         } ${subLeftGrigSize.height * 2 + zoomLevel}`}
         // preserveAspectRatio="xMidYMid meet"
