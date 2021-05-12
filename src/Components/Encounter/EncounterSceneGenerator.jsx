@@ -112,22 +112,31 @@ function treeEncounter(goTo) {
 
   const sceneB = new Dialog(emptyImg, "Vous récoltez du bois");
 
-  const answerA1 = new Answer({ text: "Récolter du bois", goTo: sceneB });
+  // const answerA1 = new Answer({ text: "Récolter du bois", goTo: sceneB });
+  // sceneA.addAnswer(answerA1);
+
+  const answerA1 = new Answer({
+    text: "Récolter du bois",
+    exit: { shouldExit: true, timeout: 1000 },
+    getItem: true,
+    itemProps: { name: "wood", fill: "url(#treeLeef2)" },
+    goTo: sceneB,
+  });
   sceneA.addAnswer(answerA1);
 
   const answerA2 = new Answer({
     text: "S'en aller",
-    shouldExit: true,
+    exit: { shouldExit: true, timeout: 0 },
   });
   sceneA.addAnswer(answerA2);
 
-  const answerB1 = new Answer({
-    text: "S'en aller",
-    shouldExit: true,
-    getItem: true,
-    itemProps: { name: "wood", fill: "url(#treeLeef2)" },
-  });
-  sceneB.addAnswer(answerB1);
+  // const answerB1 = new Answer({
+  //   //text: "S'en aller",
+  //   exit: { shouldExit: true, timeout: 1000 },
+  //   getItem: true,
+  //   itemProps: { name: "wood", fill: "url(#treeLeef2)" },
+  // });
+  // sceneB.addAnswer(answerB1);
 
   //console.log("answerB1");
 

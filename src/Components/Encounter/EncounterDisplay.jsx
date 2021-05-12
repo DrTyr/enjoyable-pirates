@@ -59,17 +59,20 @@ export function EncounterDisplay({
         key={`${scene.answers.indexOf(answer)}`}
         className="button"
         onClick={() => {
-          //console.log("answer.goto :", answer.goTo);
-          if (answer.shouldExit) {
-            // setEncounterToDisplay(true);
-            setSceneIsOn(false);
-          } else {
-            setscene(detectEncounter(encounterType, answer.goTo));
-          }
+          console.log("answer :", answer);
           if (answer.getItem) {
             AddObjectInInventory(inventory, answer);
             //console.log("itemProps :", answer.itemProps);
             //console.log("inventory after push :", inventory);
+          }
+          if (answer.exit.shouldExit) {
+            // setEncounterToDisplay(true);
+            setTimeout(function () {
+              setSceneIsOn(false);
+            }, answer.exit.timeout);
+            setscene(detectEncounter(encounterType, answer.goTo));
+          } else {
+            setscene(detectEncounter(encounterType, answer.goTo));
           }
         }}
       >
