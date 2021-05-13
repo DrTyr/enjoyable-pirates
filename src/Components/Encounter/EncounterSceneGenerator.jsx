@@ -6,7 +6,7 @@ import { Dialog } from "./Dialog";
 import { Answer } from "./Answer";
 import { Inventory } from "../Inventory/InventoryDisplay";
 
-export function detectEncounter(randomEncounter, goto) {
+export function detectEncounter(randomEncounter, goTo) {
   let encounter = emptyEncounter();
   //let encounter = {};
   //console.log("randomEncounter :", randomEncounter);
@@ -18,9 +18,13 @@ export function detectEncounter(randomEncounter, goto) {
       //encounter = mageEncounter(goto);
       break;
     case "tree":
-      encounter = treeEncounter(goto);
-
+      encounter = treeEncounter(goTo);
       break;
+
+    case "pirate":
+      encounter = pirateEncounter(goTo);
+      break;
+
     default:
       console.log("patate");
       break;
@@ -144,6 +148,80 @@ function treeEncounter(goTo) {
   // sceneB.addAnswer(answerB1);
 
   //console.log("answerB1");
+
+  if (goTo === undefined) {
+    goTo = sceneA;
+  }
+
+  return goTo;
+}
+
+function pirateEncounter(goTo) {
+  const sceneA = new Dialog(
+    emptyImg,
+    "HAHAHAHAHA, te voila donc coinçé ici toi aussi  !? HAHAHAHA malédiction ",
+  );
+
+  const sceneB = new Dialog(
+    emptyImg,
+    "Je suis MrlglH le pirate, sur cette foutue  île depuis ... je ne sais plus ... j'ai tenu quelques nuits c'est tout ce qui compte !",
+  );
+
+  const sceneC = new Dialog(
+    emptyImg,
+    "NE T'APPROCHE PAS, C'EST MA NOIX DE COCO  !!! *vous lance un regard mauvais en serrant sa noix de coco contre lui*",
+  );
+
+  const sceneD = new Dialog(
+    emptyImg,
+    "HAHAHAHA c'est l'île ! L'ILE ! L'ILE !! ....",
+  );
+
+  const answerA1 = new Answer({
+    text: "Qui êtes-vous ?",
+    goTo: sceneB,
+  });
+  sceneA.addAnswer(answerA1);
+
+  const answerA2 = new Answer({
+    text: "On est ou ici ?",
+    goTo: sceneD,
+  });
+  sceneA.addAnswer(answerA2);
+  sceneB.addAnswer(answerA2);
+
+  const answerB1 = new Answer({
+    text: "Vous pouvez m'aider ?",
+    goTo: sceneC,
+  });
+  sceneB.addAnswer(answerB1);
+  sceneD.addAnswer(answerB1);
+
+  const answerC1 = new Answer({
+    text:
+      "Se préparer à combattre pour cette noix de coco qui à l'air juteuse et délicieuse",
+    exit: { shouldExit: true, timeout: 0 },
+  });
+  sceneC.addAnswer(answerC1);
+
+  const answerC2 = new Answer({
+    text: "S'en aller en courant",
+    exit: { shouldExit: true, timeout: 0 },
+  });
+  sceneC.addAnswer(answerC2);
+
+  const answerD1 = new Answer({
+    text: "S'éloigner et le laisser marmonner en caressant une noix de coco",
+    exit: { shouldExit: true, timeout: 0 },
+  });
+  sceneD.addAnswer(answerD1);
+
+  const leave = new Answer({
+    text: "S'en aller",
+    exit: { shouldExit: true, timeout: 0 },
+  });
+  sceneA.addAnswer(leave);
+  sceneB.addAnswer(leave);
 
   if (goTo === undefined) {
     goTo = sceneA;

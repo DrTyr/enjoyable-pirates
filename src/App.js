@@ -54,7 +54,7 @@ function Page1({ setCurrentPage }) {
   //const [sceneToDisplay, setSceneToDisplay] = useState(true);
 
   useEffect(() => {
-    if (currentUnit.encounter.type[0] !== 0) {
+    if (currentUnit.encounter[0].type !== null) {
       setEncounterIsDisplay(true);
       setSceneIsOn(true);
     } else {
@@ -133,7 +133,7 @@ function Page1({ setCurrentPage }) {
             grid={grid}
             setGrid={setGrid}
             currentUnit={currentUnit}
-            encounterType={currentUnit.encounter.type[0]}
+            encounterType={currentUnit.encounter[0].type}
             setSceneIsOn={setSceneIsOn}
             encounterIsDisplay={encounterIsDisplay}
             inventory={inventory}

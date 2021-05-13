@@ -105,30 +105,34 @@ export function MapDisplay({
               {DrawLayout(gridUnit, 0)}
               {/* {DrawLayout(gridUnit, 2)} */}
 
-              {/* Add text balise here */}
+              {/* {displayCoordOnMap(gridUnit)} */}
             </g>
           ),
       ),
     );
   }
 
-  //   <text
-  //   //className ="text-coord-map"
-  //   x={gridUnit.coordStart.x + gridUnit.radius}
-  //   y={gridUnit.coordStart.y + gridUnit.radius}
-  //   fontFamily="Verdana"
-  //   fontSize="10"
-  //   fill="white"
-  //   textAnchor="middle"
-  // >
-  //   {/* text to display */}
-  //   {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
-  // </text>
+  function displayCoordOnMap(gridUnit) {
+    return (
+      <text
+        //className ="text-coord-map"
+        x={gridUnit.coordStart.x + gridUnit.radius}
+        y={gridUnit.coordStart.y + gridUnit.radius}
+        fontFamily="Verdana"
+        fontSize="10"
+        fill="white"
+        textAnchor="middle"
+      >
+        {/* text to display */}
+        {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
+      </text>
+    );
+  }
 
   function DrawLayout(gridUnit, zindex) {
     if (
-      gridUnit.encounter.fill[zindex] !== undefined &&
-      gridUnit.encounter.display[zindex]
+      gridUnit.encounter[zindex].fill !== undefined &&
+      gridUnit.encounter[zindex].display
     ) {
       return (
         <rect
@@ -136,7 +140,7 @@ export function MapDisplay({
           y={gridUnit.coordStart.y}
           width={gridUnit.radius * 2}
           height={gridUnit.radius * 2}
-          fill={gridUnit.encounter.fill[zindex]}
+          fill={gridUnit.encounter[zindex].fill}
           opacity={gridUnit.opacity}
           strokeWidth={gridUnit.strokeWidth}
           transform={`rotate(${gridUnit.rotateAngle},${

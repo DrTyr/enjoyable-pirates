@@ -2,16 +2,29 @@ export function ManageDeleteOnMap(answer, grid, currentUnit) {
   if (!answer.reusable) {
     grid.unitsList[currentUnit.coordInGrid.x][
       currentUnit.coordInGrid.y
-    ].encounter.display = false;
+    ].encounter[0].display = false;
 
-    if (
+    switch (
       grid.unitsList[currentUnit.coordInGrid.x][currentUnit.coordInGrid.y]
-        .encounter.type[0] === "tree"
+        .encounter[0].type
     ) {
-      grid.unitsList[currentUnit.coordInGrid.x][
-        currentUnit.coordInGrid.y - 1
-      ].encounter.display = false;
+      case "tree":
+        grid.unitsList[currentUnit.coordInGrid.x][
+          currentUnit.coordInGrid.y - 1
+        ].encounter[0].display = false;
+        break;
+      default:
+        break;
     }
+
+    // if (
+    //   grid.unitsList[currentUnit.coordInGrid.x][currentUnit.coordInGrid.y]
+    //     .encounter[0].type === "tree"
+    // ) {
+    //   grid.unitsList[currentUnit.coordInGrid.x][
+    //     currentUnit.coordInGrid.y - 1
+    //   ].encounter[0].display = false;
+    // }
   }
 
   return grid;

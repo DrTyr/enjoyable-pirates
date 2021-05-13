@@ -6,6 +6,7 @@ export class Answer {
     getItem = false,
     itemProps = [],
     reusable = true,
+    goToUnit = { shouldGo: false, coord: { x: 0, y: 0 } },
   }) {
     this.text = text;
     this.exit = exit;
@@ -13,5 +14,6 @@ export class Answer {
     this.getItem = getItem;
     this.itemProps = itemProps;
     this.reusable = reusable;
+    this.goToUnit = goToUnit;
   }
 }

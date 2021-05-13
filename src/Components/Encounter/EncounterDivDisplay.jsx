@@ -72,6 +72,7 @@ export function EncounterDisplay({
             //console.log("itemProps :", answer.itemProps);
             //console.log("inventory after push :", inventory);
           }
+
           if (answer.exit.shouldExit) {
             // setEncounterToDisplay(true);
             setTimeout(function () {

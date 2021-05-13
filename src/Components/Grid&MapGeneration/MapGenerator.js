@@ -1099,7 +1099,7 @@ function generateMapShape(grid) {
 
         case 1:
           grid.unitsList[j][i].fill[0] = "url(#fullOrangeSand)";
-          grid.unitsList[j][i].fillType[0] = "OrangeSand";
+          grid.unitsList[j][i].fillType[0] = "orangeSand";
           break;
 
         case 2:

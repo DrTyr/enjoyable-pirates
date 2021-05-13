@@ -1,9 +1,9 @@
 export function generateEncounters(grid) {
   //grid = randomlyFillWithEncounter(grid);
 
-  grid = generateTree(grid, 17);
-  //grid = generateBoat(grid, 23);
-  //grid = generatePirate(grid, 1);
+  grid = generateTree(grid, 10);
+  grid = generateBoat(grid, 2);
+  grid = generatePirate(grid, 1);
 
   return grid;
 }
@@ -16,31 +16,42 @@ function generateTree(grid, quantity) {
   }
 
   for (let i = 0; i < quantity; i++) {
-    coordinates = getRandomUnitCoordinatesInGrid(grid, ["grass"]);
     //return random 0 or 1
     let random = Math.round(Math.random() * 1);
+    let trunkPos = null;
+    let leefPos = null;
+    coordinates = getRandomUnitCoordinatesInGrid(grid, ["grass"]);
 
-    const trunkPos = grid.unitsList[coordinates.x][coordinates.y];
-    const leefPos = grid.unitsList[coordinates.x][coordinates.y - 1];
+    //supposé empecher les arbre de se superposer mais ne fonctionne pas !!!!!
+    while (
+      grid.unitsList[coordinates.x][coordinates.y - 1].encounter[0].fill !==
+        null &&
+      grid.unitsList[coordinates.x][coordinates.y].encounter[0].fill !== null
+    ) {
+      coordinates = getRandomUnitCoordinatesInGrid(grid, ["grass"]);
+    }
+
+    trunkPos = grid.unitsList[coordinates.x][coordinates.y];
+    leefPos = grid.unitsList[coordinates.x][coordinates.y - 1];
 
     switch (random) {
       case 0:
-        trunkPos.encounter.fill[0] = "url(#treeTrunk1)";
-        trunkPos.encounter.type[0] = "tree";
-        trunkPos.encounter.display[0] = "true";
+        trunkPos.encounter[0].fill = "url(#treeTrunk1)";
+        trunkPos.encounter[0].type = "tree";
+        trunkPos.encounter[0].display = true;
 
-        leefPos.encounter.fill[0] = "url(#treeLeef1)";
-        leefPos.encounter.display[0] = "true";
+        leefPos.encounter[0].fill = "url(#treeLeef1)";
+        leefPos.encounter[0].display = true;
 
         //leefPos.encounterType[1] = "tree";
         break;
       case 1:
-        trunkPos.encounter.fill[0] = "url(#treeTrunk2)";
-        trunkPos.encounter.type[0] = "tree";
-        trunkPos.encounter.display[0] = "true";
+        trunkPos.encounter[0].fill = "url(#treeTrunk2)";
+        trunkPos.encounter[0].type = "tree";
+        trunkPos.encounter[0].display = true;
 
-        leefPos.encounter.fill[0] = "url(#treeLeef2)";
-        leefPos.encounter.display[0] = "true";
+        leefPos.encounter[0].fill = "url(#treeLeef2)";
+        leefPos.encounter[0].display = true;
 
         //leefPos.encounterType[1] = "tree";
         break;
@@ -63,8 +74,9 @@ function generateBoat(grid, quantity) {
 
     const boatPos = grid.unitsList[coordinates.x][coordinates.y];
 
-    boatPos.fill[1] = "url(#boatSprite)";
-    boatPos.encounterType[1] = "boat";
+    boatPos.encounter[0].fill = "url(#boatSprite)";
+    boatPos.encounter[0].type = "boat";
+    boatPos.encounter[0].display = true;
   }
 
   return grid;
@@ -77,12 +89,13 @@ function generatePirate(grid, quantity) {
     quantity = 1;
   }
   for (let i = 0; i < quantity; i++) {
-    coordinates = getRandomUnitCoordinatesInGrid(grid, ["beach"]);
+    coordinates = getRandomUnitCoordinatesInGrid(grid, ["orangeSand"]);
 
     const pirate = grid.unitsList[coordinates.x][coordinates.y];
 
-    pirate.fill[1] = "url(#pirate)";
-    pirate.encounterType[1] = "pirate";
+    pirate.encounter[0].fill = "url(#pirate)";
+    pirate.encounter[0].type = "pirate";
+    pirate.encounter[0].display = true;
   }
 
   return grid;

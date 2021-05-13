@@ -31,25 +31,25 @@ export function DisplayCaracter({
     <g
       className="caracter"
       key="PJ"
-      onMouseEnter={() => {
-        if (neighboursAreDisplay === false) {
-          setNeighboursAreDisplay(true);
-          let grid2 = { ...grid };
-          setPreviousGrid(_.cloneDeep(grid));
-          setGrid(
-            displayNeighbours(
-              grid.unitsList[posCaracterInGrid.x][posCaracterInGrid.y],
-              grid2,
-            ),
-          );
-        }
-      }}
-      onMouseLeave={() => {
-        if (neighboursAreDisplay === true) {
-          setNeighboursAreDisplay(false);
-          setGrid(previousgrid);
-        }
-      }}
+      // onMouseEnter={() => {
+      //   if (neighboursAreDisplay === false) {
+      //     setNeighboursAreDisplay(true);
+      //     let grid2 = { ...grid };
+      //     setPreviousGrid(_.cloneDeep(grid));
+      //     setGrid(
+      //       displayNeighbours(
+      //         grid.unitsList[posCaracterInGrid.x][posCaracterInGrid.y],
+      //         grid2,
+      //       ),
+      //     );
+      //   }
+      // }}
+      // onMouseLeave={() => {
+      //   if (neighboursAreDisplay === true) {
+      //     setNeighboursAreDisplay(false);
+      //     setGrid(previousgrid);
+      //   }
+      // }}
     >
       <rect
         width="60"
@@ -66,7 +66,7 @@ export function DisplayCaracter({
             attributeType="XML"
             attributeName="y"
             from={posCaracterInSvg.y - 20 - grid.unitRadius / 2}
-            to={posCaracterInSvg.y - grid.unitRadius / 2 - 10}
+            to={posCaracterInSvg.y - 20 - grid.unitRadius / 2 - 10}
             dur="0.5s"
             repeatCount="indefinite"
           />
