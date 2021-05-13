@@ -16,12 +16,13 @@
   /* background-color: salmon; */
   margin: 0;
   /* display: flex; */
-  /* flex-direction: row; */
+  flex-direction: row;
 }
 
 .encounter-image img {
   height: 100%;
   width: auto;
+  margin: 0;
 }
 
 .encounter-text-answer {
@@ -34,8 +35,8 @@
 }
 
 .Encounter-Text {
-  width: 100%;
-  height: 90%;
+  width: 60%;
+  height: 100%;
   /* background-color: silver; */
   margin: 0;
   align-items: center;
@@ -47,7 +48,7 @@
 }
 
 .Encounter-Answers {
-  width: 100%;
+  width: 80%;
   /* height: 10%; */
   /* background-color: greenyellow; */
   margin: 0;

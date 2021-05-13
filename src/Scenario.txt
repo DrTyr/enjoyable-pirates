@@ -1,0 +1,8 @@
+But : exploration survie
+
+Arrivé sur l'île, rencontre avec le premier PNJ :
+    Un pirate fou sur l'île depuis un temps indeterminé
+        Fonction :
+            - découvrir le fonction des dialogues
+            - découvrir le déplacement 
+            - 

@@ -128,7 +128,7 @@ function Page1({ setCurrentPage }) {
       </div> */}
 
       {encounterIsDisplay && sceneIsOn ? (
-        <div className="downRight-encounter">
+        <div className="downRight-encounter ">
           <EncounterDisplay
             grid={grid}
             setGrid={setGrid}

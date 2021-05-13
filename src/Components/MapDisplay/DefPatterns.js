@@ -586,7 +586,7 @@ export function defSeaPatterns() {
         y="0"
         width="1"
         height="1"
-        viewBox="0 128 32 32"
+        viewBox="32 64 32 32"
         preserveAspectRatio="xMidYMid slice"
       >
         <image href={beachTileset} />
