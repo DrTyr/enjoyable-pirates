@@ -26,11 +26,11 @@ export function generateMainMap() {
 
   grid = generateGrassBorder(grid);
 
-  //grid = generateYellowSandBorder(grid);
-
   grid = generateDeepSeaBorder(grid);
 
-  //"../Encounter/EncounterGenerator"
+  //grid = generateYellowSandBorder(grid);
+
+  // //"../Encounter/EncounterDisplayOnMap"
   grid = generateEncounters(grid);
 
   //grid.unitsList[3][3] = null;
@@ -795,7 +795,7 @@ function generateYellowSandBorder(grid) {
     }
     grid.unitsList[borderUnitsList[k].coordInGrid.x][
       borderUnitsList[k].coordInGrid.y
-    ].fill[0] = "green";
+    ].fill[0] = "blue";
   }
 
   return grid;

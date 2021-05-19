@@ -94,15 +94,30 @@ export function EncounterDisplay({
   return (
     <>
       <div className="encounter-image-text">
-        <div className="encounter-image" id="encounter-image">
-          <img
+        <g className="encounter-image" id="encounter-image">
+          <svg viewBox="0 0 150 150">
+            <rect
+              id="encouterImg"
+              //x={`${i * 40 + j * 40}`}
+              x="0"
+              //y={`${j * 10}`}
+              y="0"
+              width="75"
+              height="75"
+              strokeWidth="1"
+              //style={{ stroke: "black", fill: "red" }}
+              fill={scene.picture}
+            />
+          </svg>
+
+          {/* <img
             src={scene.picture}
             alt=""
             width={encounterImageSize.width}
             height={encounterImageSize.height}
             style={{ margin: "75 0 0 -100" }}
-          />
-        </div>
+          /> */}
+        </g>
         <div className="encounter-text-answer">
           <div className="Encounter-Text">{scene.text}</div>
           <div className="Encounter-Answers">{answersToDisplay()}</div>

@@ -1,0 +1,41 @@
+.fight-display-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: white;
+  width: 90vw;
+  height: 90vh;
+  border-radius: 1vw;
+  padding: 1vw;
+  position: relative;
+}
+
+.fight-button {
+  position: absolute;
+  top: 180px;
+  left: 10px;
+  /* background-color: white; */
+  opacity: 0.8;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border: 0px;
+}
+
+.main-div {
+  background-color: purple;
+}
+
+.top-half {
+  height: 50%;
+  width: 100%;
+  background-color: green;
+}
+
+.bottom-half {
+  height: 50%;
+  width: 100%;
+  background-color: yellow;
+}

@@ -114,7 +114,7 @@ function mageEncounterOLD(goto) {
 
 function treeEncounter(goTo) {
   const sceneA = new Dialog(
-    emptyImg,
+    "url(#palmtree)",
     "En face de vous, un palmier de 3m de haut. Le tronc semble craquelé et pourrait être cassé en petits morceaux",
   );
 
@@ -158,22 +158,22 @@ function treeEncounter(goTo) {
 
 function pirateEncounter(goTo) {
   const sceneA = new Dialog(
-    emptyImg,
+    "url(#pirate)",
     "HAHAHAHAHA, te voila donc coinçé ici toi aussi  !? HAHAHAHA malédiction ",
   );
 
   const sceneB = new Dialog(
-    emptyImg,
+    "url(#pirate)",
     "Je suis MrlglH le pirate, sur cette foutue  île depuis ... je ne sais plus ... j'ai tenu quelques nuits c'est tout ce qui compte !",
   );
 
   const sceneC = new Dialog(
-    emptyImg,
+    "url(#pirate)",
     "NE T'APPROCHE PAS, C'EST MA NOIX DE COCO  !!! *vous lance un regard mauvais en serrant sa noix de coco contre lui*",
   );
 
   const sceneD = new Dialog(
-    emptyImg,
+    "url(#pirate)",
     "HAHAHAHA c'est l'île ! L'ILE ! L'ILE !! ....",
   );
 

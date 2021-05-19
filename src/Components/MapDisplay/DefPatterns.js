@@ -904,6 +904,18 @@ export function defOtherPatterns() {
       >
         <image href={beachTileset} />
       </pattern>
+
+      <pattern
+        id="palmtree"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        viewBox="128 0 32 64"
+        //preserveAspectRatio="xMidYMid meet"
+      >
+        <image href={beachTileset} />
+      </pattern>
     </defs>
   );
 }

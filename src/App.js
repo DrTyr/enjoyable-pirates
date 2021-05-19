@@ -9,7 +9,8 @@ import { MapDisplay } from "./Components/MapDisplay/MapDisplay";
 import { EncounterDisplay } from "./Components/Encounter/EncounterDivDisplay";
 import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
 import { InventoryButton } from "./Components/Inventory/InventoryButton";
-import { DiaryButton } from "./Components/Diary/DiaryButton";
+import { DiaryButton } from "./Components/Diary/DiaryDisplay";
+import { FightButton } from "./Components/Fight/FightButton";
 import { Page2 } from "./Components/Grid&MapGeneration/MapCreationInterface";
 ///////////////////////////////////////////////////////////
 //Functions imports////////////////////////////////////////
@@ -96,6 +97,7 @@ function Page1({ setCurrentPage }) {
     <div className="mainDivFullScreen">
       <InventoryButton inventory={inventory} />
       <DiaryButton />
+      <FightButton />
 
       <div
         className="subLeft-Grig"

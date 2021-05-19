@@ -6,3 +6,7 @@ Arrivé sur l'île, rencontre avec le premier PNJ :
             - découvrir le fonction des dialogues
             - découvrir le déplacement 
             - 
+
+
+
+TODO : stack les objets dans l'inventaire

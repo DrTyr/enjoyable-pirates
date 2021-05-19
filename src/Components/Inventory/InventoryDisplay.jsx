@@ -9,19 +9,9 @@ export function Inventory({ inventory }) {
   //console.log("inventory inside display :", inventory);
   //console.log("inventory length in Inventory:", inventory.length);
 
-  console.log(
-    "inventory.displayNotification in inventory before :",
-    inventory.displayNotification,
-  );
-
   if (inventory.displayNotification) {
     inventory.displayNotification = false;
   }
-
-  console.log(
-    "inventory.displayNotification in inventory after :",
-    inventory.displayNotification,
-  );
 
   function generateSlots() {
     let slots = [];

@@ -1,7 +1,7 @@
 export function generateEncounters(grid) {
   //grid = randomlyFillWithEncounter(grid);
 
-  grid = generateTree(grid, 10);
+  grid = generateTree(grid, 5);
   grid = generateBoat(grid, 2);
   grid = generatePirate(grid, 1);
 
