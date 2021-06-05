@@ -1,9 +1,33 @@
+import { getRandomInt } from "../../library";
+
 export function generateEncounters(grid) {
   //grid = randomlyFillWithEncounter(grid);
 
-  grid = generateTree(grid, 5);
-  grid = generateBoat(grid, 2);
+  grid = generateTree(grid, getRandomInt(4, 10));
+  grid = generateBoat(grid, getRandomInt(1, 4));
   grid = generatePirate(grid, 1);
+  //test
+  grid = generateSmallBoatTEST(grid, 3);
+
+  return grid;
+}
+
+function generateSmallBoatTEST(grid, quantity) {
+  let coordinates = { x: 0, y: 0 };
+
+  if (quantity === undefined) {
+    quantity = 1;
+  }
+
+  for (let i = 0; i < quantity; i++) {
+    coordinates = getRandomUnitCoordinatesInGrid(grid, ["orangeSand"]);
+
+    const boatPos = grid.unitsList[coordinates.x][coordinates.y];
+
+    boatPos.encounter[0].fill = "url(#smallBoat)";
+    boatPos.encounter[0].type = "smallBoat";
+    boatPos.encounter[0].display = true;
+  }
 
   return grid;
 }

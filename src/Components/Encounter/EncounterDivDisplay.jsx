@@ -33,7 +33,7 @@ export function EncounterDisplay({
   });
   const [scene, setscene] = useState(detectEncounter(encounterType));
 
-  console.log("currentUnit :", currentUnit);
+  //console.log("currentUnit :", currentUnit);
 
   // if (encounterType != null) {
   //   setEncounterIsOn(true);

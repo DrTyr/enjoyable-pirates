@@ -39,8 +39,9 @@ function Page1({ setCurrentPage }) {
   const [sceneIsOn, setSceneIsOn] = useState(false);
   const [inventory, setInventory] = useState({
     displayNotification: false,
-    list: [],
+    list: { objects: [], numberOfThisObject: [] },
     inventorySize: 5,
+    itemTypeInInventory: 0,
     itemInInventory: 0,
     isFull: false,
   });

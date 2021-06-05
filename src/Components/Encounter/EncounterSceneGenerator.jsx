@@ -25,6 +25,10 @@ export function detectEncounter(randomEncounter, goTo) {
       encounter = pirateEncounter(goTo);
       break;
 
+    case "smallBoat":
+      encounter = TESTSmallBoatEncounter(goTo);
+      break;
+
     default:
       console.log("patate");
       break;
@@ -127,7 +131,56 @@ function treeEncounter(goTo) {
     text: "Récolter du bois",
     exit: { shouldExit: true, timeout: 1000 },
     getItem: true,
-    itemProps: { name: "wood", fill: "url(#treeTrunk2)" },
+    itemProps: {
+      name: "wood",
+      fill: "url(#treeTrunk2)",
+      numberOfThisObject: 1,
+    },
+    reusable: false,
+    goTo: sceneB,
+  });
+  sceneA.addAnswer(answerA1);
+
+  const answerA2 = new Answer({
+    text: "S'en aller",
+    exit: { shouldExit: true, timeout: 0 },
+  });
+  sceneA.addAnswer(answerA2);
+
+  // const answerB1 = new Answer({
+  //   //text: "S'en aller",
+  //   exit: { shouldExit: true, timeout: 1000 },
+  //   getItem: true,
+  //   itemProps: { name: "wood", fill: "url(#treeLeef2)" },
+  // });
+  // sceneB.addAnswer(answerB1);
+
+  //console.log("answerB1");
+
+  if (goTo === undefined) {
+    goTo = sceneA;
+  }
+
+  return goTo;
+}
+
+function TESTSmallBoatEncounter(goTo) {
+  const sceneA = new Dialog("url(#smallBoat)", "TEST");
+
+  const sceneB = new Dialog(emptyImg, "TEST recolte");
+
+  // const answerA1 = new Answer({ text: "Récolter du bois", goTo: sceneB });
+  // sceneA.addAnswer(answerA1);
+
+  const answerA1 = new Answer({
+    text: "Récolter test",
+    exit: { shouldExit: true, timeout: 1000 },
+    getItem: true,
+    itemProps: {
+      name: "smallBoat",
+      fill: "url(#smallBoat)",
+      numberOfThisObject: 1,
+    },
     reusable: false,
     goTo: sceneB,
   });

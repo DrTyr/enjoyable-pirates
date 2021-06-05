@@ -18,3 +18,7 @@ export function inverseBoolean(boolean) {
 export function convertAsCaracterChain(chain) {
   return `${chain}`;
 }
+
+export function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
