@@ -10,7 +10,7 @@ import { Inventory } from "./InventoryDisplay";
 
 import PopUp from "../PopUp";
 
-export function InventoryButton({ inventory }) {
+export function InventoryButton({ inventory, caracterStates }) {
   const [display, setDisplay] = useState(false);
 
   let IconToDisplay = null;
@@ -25,7 +25,7 @@ export function InventoryButton({ inventory }) {
     <>
       {display && (
         <PopUp closeCallBack={() => setDisplay(!display)}>
-          <Inventory inventory={inventory} />
+          <Inventory inventory={inventory} caracterStates={caracterStates} />
         </PopUp>
       )}
       {/* <input

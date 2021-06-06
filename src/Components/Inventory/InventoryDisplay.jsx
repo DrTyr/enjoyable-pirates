@@ -2,20 +2,22 @@
 import React from "react";
 ///////////////////////////////////////////////////////////
 import "./Inventory.css";
+import { StackDisplay } from "./StackDisplay";
+//import pirate from "../../Assets/Pirate.png";
 
-import pirate from "../../Assets/Pirate.png";
-
-export function Inventory({ inventory }) {
+export function Inventory({ inventory, caracterStates }) {
   //const numberOfSlot = 5;
 
   //console.log("inventory inside display :", inventory);
   //console.log("inventory length in Inventory:", inventory.length);
 
+  //console.log(caracterStates);
+
   if (inventory.displayNotification) {
     inventory.displayNotification = false;
   }
 
-  function generateSlots() {
+  function generateSlotsOld() {
     let slots = [];
 
     for (let i = 0; i < inventory.list.objects.length; i++) {
@@ -91,7 +93,53 @@ export function Inventory({ inventory }) {
     return slots;
   }
 
-  function generateSlotsNew() {
+  function manageCaracterStates() {
+    let slots = [];
+
+    function getIndicatorColor(value) {
+      let rectIndicatorColor = [];
+
+      for (let i = 0; i <= Object.values(caracterStates)[value]; i++) {
+        rectIndicatorColor[i] = (
+          <div className="state-rect-indicator-red"> </div>
+        );
+      }
+      if (rectIndicatorColor.length < 5) {
+        for (let i = rectIndicatorColor.length; i <= 5; i++) {
+          rectIndicatorColor[i] = (
+            <div className="state-rect-indicator-blue"> </div>
+          );
+        }
+      }
+
+      return rectIndicatorColor;
+    }
+
+    //console.log("test :", Object.values(caracterStates)[1]);
+
+    //////////////////////////////////////
+    ////TENTER LE REFAIRE AVEC UNE MAP////
+    //////////////////////////////////////
+
+    for (let i = 0; i < Object.keys(caracterStates).length; i++) {
+      slots[i] = (
+        <div
+          className="state-box"
+          key={`caractStateSlot${i}`}
+          onClick={() => console.log("test caract state")}
+        >
+          <div className="state-img-container"></div>
+          {getIndicatorColor(i)}
+        </div>
+      );
+    }
+
+    //console.log("slots length :", slots.length);
+
+    return slots;
+  }
+
+  function manageItemSlots() {
     let slots = [];
     let widthVar = 200;
     let heightVar = 200;
@@ -100,30 +148,31 @@ export function Inventory({ inventory }) {
 
     for (let i = 0; i < inventory.list.objects.length; i++) {
       slots[i] = (
-        <div
-          className="slot-box"
-          key={`InventorySlot${i}`}
-          onClick={() =>
-            console.log(
-              "Hello sweety, je suis l'item : ",
-              inventory.list.objects[i].name,
-            )
-          }
-        >
-          <svg viewBox="0 0 200 200">
-            <rect
-              id={`${i}`}
-              //x={`${i * 40 + j * 40}`}
-              x={xpos}
-              //y={`${j * 10}`}
-              y={ypos}
-              width={widthVar}
-              height={heightVar}
-              //strokeWidth="1"
-              //style={{ stroke: "black" }}
-              fill={inventory.list.objects[i].fill}
-            />
-            <circle
+        <>
+          <div
+            className="item-box"
+            key={`InventorySlot${i}`}
+            onClick={() =>
+              console.log(
+                "Hello sweety, je suis l'item : ",
+                inventory.list.objects[i].name,
+              )
+            }
+          >
+            <svg viewBox="0 0 200 200">
+              <rect
+                id={`${i}`}
+                //x={`${i * 40 + j * 40}`}
+                x={xpos}
+                //y={`${j * 10}`}
+                y={ypos}
+                width={widthVar}
+                height={heightVar}
+                //strokeWidth="1"
+                //style={{ stroke: "black" }}
+                fill={inventory.list.objects[i].fill}
+              />
+              {/* <circle
               cx={widthVar + 10}
               cy={xpos}
               r="6"
@@ -137,9 +186,13 @@ export function Inventory({ inventory }) {
               textAnchor="middle"
             >
               {inventory.list.objects[i].numberOfThisObject}
-            </text>
-          </svg>
-        </div>
+            </text> */}
+            </svg>
+          </div>
+          <div className="stack-display">
+            {inventory.list.objects[i].numberOfThisObject}
+          </div>
+        </>
       );
     }
 
@@ -151,11 +204,11 @@ export function Inventory({ inventory }) {
       ) {
         slots[i] = (
           <div
-            className="slot-box"
+            className="item-box"
             key={`InventorySlot${i}`}
             onClick={() => console.log("Hello sweety, je suis une case vide")}
           >
-            TEST DIV VIDE {i}
+            {/* TEST DIV VIDE {i} */}
             {/* <img src={pirate} alt="A Pirate" width="500" height="600" /> */}
           </div>
         );
@@ -170,10 +223,16 @@ export function Inventory({ inventory }) {
   return (
     <div className="inventory-overlay">
       {/* Work in progress */}
-      <div className="slot-box-block">
-        {generateSlotsNew()}
-        {/* <svg viewBox="0 0 300 300">{generateSlots()}</svg> */}
-        {/* {generateSlots()} */}
+      <div className="left">
+        <div className="state-box-container">{manageCaracterStates()}</div>
+      </div>
+      <div className="center"></div>
+      <div className="right">
+        <div className="item-box-container">
+          {manageItemSlots()}
+          {/* <svg viewBox="0 0 300 300">{generateSlots()}</svg> */}
+          {/* {generateSlots()} */}
+        </div>
       </div>
     </div>
   );

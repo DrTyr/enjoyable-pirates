@@ -40,11 +40,19 @@ function Page1({ setCurrentPage }) {
   const [inventory, setInventory] = useState({
     displayNotification: false,
     list: { objects: [], numberOfThisObject: [] },
-    inventorySize: 5,
+    inventorySize: 8,
     itemTypeInInventory: 0,
     itemInInventory: 0,
     isFull: false,
   });
+  const [caracterStates, setCaracterStates] = useState({
+    hunger: 3,
+    thirst: 5,
+    tireness: 2,
+    madness: 0,
+  });
+
+  //console.log("caracterStates : ", caracterStates);
 
   // let inventory = {
   //   displayNotification: false,
@@ -96,7 +104,7 @@ function Page1({ setCurrentPage }) {
 
   return (
     <div className="mainDivFullScreen">
-      <InventoryButton inventory={inventory} />
+      <InventoryButton inventory={inventory} caracterStates={caracterStates} />
       <DiaryButton />
       <FightButton />
 
