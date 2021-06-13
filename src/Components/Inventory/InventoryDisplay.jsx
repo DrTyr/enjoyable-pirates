@@ -3,9 +3,10 @@ import React from "react";
 ///////////////////////////////////////////////////////////
 import "./Inventory.css";
 import { StackDisplay } from "./StackDisplay";
+import {DisplayStats} from "../PlayerStats/StatsDisplay"
 //import pirate from "../../Assets/Pirate.png";
 
-export function Inventory({ inventory, caracterStates }) {
+export function Inventory({ inventory, caracterStats }) {
   //const numberOfSlot = 5;
 
   //console.log("inventory inside display :", inventory);
@@ -89,52 +90,6 @@ export function Inventory({ inventory, caracterStates }) {
         );
       }
     }
-
-    return slots;
-  }
-
-  function manageCaracterStates() {
-    let slots = [];
-
-    function getIndicatorColor(value) {
-      let rectIndicatorColor = [];
-
-      for (let i = 0; i <= Object.values(caracterStates)[value]; i++) {
-        rectIndicatorColor[i] = (
-          <div className="state-rect-indicator-red"> </div>
-        );
-      }
-      if (rectIndicatorColor.length < 5) {
-        for (let i = rectIndicatorColor.length; i <= 5; i++) {
-          rectIndicatorColor[i] = (
-            <div className="state-rect-indicator-blue"> </div>
-          );
-        }
-      }
-
-      return rectIndicatorColor;
-    }
-
-    //console.log("test :", Object.values(caracterStates)[1]);
-
-    //////////////////////////////////////
-    ////TENTER LE REFAIRE AVEC UNE MAP////
-    //////////////////////////////////////
-
-    for (let i = 0; i < Object.keys(caracterStates).length; i++) {
-      slots[i] = (
-        <div
-          className="state-box"
-          key={`caractStateSlot${i}`}
-          onClick={() => console.log("test caract state")}
-        >
-          <div className="state-img-container"></div>
-          {getIndicatorColor(i)}
-        </div>
-      );
-    }
-
-    //console.log("slots length :", slots.length);
 
     return slots;
   }
@@ -224,9 +179,21 @@ export function Inventory({ inventory, caracterStates }) {
     <div className="inventory-overlay">
       {/* Work in progress */}
       <div className="left">
-        <div className="state-box-container">{manageCaracterStates()}</div>
+        <div className="stats-box-container"><DisplayStats caracterStats={caracterStats} /></div>
       </div>
-      <div className="center"></div>
+      <div className="center">
+        <div className="center-left">
+        <div className="left-arm">BRAS GAUCHE</div>
+        </div>
+        <div className="center-center">
+        <div className="head">TETE</div>
+        <div className="torso">TORSE</div>
+        <div className="legs">JAMBES</div>
+        </div>
+        <div className="center-right">
+        <div className="right-arm">BRAS DROIT</div>
+        </div>
+      </div>
       <div className="right">
         <div className="item-box-container">
           {manageItemSlots()}

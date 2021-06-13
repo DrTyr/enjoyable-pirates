@@ -25,80 +25,41 @@ img {
 }
 
 .left {
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 33%;
+  align-content: center;
 }
 
 .center {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 33%;
 }
 
 .right {
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 34%;
+  width: 33%;
+  align-content: center;
 }
 
-.state-box-container {
-  /* width: 90%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;*/
-
+.stats-box-container {
+  /* display: flex;
+  flex-direction: row; */
+  width: 100%;
   justify-content: center;
   align-items: center;
-
   display: inline-grid;
   grid-template-columns: auto;
-
   /* overflow: auto; */
   /* grid: repeat(2, 60px) / auto-flow 80px; */
   column-gap: 30px;
   row-gap: 50px;
-}
-
-.state-box {
-  cursor: pointer;
-  /* width: 100px; */
-  /* height: 100px; */
-  /* background: blue; */
-  border: 1px solid #000;
-  /* place-items: center; */
-  display: grid;
-  column-gap: 8px;
-  /* row-gap: 10px; */
-
-  /* justify-content: center; */
-  align-items: center;
-
-  /* background-color: lightblue; */
-  width: 250px;
-  height: 80px;
-}
-
-.state-img-container {
-  grid-row: 1;
-  width: 40px;
-  height: 40px;
-  background-color: black;
-}
-
-.state-rect-indicator-red {
-  grid-row: 1;
-  width: 20px;
-  height: 40px;
-  background-color: red;
-}
-
-.state-rect-indicator-blue {
-  grid-row: 1;
-  width: 20px;
-  height: 40px;
-  background-color: blue;
 }
 
 .item-box-container {
@@ -107,11 +68,11 @@ img {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;*/
-
+  justify-content: center;
+  align-items: center;
   position: relative;
   display: inline-grid;
   grid-template-columns: auto auto;
-
   /* overflow: auto; */
   /* grid: repeat(2, 60px) / auto-flow 80px; */
   column-gap: 30px;
@@ -125,7 +86,6 @@ img {
   /* background: blue; */
   border: 1px solid #000;
   /* place-items: center; */
-
   background-color: lightgreen;
   width: 80px;
   height: 80px;
@@ -143,4 +103,93 @@ img {
   text-align: center;
   justify-content: center;
   align-items: center;
+}
+
+.left-arm {
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: yellow;
+  width: 40px;
+  height: 80px;
+}
+
+.head {
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: yellow;
+  width: 80px;
+  height: 80px;
+}
+
+.torso {
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: yellow;
+  width: 80px;
+  height: 100px;
+}
+
+.legs {
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: yellow;
+  width: 80px;
+  height: 100px;
+}
+
+.right-arm {
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: yellow;
+  width: 40px;
+  height: 80px;
+}
+
+.center-center {
+  justify-content: center;
+  align-items: center;
+  display: inline-grid;
+  grid-template-columns: auto;
+  /* overflow: auto; */
+  /* grid: repeat(2, 60px) / auto-flow 80px; */
+  column-gap: 30px;
+  row-gap: 20px;
+}
+
+.stats-box {
+  /* cursor: pointer; */
+  /* width: 100px; */
+  /* height: 100px; */
+  /* background: blue; */
+  border: 1px solid #000;
+  /* place-items: center; */
+  display: grid;
+  column-gap: 8px;
+  /* row-gap: 10px; */
+  /* justify-content: center; */
+  align-items: center;
+  /* background-color: lightblue; */
+  width: 100%;
+  height: 80px;
+}
+
+.stats-img-container {
+  grid-row: 1;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+}
+
+.stats-rect-indicator-red {
+  grid-row: 1;
+  width: 20px;
+  height: 40px;
+  background-color: red;
+}
+
+.stats-rect-indicator-blue {
+  grid-row: 1;
+  width: 20px;
+  height: 40px;
+  background-color: blue;
 }

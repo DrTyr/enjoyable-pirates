@@ -8,14 +8,14 @@ import diaryIcon from "../../Assets/DiaryIcon.png";
 ///////////////////////////////////////////////////////////
 import PopUp from "../PopUp";
 
-export function FightButton() {
+export function FightButton({caracterStats}) {
   const [display, setDisplay] = useState(false);
 
   return (
     <>
       {display && (
         <PopUp closeCallBack={() => setDisplay(!display)}>
-          <FightDisplay />
+          <FightDisplay caracterStats={caracterStats}/>
         </PopUp>
       )}
       <button

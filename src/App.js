@@ -45,11 +45,16 @@ function Page1({ setCurrentPage }) {
     itemInInventory: 0,
     isFull: false,
   });
-  const [caracterStates, setCaracterStates] = useState({
+  const [caracterStats, setCaracterStats] = useState({ stats : {
+
     hunger: 3,
     thirst: 5,
     tireness: 2,
-    madness: 0,
+    madness: 0,},
+    images :{hunger: 3,
+      thirst: 5,
+      tireness: 2,
+      madness: 0,}
   });
 
   //console.log("caracterStates : ", caracterStates);
@@ -104,9 +109,9 @@ function Page1({ setCurrentPage }) {
 
   return (
     <div className="mainDivFullScreen">
-      <InventoryButton inventory={inventory} caracterStates={caracterStates} />
+      <InventoryButton inventory={inventory} caracterStats={caracterStats} />
       <DiaryButton />
-      <FightButton />
+      <FightButton caracterStats={caracterStats} />
 
       <div
         className="subLeft-Grig"
