@@ -143,9 +143,9 @@ export function Inventory({ inventory, caracterStats }) {
               {inventory.list.objects[i].numberOfThisObject}
             </text> */}
             </svg>
-          </div>
           <div className="stack-display">
             {inventory.list.objects[i].numberOfThisObject}
+          </div>
           </div>
         </>
       );

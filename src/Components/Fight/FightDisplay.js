@@ -1,12 +1,12 @@
 //Library imports//////////////////////////////////////////
 import React from "react";
 
-import {DisplayStats} from "../PlayerStats/StatsDisplay"
+import { DisplayStats } from "../PlayerStats/StatsDisplay";
 
 ///////////////////////////////////////////////////////////
 import "./FightDisplay.css";
 
-export function FightDisplay({caracterStats}) {
+export function FightDisplay({ caracterStats }) {
   return (
     <div className="main-div">
       <div className="top-half">
@@ -16,7 +16,9 @@ export function FightDisplay({caracterStats}) {
       <div className="black-separator"></div>
       <div className="bottom-half">
         <div className="bottom-half-left ">
-          <div className="stats-display"><DisplayStats caracterStats={caracterStats} /> </div>
+          <div className="stats-display">
+            <DisplayStats caracterStats={caracterStats} />
+          </div>
           <div className="bottom-half-left-bottom">
             <g className="encounter-image" id="encounter-image">
               <svg viewBox="0 0 150 150">
@@ -39,6 +41,24 @@ export function FightDisplay({caracterStats}) {
 
         <div className="bottom-half-right">TEST BOTTOM HALF RIGHT</div>
       </div>
+
+      <button id="button1" className="button button-choice">
+        Choix 1
+      </button>
+      <button id="button2" className="button button-choice">
+        {" "}
+        Choix 2{" "}
+      </button>
+      <button id="button3" className="button button-choice">
+        {" "}
+        Choix 3{" "}
+      </button>
+      <button id="button4" className="button-toto button-choice">
+        {" "}
+        Choix 3{" "}
+      </button>
+
+      <button className="button button-cancel"> Cancel </button>
     </div>
   );
 }

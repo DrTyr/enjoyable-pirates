@@ -80,6 +80,7 @@ img {
 }
 
 .item-box {
+  position: relative;
   cursor: pointer;
   /* width: 100px; */
   /* height: 100px; */
@@ -95,11 +96,11 @@ img {
   position: absolute;
   border: 1px solid black;
   border-radius: 20px;
-  right: 107px;
+  right: -1.5vh;
   top: -1.5vh;
   background-color: white;
   height: 3vh;
-  width: 2vw;
+  width: 3vh;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -156,7 +157,7 @@ img {
   row-gap: 20px;
 }
 
-.stats-box {
+.stats-box-container .stats-box {
   /* cursor: pointer; */
   /* width: 100px; */
   /* height: 100px; */
@@ -173,21 +174,28 @@ img {
   height: 80px;
 }
 
-.stats-img-container {
+.container1 .stats-img-container {
   grid-row: 1;
   width: 40px;
   height: 40px;
   background-color: black;
 }
 
-.stats-rect-indicator-red {
+.container .stats-img-container {
+  grid-row: 1;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+}
+
+.stats-box-container .stats-rect-indicator-red {
   grid-row: 1;
   width: 20px;
   height: 40px;
   background-color: red;
 }
 
-.stats-rect-indicator-blue {
+.stats-box-container .stats-rect-indicator-blue {
   grid-row: 1;
   width: 20px;
   height: 40px;
