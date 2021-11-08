@@ -57,6 +57,8 @@ function Page1({ setCurrentPage }) {
       madness: 0,}
   });
 
+  const [itemList, setItemList] = useState({})
+
   //console.log("caracterStates : ", caracterStates);
 
   // let inventory = {
@@ -153,6 +155,7 @@ function Page1({ setCurrentPage }) {
             setSceneIsOn={setSceneIsOn}
             encounterIsDisplay={encounterIsDisplay}
             inventory={inventory}
+            itemList={itemList}
           />
         </div>
       ) : (

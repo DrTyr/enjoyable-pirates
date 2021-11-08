@@ -7,12 +7,12 @@ export function generateEncounters(grid) {
   grid = generateBoat(grid, getRandomInt(1, 4));
   grid = generatePirate(grid, 1);
   //test
-  grid = generateSmallBoatTEST(grid, 3);
+  grid = generateHatItem(grid, 3);
 
   return grid;
 }
 
-function generateSmallBoatTEST(grid, quantity) {
+function generateHatItem(grid, quantity) {
   let coordinates = { x: 0, y: 0 };
 
   if (quantity === undefined) {
@@ -22,11 +22,11 @@ function generateSmallBoatTEST(grid, quantity) {
   for (let i = 0; i < quantity; i++) {
     coordinates = getRandomUnitCoordinatesInGrid(grid, ["orangeSand"]);
 
-    const boatPos = grid.unitsList[coordinates.x][coordinates.y];
+    const itemPos = grid.unitsList[coordinates.x][coordinates.y];
 
-    boatPos.encounter[0].fill = "url(#smallBoat)";
-    boatPos.encounter[0].type = "smallBoat";
-    boatPos.encounter[0].display = true;
+    itemPos.encounter[0].fill = "url(#chefHat)";
+    itemPos.encounter[0].type = "chefHat";
+    itemPos.encounter[0].display = true;
   }
 
   return grid;

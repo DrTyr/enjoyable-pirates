@@ -5,6 +5,7 @@ import beachTileset from "../../Assets/BeachTileset.png";
 import { Dialog } from "./Dialog";
 import { Answer } from "./Answer";
 import { Inventory } from "../Inventory/InventoryDisplay";
+import { Item } from "../Items/ItemClass";
 
 export function detectEncounter(randomEncounter, goTo) {
   let encounter = emptyEncounter();
@@ -25,8 +26,8 @@ export function detectEncounter(randomEncounter, goTo) {
       encounter = pirateEncounter(goTo);
       break;
 
-    case "smallBoat":
-      encounter = TESTSmallBoatEncounter(goTo);
+    case "chefHat":
+      encounter = TEST_ITEM(goTo);
       break;
 
     default:
@@ -164,8 +165,8 @@ function treeEncounter(goTo) {
   return goTo;
 }
 
-function TESTSmallBoatEncounter(goTo) {
-  const sceneA = new Dialog("url(#smallBoat)", "TEST");
+function TEST_ITEM(goTo) {
+  const sceneA = new Dialog("url(#chefHat)", "TEST");
 
   const sceneB = new Dialog(emptyImg, "TEST recolte");
 
@@ -176,12 +177,13 @@ function TESTSmallBoatEncounter(goTo) {
     text: "Récolter test",
     exit: { shouldExit: true, timeout: 1000 },
     getItem: true,
-    itemProps: {
-      name: "smallBoat",
-      fill: "url(#smallBoat)",
+    itemProps : new Item ({
+      name: "chefHat",
+      fill: "url(#chefHat)",
       numberOfThisObject: 1,
-    },
-    reusable: false,
+      wearable:true,
+itemSlotPosition:"head",
+    reusable: true,}),
     goTo: sceneB,
   });
   sceneA.addAnswer(answerA1);

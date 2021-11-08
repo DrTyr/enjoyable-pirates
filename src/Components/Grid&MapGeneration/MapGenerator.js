@@ -20,6 +20,7 @@ export function generateMainMap() {
 
   //grid = generateRandomGreenPatchTEST(grid);
 
+  //
   grid = generateMapShape(grid);
 
   grid = generateBeachBorder(grid);
@@ -28,7 +29,7 @@ export function generateMainMap() {
 
   grid = generateDeepSeaBorder(grid);
 
-  //grid = generateYellowSandBorder(grid);
+  grid = generateYellowSandBorder(grid);
 
   // //"../Encounter/EncounterDisplayOnMap"
   grid = generateEncounters(grid);

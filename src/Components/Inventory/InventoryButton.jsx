@@ -42,7 +42,7 @@ export function InventoryButton({ inventory, caracterStats }) {
         onClick={() => {
           setDisplay(!display);
           inventory.displayNotification = false;
-        }}
+        }}        
       >
         <img alt="Inventorybutton" src={IconToDisplay} />
       </button>

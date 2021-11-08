@@ -1,6 +1,6 @@
 //Assets imports///////////////////////////////////////////
 import banditCamp from "../../Assets/BanditCamp.jpg";
-
+import chefHat from "../../Assets/Chef_hat.png";
 import beachTileset from "../../Assets/BeachTileset.png";
 
 ///////////////////////////////////////////////////////////
@@ -795,6 +795,20 @@ export function defSeaPatterns() {
 export function defOtherPatterns() {
   return (
     <defs>
+      <pattern
+        id="chefHat"
+        // patternUnits="objectBoundingBox"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+        //view Box 0 0 and size of the img
+        viewBox="0 0 700 310"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <image href={chefHat} width="700" height="310" />
+      </pattern>
+
       <pattern
         id="banditCamp"
         // patternUnits="objectBoundingBox"
