@@ -4,6 +4,7 @@ import React from "react";
 import "./Inventory.css";
 import { StackDisplay } from "./StackDisplay";
 import {DisplayStats} from "../PlayerStats/StatsDisplay"
+import { equipItem } from "./ManageInventory";
 //import pirate from "../../Assets/Pirate.png";
 
 export function Inventory({ inventory, caracterStats }) {
@@ -107,11 +108,7 @@ export function Inventory({ inventory, caracterStats }) {
           <div
             className="item-box"
             key={`InventorySlot${i}`}
-            onClick={() =>
-              console.log(
-                "Hello sweety, je suis l'item : ",
-                inventory.list.objects[i].name,
-              )
+            onClick={() => equipItem(inventory.list.objects[i])
             }
           >
             <svg viewBox="0 0 200 200">
