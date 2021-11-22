@@ -44,6 +44,8 @@ export function AddObjectInInventory(inventory, answer) {
     }
   }
 
+  //test
+
   // if (inventory.list.objects.includes(objectToAdd)) {
   //   console.log("deja là");
   // } else {
@@ -61,37 +63,23 @@ export function AddObjectInInventory(inventory, answer) {
   // console.log(inventory);
 }
 
-//WIP WIP WIP
-
-/*function defineItemOnCaracter(item) {
-  let itemOnCaracter = { head: 0, body: 0, leftArm: 0, rightArm: 0, legs: 0 };
-
-  switch (item) {
-    case item.itemSlotPosition === "head":
-      const name = item.name;
-      itemOnCaracter.head = name;
-    case item.itemSlotPosition === "legs":
-      const name = item.name;
-      itemOnCaracter.legs = name;
-    default:
-      break;
-  }
-
-  return itemOnCaracter;
-}*/
-
-/*
-Item {name: 'chefHat', fill: 'url(#chefHat)', numberOfThisObject: 1, reusable: true, wearable: true, …}
-fill: "url(#chefHat)"
-itemSlotPosition: "head"
-name: "chefHat"
-numberOfThisObject: 1
-reusable: true
-wearable: true*/
-
-export function equipItem(item) {
+export function equipItem(item, itemsOnCaracter, setItemsOnCaracter) {
   if (item.wearable === true) {
-  }
+    switch (item.itemSlotPosition) {
+      case "head":
+        itemsOnCaracters.head.itemName = item.name;
+        itemsOnCaracters.head.equiped = 1;
+        itemsOnCaracters.head.itemFill = item.fill;
+      case "legs":
+        itemsOnCaracters.legs.itemName = item.name;
+        itemsOnCaracters.legs.equiped = 1;
+        itemsOnCaracters.legs.itemFill = item.fill;
+      default:
+        break;
+    }
 
-  return console.log("test", item);
+    setItemsOnCaracter(itemsOnCaracter);
+  } else {
+    return console.log("item pas équipable :", item);
+  }
 }

@@ -7,7 +7,7 @@ import {DisplayStats} from "../PlayerStats/StatsDisplay"
 import { equipItem } from "./ManageInventory";
 //import pirate from "../../Assets/Pirate.png";
 
-export function Inventory({ inventory, caracterStats }) {
+export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsOnCaracter }) {
   //const numberOfSlot = 5;
 
   //console.log("inventory inside display :", inventory);
@@ -108,7 +108,7 @@ export function Inventory({ inventory, caracterStats }) {
           <div
             className="item-box"
             key={`InventorySlot${i}`}
-            onClick={() => equipItem(inventory.list.objects[i])
+            onClick={() => equipItem(inventory.list.objects[i], itemsOnCaracter, setItemsOnCaracter)
             }
           >
             <svg viewBox="0 0 200 200">
@@ -183,7 +183,16 @@ export function Inventory({ inventory, caracterStats }) {
         <div className="left-arm">BRAS GAUCHE</div>
         </div>
         <div className="center-center">
-        <div className="head">TETE</div>
+        <div className="head"><svg viewBox="0 0 200 200">
+              <rect
+                id="head"
+                x="0"
+                y="0"
+                width="200"
+                height="200"
+                fill={itemsOnCaracters.head.itemFill}
+              />
+            </svg></div>
         <div className="torso">TORSE</div>
         <div className="legs">JAMBES</div>
         </div>
