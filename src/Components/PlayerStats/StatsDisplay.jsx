@@ -10,13 +10,17 @@ export function DisplayStats({caracterStats}){
     
           for (let i = 0; i <= Object.values(caracterStats.stats)[value]; i++) {
             rectIndicatorColor[i] = (
-              <div className="stats-rect-indicator-red"> </div>
+              <div 
+              key={`red-indicator-${i}`}
+              className="stats-rect-indicator-red"> </div>
             );
           }
           if (rectIndicatorColor.length < 5) {
             for (let i = rectIndicatorColor.length; i <= 5; i++) {
               rectIndicatorColor[i] = (
-                <div className="stats-rect-indicator-blue"> </div>
+                <div              
+                key={`blue-indicator-${i}`}
+                className="stats-rect-indicator-blue"> </div>
               );
             }
           }
