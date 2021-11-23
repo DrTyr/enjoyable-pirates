@@ -7,7 +7,28 @@ export function generateEncounters(grid) {
   grid = generateBoat(grid, getRandomInt(1, 4));
   grid = generatePirate(grid, 1);
   //test
-  grid = generateHatItem(grid, 3);
+  grid = generateHatItem(grid, 1);
+  grid = generateBootsItem(grid, 1);
+
+  return grid;
+}
+
+function generateBootsItem(grid, quantity) {
+  let coordinates = { x: 0, y: 0 };
+
+  if (quantity === undefined) {
+    quantity = 1;
+  }
+
+  for (let i = 0; i < quantity; i++) {
+    coordinates = getRandomUnitCoordinatesInGrid(grid, ["orangeSand"]);
+
+    const itemPos = grid.unitsList[coordinates.x][coordinates.y];
+
+    itemPos.encounter[0].fill = "url(#boots)";
+    itemPos.encounter[0].type = "boots";
+    itemPos.encounter[0].display = true;
+  }
 
   return grid;
 }

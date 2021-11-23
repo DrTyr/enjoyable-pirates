@@ -1,3 +1,5 @@
+import { concat } from "lodash";
+
 export function getRandomColor() {
   var letters = "0123456789ABCDEF";
   var color = "#";
@@ -23,9 +25,33 @@ export function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-export function drawRectSVG(id, x, y, width, height, fill) {
+export function drawRectSVG(
+  viewBox_x,
+  viewBox_y,
+  viewBox_width,
+  viewBox_height,
+  id,
+  x,
+  y,
+  width,
+  height,
+  fill,
+) {
+  if (viewBox_x === undefined) {
+    viewBox_x = 0;
+  }
+  if (viewBox_y === undefined) {
+    viewBox_y = 0;
+  }
+  if (viewBox_width === undefined) {
+    viewBox_width = 200;
+  }
+  if (viewBox_height === undefined) {
+    viewBox_height = 200;
+  }
+
   return (
-    <svg viewBox="0 0 200 200">
+    <svg viewBox={concat(viewBox_x, viewBox_y, viewBox_width, viewBox_height)}>
       <rect
         id={`${id}`}
         x={x}

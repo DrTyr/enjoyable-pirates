@@ -4,8 +4,9 @@ import OldWizzard from "../../Assets/OldWizzard.jpg";
 import beachTileset from "../../Assets/BeachTileset.png";
 import { Dialog } from "./Dialog";
 import { Answer } from "./Answer";
-import { Inventory } from "../Inventory/InventoryDisplay";
-import { Item } from "../Items/ItemClass";
+//import { Inventory } from "../Inventory/InventoryDisplay";
+import { chefHat, tree, boots} from "../Items/ListItems";
+//import {chefHat} from "../Items/ItemClass"
 
 export function detectEncounter(randomEncounter, goTo) {
   let encounter = emptyEncounter();
@@ -29,6 +30,10 @@ export function detectEncounter(randomEncounter, goTo) {
     case "chefHat":
       encounter = TEST_ITEM(goTo);
       break;
+
+      case "boots":
+        encounter = TEST_ITEM2(goTo);
+        break;
 
     default:
       console.log("patate");
@@ -132,12 +137,13 @@ function treeEncounter(goTo) {
     text: "Récolter du bois",
     exit: { shouldExit: true, timeout: 1000 },
     getItem: true,
-    itemProps: {
+    /*itemProps: {
       name: "wood",
       fill: "url(#treeTrunk2)",
       numberOfThisObject: 1,
-    },
-    reusable: false,
+    }
+    reusable: false,*/
+    itemProps : tree,
     goTo: sceneB,
   });
   sceneA.addAnswer(answerA1);
@@ -177,13 +183,61 @@ function TEST_ITEM(goTo) {
     text: "Récolter test",
     exit: { shouldExit: true, timeout: 1000 },
     getItem: true,
-    itemProps : new Item ({
+   /* itemProps : new Item ({
       name: "chefHat",
       fill: "url(#chefHat)",
       numberOfThisObject: 1,
       wearable:true,
 itemSlotPosition:"head",
-    reusable: false,}),
+    reusable: false,}),*/
+    itemProps : chefHat,
+    goTo: sceneB,
+  });
+  sceneA.addAnswer(answerA1);
+
+  const answerA2 = new Answer({
+    text: "S'en aller",
+    exit: { shouldExit: true, timeout: 0 },
+  });
+  sceneA.addAnswer(answerA2);
+
+  // const answerB1 = new Answer({
+  //   //text: "S'en aller",
+  //   exit: { shouldExit: true, timeout: 1000 },
+  //   getItem: true,
+  //   itemProps: { name: "wood", fill: "url(#treeLeef2)" },
+  // });
+  // sceneB.addAnswer(answerB1);
+
+  //console.log("answerB1");
+
+  if (goTo === undefined) {
+    goTo = sceneA;
+  }
+
+  return goTo;
+}
+
+function TEST_ITEM2(goTo) {
+  const sceneA = new Dialog("url(#boots)", "TEST 2");
+
+  const sceneB = new Dialog(emptyImg, "TEST recolte 2");
+
+  // const answerA1 = new Answer({ text: "Récolter du bois", goTo: sceneB });
+  // sceneA.addAnswer(answerA1);
+
+  const answerA1 = new Answer({
+    text: "Récolter test 2",
+    exit: { shouldExit: true, timeout: 1000 },
+    getItem: true,
+   /* itemProps : new Item ({
+      name: "chefHat",
+      fill: "url(#chefHat)",
+      numberOfThisObject: 1,
+      wearable:true,
+itemSlotPosition:"head",
+    reusable: false,}),*/
+    itemProps : boots,
     goTo: sceneB,
   });
   sceneA.addAnswer(answerA1);

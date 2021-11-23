@@ -1,12 +1,12 @@
 //Library imports//////////////////////////////////////////
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 ///////////////////////////////////////////////////////////
 import "./Inventory.css";
-import { StackDisplay } from "./StackDisplay";
 import {DisplayStats} from "../PlayerStats/StatsDisplay"
 import { equipItem } from "./ManageInventory";
 import { drawRectSVG } from "../../library";
 //import pirate from "../../Assets/Pirate.png";
+
 
 export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsOnCaracter }) {
   //const numberOfSlot = 5;
@@ -15,6 +15,7 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
   //console.log("inventory length in Inventory:", inventory.length);
 
   //console.log(caracterStates);
+
 
   if (inventory.displayNotification) {
     inventory.displayNotification = false;
@@ -109,10 +110,11 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
           <div
             className="item-box"
             key={`InventorySlot${i}`}
-            onClick={() => equipItem(inventory.list.objects[i], itemsOnCaracter, setItemsOnCaracter, inventory)
+            onClick={() => 
+              equipItem(inventory.list.objects[i], itemsOnCaracter, setItemsOnCaracter, inventory)
             }
           >
-            {drawRectSVG(i, xpos, ypos, widthVar, heightVar, inventory.list.objects[i].fill)}
+            {drawRectSVG(0,0,200,200, i, xpos, ypos, widthVar, heightVar, inventory.list.objects[i].fill)}
             
           <div className="stack-display">
             {inventory.list.objects[i].numberOfThisObject}
@@ -155,29 +157,29 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
       <div className="center">
         <div className="center-left">
         <div className="left-arm">
-        {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.leftArm.itemFill)}
+        {drawRectSVG(0,0,200,400,"left-arm", 0,0,200,400,itemsOnCaracter.leftArm.itemFill)}
 
         </div>
         </div>
         <div className="center-center">
         <div className="head">
           
-          {drawRectSVG("head", 0,0,200,200,itemsOnCaracter.head.itemFill)}
+          {drawRectSVG(0,0,200,200,"head", 0,0,200,200,itemsOnCaracter.head.itemFill)}
           
           </div>
         <div className="torso">
         
-        {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.torso.itemFill)}
+        {drawRectSVG(0,0,200,250,"torso", 0,0,200,250,itemsOnCaracter.torso.itemFill)}
 
 
         </div>
         <div className="legs">       
-         {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.legs.itemFill)}
+         {drawRectSVG(0,0,200,250,"torso", 0,0,200,250,itemsOnCaracter.legs.itemFill)}
 </div>
         </div>
         <div className="center-right">
         <div className="right-arm">
-        {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.rightArm.itemFill)}
+        {drawRectSVG(0,0,200,400,"right-arm", 0,0,200,400,itemsOnCaracter.rightArm.itemFill)}
 
         </div>
         </div>
