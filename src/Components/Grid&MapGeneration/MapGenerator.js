@@ -3,7 +3,7 @@ import { generateEncounters } from "../Encounter/EncounterDisplayOnMap";
 import { getNeighboursCoordinatesOfUnit } from "../MapDisplay/InteractionsWithNeighbours";
 //import _ from "lodash";
 
-import { mapArray, generateMapMatrix } from "./MapMatrix";
+import { mapArray /*generateMapMatrix */ } from "./MapMatrix";
 
 //To put an empty gridUnit at x,y pos :   grid.unitsList[x][y] = null;
 
@@ -13,14 +13,6 @@ export function generateMainMap() {
   //"../Grid&MapGeneration/GridGenerator"
   grid = generateEntireGrid();
 
-  //this file
-  //grid = generateBeachsOLD(grid);
-
-  //grid = generateMapShapeTEST(grid);
-
-  //grid = generateRandomGreenPatchTEST(grid);
-
-  //
   grid = generateMapShape(grid);
 
   grid = generateBeachBorder(grid);

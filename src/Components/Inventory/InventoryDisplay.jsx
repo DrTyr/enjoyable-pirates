@@ -1,5 +1,5 @@
 //Library imports//////////////////////////////////////////
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 ///////////////////////////////////////////////////////////
 import "./Inventory.css";
 import {DisplayStats} from "../PlayerStats/StatsDisplay"
@@ -19,82 +19,6 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
 
   if (inventory.displayNotification) {
     inventory.displayNotification = false;
-  }
-
-  function generateSlotsOld() {
-    let slots = [];
-
-    for (let i = 0; i < inventory.list.objects.length; i++) {
-      slots[i] = (
-        <g
-          className="slot-box"
-          key={`InventorySlot${i}`}
-          onClick={() =>
-            console.log(
-              "Hello sweety, je suis l'item : ",
-              inventory.list.objects[i].name,
-            )
-          }
-        >
-          <rect
-            id={`${i}`}
-            //x={`${i * 40 + j * 40}`}
-            x={`${10 + i * 40}`}
-            //y={`${j * 10}`}
-            y="10"
-            width="30"
-            height="30"
-            strokeWidth="1"
-            style={{ stroke: "black" }}
-            fill={inventory.list.objects[i].fill}
-          />
-          <circle
-            cx={`${10 + i * 40 + 30}`}
-            cy="10"
-            r="5"
-            fill="white"
-            style={{ stroke: "black" }}
-          />
-          <text
-            x={`${10 + i * 40 + 30}`}
-            y="12"
-            fontSize="6"
-            textAnchor="middle"
-          >
-            {inventory.list.objects[i].numberOfThisObject}
-          </text>
-        </g>
-      );
-    }
-
-    //console.log("slots length :", slots.length);
-
-    if (slots.length < inventory.inventorySize) {
-      for (
-        let i = inventory.list.objects.length;
-        i < inventory.inventorySize;
-        i++
-      ) {
-        slots[i] = (
-          <g className="slot-box" key={`InventorySlot${i}`}>
-            <rect
-              id={`${i}`}
-              //x={`${i * 40 + j * 40}`}
-              x={`${10 + i * 40}`}
-              //y={`${j * 10}`}
-              y="10"
-              width="30"
-              height="30"
-              strokeWidth="1"
-              style={{ stroke: "black", fill: "white" }}
-              //fill="url(#treeLeef2)"
-            />
-          </g>
-        );
-      }
-    }
-
-    return slots;
   }
 
   function manageItemSlots() {

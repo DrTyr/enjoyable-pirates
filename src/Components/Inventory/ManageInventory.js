@@ -1,15 +1,3 @@
-import { useState } from "react";
-
-export function AddObjectInInventoryOLD(inventory, answer) {
-  if (inventory.itemTypeInInventory < inventory.inventorySize) {
-    inventory.list.object.push(answer.itemProps);
-    inventory.itemInInventory++;
-    inventory.displayNotification = true;
-  } else {
-    inventory.isFull = true;
-  }
-}
-
 export function AddObjectInInventory(inventory, answer) {
   //console.log(answer.itemProps);
 
@@ -69,7 +57,7 @@ export function equipItem(
   setItemsOnCaracter,
   inventory,
 ) {
-  let itemEquiped = 0;
+  //let itemEquiped = 0;
 
   console.log("item : ", item);
 
@@ -79,14 +67,14 @@ export function equipItem(
         itemsOnCaracter.head.itemName = item.name;
         itemsOnCaracter.head.equiped = 1;
         itemsOnCaracter.head.itemFill = item.fill;
-        itemEquiped = 1;
+        //itemEquiped = 1;
         removeObjectFromInventory(inventory, item);
         break;
       case "legs":
         itemsOnCaracter.legs.itemName = item.name;
         itemsOnCaracter.legs.equiped = 1;
         itemsOnCaracter.legs.itemFill = item.fill;
-        itemEquiped = 1;
+        //itemEquiped = 1;
         removeObjectFromInventory(inventory, item);
         break;
       default:

@@ -1,8 +1,8 @@
 //Assets imports///////////////////////////////////////////
-import banditCamp from "../../Assets/BanditCamp.jpg";
-import chefHat from "../../Assets/Chef_hat.png";
-import beachTileset from "../../Assets/BeachTileset.png";
-import boots from "../../Assets/boots.png";
+import banditCamp from "../Assets/BanditCamp.jpg";
+import chefHat from "../Assets/Chef_hat.png";
+import beachTileset from "../Assets/BeachTileset.png";
+import boots from "../Assets/boots.png";
 ///////////////////////////////////////////////////////////
 
 export function defGrassPatterns() {

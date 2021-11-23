@@ -1,11 +1,11 @@
 //Functions imports////////////////////////////////////////
-import { getRandomColor } from "../../library";
+//import { getRandomColor } from "../../library";
 ///////////////////////////////////////////////////////////
 
 //Global variables/////////////////////////////////////////
 ///grid[numberColumn][numberRow]
-const numberOfRow = 27;
-const numberOfColumn = 27;
+//const numberOfRow = 27;
+//const numberOfColumn = 27;
 const gridUnitRadius = 32;
 
 ///////////////////////////////////////////////////////////

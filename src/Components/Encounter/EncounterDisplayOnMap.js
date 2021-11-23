@@ -146,32 +146,6 @@ function generatePirate(grid, quantity) {
   return grid;
 }
 
-function randomlyFillWithEncounter(grid) {
-  let coordinates = { x: 0, y: 0 };
-  let coordinates2 = { x: 0, y: 0 };
-
-  //return objet coordinate with x and y of a random hexagon
-  coordinates = getRandomUnitCoordinatesInGrid(grid, [
-    "grass",
-    "OrangeSandAndBeaches",
-  ]);
-  coordinates2 = getRandomUnitCoordinatesInGrid(grid, ["grass"]);
-
-  //let coordinates3 = getCoordonateRandomHexagoneInGrid(grid);
-  //
-
-  //grid.unitsList[1][1].fill = "url(#banditCamp)";
-  //grid.unitsList[1][1].encounterType = "bandit";
-
-  grid.unitsList[coordinates.x][coordinates.y].fill = "url(#banditCamp)";
-  grid.unitsList[coordinates.x][coordinates.y].encounterType = "bandit";
-
-  grid.unitsList[coordinates2.x][coordinates2.y].fill = "url(#banditCamp)";
-  grid.unitsList[coordinates2.x][coordinates2.y].encounterType = "mage";
-
-  return grid;
-}
-
 //Return a x and y pos in grid within the fillTypeArray parameter
 function getRandomUnitCoordinatesInGrid(grid, fillTypeArray) {
   let randomColumn = 0;

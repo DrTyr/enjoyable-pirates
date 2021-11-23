@@ -1,7 +1,6 @@
 import tardigrade from "../../Assets/tardigrade.jpg";
 import emptyImg from "../../Assets/empty.jpg";
 import OldWizzard from "../../Assets/OldWizzard.jpg";
-import beachTileset from "../../Assets/BeachTileset.png";
 import { Dialog } from "./Dialog";
 import { Answer } from "./Answer";
 //import { Inventory } from "../Inventory/InventoryDisplay";

@@ -15,7 +15,7 @@ import {
   defBeachAndOrangeSandPatterns,
   defSeaPatterns,
   defOtherPatterns,
-} from "./DefPatterns";
+} from "../../AssetsManagement/DefPatterns";
 ///////////////////////////////////////////////////////////
 
 export function MapDisplay({
@@ -112,7 +112,7 @@ export function MapDisplay({
     );
   }
 
-  function displayCoordOnMap(gridUnit) {
+  /*function displayCoordOnMap(gridUnit) {
     return (
       <text
         //className ="text-coord-map"
@@ -123,11 +123,10 @@ export function MapDisplay({
         fill="white"
         textAnchor="middle"
       >
-        {/* text to display */}
         {`${gridUnit.coordInGrid.x},${gridUnit.coordInGrid.y}`}
       </text>
     );
-  }
+  }*/
 
   function DrawLayout(gridUnit, zindex) {
     if (
@@ -151,7 +150,7 @@ export function MapDisplay({
     } else return;
   }
 
-  function testIfNeighbour(gridUnit, neighbourCoordinates) {
+  /*function testIfNeighbour(gridUnit, neighbourCoordinates) {
     let isneighbours = false;
 
     for (let i = 0; i < neighbourCoordinates.length; i++) {
@@ -164,7 +163,7 @@ export function MapDisplay({
     }
 
     return isneighbours;
-  }
+  }*/
 
   return (
     <>

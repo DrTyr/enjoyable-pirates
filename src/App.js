@@ -1,5 +1,5 @@
 //Library imports//////////////////////////////////////////
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect /*useCallback*/ } from "react";
 ///////////////////////////////////////////////////////////
 //CSS imports/////////////////////////////////////////////
 import "./App.css";
@@ -7,7 +7,7 @@ import "./App.css";
 //React components import//////////////////////////////////
 import { MapDisplay } from "./Components/MapDisplay/MapDisplay";
 import { EncounterDisplay } from "./Components/Encounter/EncounterDivDisplay";
-import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
+//import { DisplayCurrentUnit } from "./Components/DisplayCurrentUnit/DisplayCurrentUnit";
 import { InventoryButton } from "./Components/Inventory/InventoryButton";
 import { DiaryButton } from "./Components/Diary/DiaryDisplay";
 import { FightButton } from "./Components/Fight/FightButton";
@@ -23,10 +23,10 @@ import { generateMainMap } from "./Components/Grid&MapGeneration/MapGenerator";
 function Page1({ setCurrentPage }) {
   //Hack too automatic resize svg inside topRight-hexagonDisplay <div> the size of this <div>
   //This 2 variables will be update after the first render with the usage of UseEffect()
-  const [topRightUnitDisplaySize, setTopRightUnitDisplaySize] = useState({
+  /*const [topRightUnitDisplaySize, setTopRightUnitDisplaySize] = useState({
     width: 200,
     height: 200,
-  });
+  });*/
   const [subLeftGrigSize, setSubLeftGrigSize] = useState({
     width: 0,
     height: 0,
