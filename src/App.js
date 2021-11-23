@@ -58,11 +58,11 @@ function Page1({ setCurrentPage }) {
   const [itemList, setItemList] = useState({});
 
   const [itemsOnCaracter, setItemsOnCaracter] = useState({
-    head: { equiped: 0, itemName: null, itemFill: null },
-    body: { equiped: 0, itemName: null, itemFill: null },
-    leftArm: { equiped: 0, itemName: null, itemFill: null },
-    rightArm: { equiped: 0, itemName: null, itemFill: null },
-    legs: { equiped: 0, itemName: null, itemFill: null },
+    head: { equiped: 0, itemName: null, itemFill: "white" },
+    torso: { equiped: 0, itemName: null, itemFill: "white" },
+    leftArm: { equiped: 0, itemName: null, itemFill: "white" },
+    rightArm: { equiped: 0, itemName: null, itemFill: "white" },
+    legs: { equiped: 0, itemName: null, itemFill: "white" },
   });
 
   //console.log("caracterStates : ", caracterStates);
@@ -97,6 +97,8 @@ function Page1({ setCurrentPage }) {
       height: document.getElementById("subLeft-Grig").clientHeight,
     });
   }, [zoomLevel]);
+
+  //useEffect(() => {}, [itemsOnCaracter]);
 
   // const onWheelHandler = e => {
   //   const dir = e.deltaY;

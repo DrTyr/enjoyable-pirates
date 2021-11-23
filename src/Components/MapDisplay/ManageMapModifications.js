@@ -1,5 +1,5 @@
 export function ManageDeleteOnMap(answer, grid, currentUnit) {
-  if (!answer.reusable) {
+  if (!answer.itemProps.reusable) {
     grid.unitsList[currentUnit.coordInGrid.x][
       currentUnit.coordInGrid.y
     ].encounter[0].display = false;

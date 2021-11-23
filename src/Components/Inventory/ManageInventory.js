@@ -63,23 +63,63 @@ export function AddObjectInInventory(inventory, answer) {
   // console.log(inventory);
 }
 
-export function equipItem(item, itemsOnCaracter, setItemsOnCaracter) {
+export function equipItem(
+  item,
+  itemsOnCaracter,
+  setItemsOnCaracter,
+  inventory,
+) {
+  let itemEquiped = 0;
+
+  console.log("item : ", item);
+
   if (item.wearable === true) {
     switch (item.itemSlotPosition) {
       case "head":
-        itemsOnCaracters.head.itemName = item.name;
-        itemsOnCaracters.head.equiped = 1;
-        itemsOnCaracters.head.itemFill = item.fill;
+        itemsOnCaracter.head.itemName = item.name;
+        itemsOnCaracter.head.equiped = 1;
+        itemsOnCaracter.head.itemFill = item.fill;
+        itemEquiped = 1;
+        removeObjectFromInventory(inventory, item);
+        break;
       case "legs":
-        itemsOnCaracters.legs.itemName = item.name;
-        itemsOnCaracters.legs.equiped = 1;
-        itemsOnCaracters.legs.itemFill = item.fill;
+        itemsOnCaracter.legs.itemName = item.name;
+        itemsOnCaracter.legs.equiped = 1;
+        itemsOnCaracter.legs.itemFill = item.fill;
+        itemEquiped = 1;
+        removeObjectFromInventory(inventory, item);
+        break;
       default:
         break;
     }
 
     setItemsOnCaracter(itemsOnCaracter);
+
+    //console.log(itemsOnCaracter);
   } else {
-    return console.log("item pas équipable :", item);
+    return console.log("item pas équipable :", item.name);
   }
+}
+
+export function removeObjectFromInventory(inventory, item) {
+  var objectToRemove = item.name;
+
+  //console.log("objectToAdd", objectToAdd);
+
+  var objectsAlreadyInInventory = [];
+
+  for (let i = 0; i < inventory.list.objects.length; i++) {
+    objectsAlreadyInInventory[i] = inventory.list.objects[i].name;
+  }
+
+  let posObject = objectsAlreadyInInventory.indexOf(objectToRemove);
+
+  inventory.list.objects[posObject].numberOfThisObject--;
+  inventory.itemInInventory--;
+
+  if (inventory.list.objects[posObject].numberOfThisObject <= 0) {
+    inventory.list.objects.splice(posObject, 1);
+  }
+
+  return inventory;
 }

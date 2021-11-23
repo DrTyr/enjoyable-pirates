@@ -22,3 +22,18 @@ export function convertAsCaracterChain(chain) {
 export function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+export function drawRectSVG(id, x, y, width, height, fill) {
+  return (
+    <svg viewBox="0 0 200 200">
+      <rect
+        id={`${id}`}
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        fill={fill}
+      />
+    </svg>
+  );
+}

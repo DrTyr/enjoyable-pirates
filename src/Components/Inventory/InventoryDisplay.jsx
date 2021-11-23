@@ -5,6 +5,7 @@ import "./Inventory.css";
 import { StackDisplay } from "./StackDisplay";
 import {DisplayStats} from "../PlayerStats/StatsDisplay"
 import { equipItem } from "./ManageInventory";
+import { drawRectSVG } from "../../library";
 //import pirate from "../../Assets/Pirate.png";
 
 export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsOnCaracter }) {
@@ -108,38 +109,11 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
           <div
             className="item-box"
             key={`InventorySlot${i}`}
-            onClick={() => equipItem(inventory.list.objects[i], itemsOnCaracter, setItemsOnCaracter)
+            onClick={() => equipItem(inventory.list.objects[i], itemsOnCaracter, setItemsOnCaracter, inventory)
             }
           >
-            <svg viewBox="0 0 200 200">
-              <rect
-                id={`${i}`}
-                //x={`${i * 40 + j * 40}`}
-                x={xpos}
-                //y={`${j * 10}`}
-                y={ypos}
-                width={widthVar}
-                height={heightVar}
-                //strokeWidth="1"
-                //style={{ stroke: "black" }}
-                fill={inventory.list.objects[i].fill}
-              />
-              {/* <circle
-              cx={widthVar + 10}
-              cy={xpos}
-              r="6"
-              fill="white"
-              style={{ stroke: "black" }}
-            />
-            <text
-              x={widthVar + 10}
-              y={ypos + 3}
-              fontSize="6"
-              textAnchor="middle"
-            >
-              {inventory.list.objects[i].numberOfThisObject}
-            </text> */}
-            </svg>
+            {drawRectSVG(i, xpos, ypos, widthVar, heightVar, inventory.list.objects[i].fill)}
+            
           <div className="stack-display">
             {inventory.list.objects[i].numberOfThisObject}
           </div>
@@ -180,24 +154,32 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
       </div>
       <div className="center">
         <div className="center-left">
-        <div className="left-arm">BRAS GAUCHE</div>
+        <div className="left-arm">
+        {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.leftArm.itemFill)}
+
+        </div>
         </div>
         <div className="center-center">
-        <div className="head"><svg viewBox="0 0 200 200">
-              <rect
-                id="head"
-                x="0"
-                y="0"
-                width="200"
-                height="200"
-                fill={itemsOnCaracters.head.itemFill}
-              />
-            </svg></div>
-        <div className="torso">TORSE</div>
-        <div className="legs">JAMBES</div>
+        <div className="head">
+          
+          {drawRectSVG("head", 0,0,200,200,itemsOnCaracter.head.itemFill)}
+          
+          </div>
+        <div className="torso">
+        
+        {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.torso.itemFill)}
+
+
+        </div>
+        <div className="legs">       
+         {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.legs.itemFill)}
+</div>
         </div>
         <div className="center-right">
-        <div className="right-arm">BRAS DROIT</div>
+        <div className="right-arm">
+        {drawRectSVG("torso", 0,0,200,200,itemsOnCaracter.rightArm.itemFill)}
+
+        </div>
         </div>
       </div>
       <div className="right">

@@ -183,7 +183,7 @@ function TEST_ITEM(goTo) {
       numberOfThisObject: 1,
       wearable:true,
 itemSlotPosition:"head",
-    reusable: true,}),
+    reusable: false,}),
     goTo: sceneB,
   });
   sceneA.addAnswer(answerA1);

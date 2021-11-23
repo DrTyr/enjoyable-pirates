@@ -10,7 +10,7 @@ import { Inventory } from "./InventoryDisplay";
 
 import PopUp from "../PopUp";
 
-export function InventoryButton({ inventory, caracterStats, itemsOnCaracter }) {
+export function InventoryButton({ inventory, caracterStats, itemsOnCaracter, setItemsOnCaracter }) {
   const [display, setDisplay] = useState(false);
 
   let IconToDisplay = null;
