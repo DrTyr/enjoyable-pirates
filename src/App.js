@@ -55,7 +55,7 @@ function Page1({ setCurrentPage }) {
     images: { hunger: 3, thirst: 5, tireness: 2, madness: 0 },
   });
 
-  const [itemList, setItemList] = useState({});
+  //const [itemList, setItemList] = useState({});
 
   const [itemsOnCaracter, setItemsOnCaracter] = useState({
     head: { equiped: 0, itemName: null, itemFill: "white" },
@@ -168,7 +168,7 @@ function Page1({ setCurrentPage }) {
             setSceneIsOn={setSceneIsOn}
             encounterIsDisplay={encounterIsDisplay}
             inventory={inventory}
-            itemList={itemList}
+            // itemList={itemList}
           />
         </div>
       ) : (

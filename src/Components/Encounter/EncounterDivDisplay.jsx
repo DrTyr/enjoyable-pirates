@@ -26,7 +26,7 @@ export function EncounterDisplay({
   grid,
   setGrid,
   currentUnit,
-  itemList,
+  //itemList,
 }) {
   const [encounterImageSize, setEncounterImageSize] = useState({
     width: 0,

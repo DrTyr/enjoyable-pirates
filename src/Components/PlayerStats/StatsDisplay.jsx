@@ -2,6 +2,7 @@ import React from "react";
 
 export function DisplayStats({caracterStats}){
 
+  
 
         let slots = [];
     
@@ -31,7 +32,7 @@ export function DisplayStats({caracterStats}){
         //console.log("test :", Object.values(caracterStats)[1]);
     
         //////////////////////////////////////
-        ////TENTER LE REFAIRE AVEC UNE MAP////
+        //TENTER DE LE REFAIRE AVEC UNE MAP //
         //////////////////////////////////////
     
         for (let i = 0; i < Object.keys(caracterStats.stats).length; i++) {

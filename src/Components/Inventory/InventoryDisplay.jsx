@@ -16,7 +16,6 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
 
   //console.log(caracterStates);
 
-
   if (inventory.displayNotification) {
     inventory.displayNotification = false;
   }
@@ -82,7 +81,6 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
         <div className="center-left">
         <div className="left-arm">
         {drawRectSVG(0,0,200,400,"left-arm", 0,0,200,400,itemsOnCaracter.leftArm.itemFill)}
-
         </div>
         </div>
         <div className="center-center">
@@ -94,7 +92,6 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
         <div className="torso">
         
         {drawRectSVG(0,0,200,250,"torso", 0,0,200,250,itemsOnCaracter.torso.itemFill)}
-
 
         </div>
         <div className="legs">       
@@ -111,8 +108,6 @@ export function Inventory({ inventory, caracterStats, itemsOnCaracter, setItemsO
       <div className="right">
         <div className="item-box-container">
           {manageItemSlots()}
-          {/* <svg viewBox="0 0 300 300">{generateSlots()}</svg> */}
-          {/* {generateSlots()} */}
         </div>
       </div>
     </div>

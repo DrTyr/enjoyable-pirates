@@ -78,6 +78,7 @@ export function equipItem(
         removeObjectFromInventory(inventory, item);
         break;
       default:
+        console.log("item pas reconnu :", item.name);
         break;
     }
 

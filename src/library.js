@@ -1,20 +1,18 @@
 import { concat } from "lodash";
 
 export function getRandomColor() {
-  var letters = "0123456789ABCDEF";
-  var color = "#";
+  const letters = "0123456789ABCDEF";
+  const dash = "#";
+  var color = "";
+
   for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+    color = dash + letters[Math.floor(Math.random() * 16)];
   }
   return color;
 }
 
 export function inverseBoolean(boolean) {
-  if (boolean === true) {
-    return false;
-  } else {
-    return true;
-  }
+  return boolean ? false : true;
 }
 
 export function convertAsCaracterChain(chain) {

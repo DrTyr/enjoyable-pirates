@@ -4,9 +4,9 @@
 
 //Global variables/////////////////////////////////////////
 ///grid[numberColumn][numberRow]
-//const numberOfRow = 27;
-//const numberOfColumn = 27;
-const gridUnitRadius = 32;
+export const gNumberOfRow = 27;
+export const gNumberOfColumn = 27;
+export const gGridUnitRadius = 32;
 
 ///////////////////////////////////////////////////////////
 
@@ -15,7 +15,7 @@ export function generateOneGridUnit() {
     indice: 0,
     coordInGrid: { x: 0, y: 0 },
     coordStart: { x: 0, y: 0 },
-    radius: gridUnitRadius,
+    radius: gGridUnitRadius,
     fill: [],
     fillType: [],
     encounter: [{ zIndex: 0, display: false, type: null, fill: null }],
@@ -38,13 +38,13 @@ export function generateEntireGrid(
 ) {
   ///grid[numberColumn][numberRow]
   if (numberOfRow === undefined) {
-    numberOfRow = 27;
+    numberOfRow = gNumberOfRow;
   }
   if (numberOfColumn === undefined) {
-    numberOfColumn = 27;
+    numberOfColumn = gNumberOfColumn;
   }
   if (gridUnitRadius === undefined) {
-    gridUnitRadius = 32;
+    gridUnitRadius = gGridUnitRadius;
   }
 
   let unitIndice = 0;

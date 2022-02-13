@@ -9,6 +9,7 @@ import React, { useState } from "react";
 //Functions imports////////////////////////////////////////
 import DisplayCaracter from "../PlayableCaracterDisplay/CaracterDisplay";
 import { getNeighboursCoordinatesOfUnit } from "./InteractionsWithNeighbours";
+import {gGridUnitRadius, gNumberOfColumn, gNumberOfRow} from "../Grid&MapGeneration/GridGenerator"
 import {
   defGrassPatterns,
   defYellowSandPatterns,
@@ -46,6 +47,10 @@ export function MapDisplay({
       grid.numberRow,
     ),
   );
+
+  //center the map to visualize only n square around the caracter
+  const [fieldOfView, setFieldOfView] = useState(1);
+
 
   function generateSvgUnits() {
     return grid.unitsList.map(unitsList =>
@@ -175,9 +180,14 @@ export function MapDisplay({
         Couper l'animation
       </button>
       <svg
-        viewBox={`${-subLeftGrigSize.width / 2} 0 ${
-          subLeftGrigSize.width * 2 + zoomLevel
-        } ${subLeftGrigSize.height * 2 + zoomLevel}`}
+     //   viewBox={`${-subLeftGrigSize.width / 2} 0 ${
+     //     subLeftGrigSize.width * 2 + zoomLevel
+     //   } ${subLeftGrigSize.height * 2 + zoomLevel}`}
+
+        viewBox={`${-subLeftGrigSize.width / 8} 0 ${
+          subLeftGrigSize.width * 2 - gNumberOfColumn*gGridUnitRadius
+        } ${subLeftGrigSize.height * 2 - gNumberOfRow*gGridUnitRadius}`}
+
         // preserveAspectRatio="xMidYMid meet"
       >
         {defOtherPatterns()}

@@ -60,7 +60,7 @@ img {
   /* overflow: auto; */
   /* grid: repeat(2, 60px) / auto-flow 80px; */
   column-gap: 30px;
-  row-gap: 50px;
+  row-gap: 20px;
 }
 
 .item-box-container {
